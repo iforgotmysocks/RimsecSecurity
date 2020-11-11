@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Defs>
+
+  <ThinkTreeDef>
+    <defName>RSPeacekeeper</defName>
+    <thinkRoot Class="ThinkNode_Priority">
+      <subNodes>
+				
+				<!-- If we HAVE to keep lying down... -->
+				<li Class="ThinkNode_ConditionalMustKeepLyingDown">
+					<subNodes>
+						<!-- Do a queued job if possible (e.g. watch tv in bed) -->
+						<!--<li Class="ThinkNode_QueuedJob">
+							<inBedOnly>true</inBedOnly>
+						</li>-->
+
+						<!-- Keep lying down -->
+						<li Class="JobGiver_KeepLyingDown" />
+					</subNodes>
+				</li>
+
+				<li Class="ThinkNode_Subtree">
+					<treeDef>Downed</treeDef>
+				</li>
+
+        <!-- React to close melee threat -->
+        <li Class="JobGiver_ReactToCloseMeleeThreat" />
+
+        <li Class="ThinkNode_QueuedJob" />
+
+        <!-- Wait if drafted -->
+        <li Class="ThinkNode_ConditionalColonist">
+          <subNodes>
+            <li Class="ThinkNode_Tagger">
+              <tagToGive>DraftedOrder</tagToGive>
+              <subNodes>
+                <li Class="JobGiver_MoveToStandable" />
+                <li Class="JobGiver_Orders" />
+              </subNodes>
+            </li>
+          </subNodes>
+        </li>
+
+        <li Class="ThinkNode_Subtree">
+          <treeDef>LordDuty</treeDef>
+        </li>
+
+				<li Class="ThinkNode_Tagger">
+					<tagToGive>Idle</tagToGive>
+					<subNodes>
+						<li Class="RimsecSecurity.JobGiver_Recharge">
+							<!-- <maxDanger>Deadly</maxDanger> -->
+						</li>
+					</subNodes>
+				</li>
+
+				<!-- todo power saving job --><!--
+				<li Class="ThinkNode_Tagger">
+					<tagToGive>Saving power</tagToGive>
+					<subNodes>
+						<li Class="JobGiver_WanderAnywhere">
+							<maxDanger>Deadly</maxDanger>
+						</li>
+					</subNodes>
+				</li>-->
+				
+        <li Class="JobGiver_Idle"/>
+      </subNodes>
+    </thinkRoot>
+  </ThinkTreeDef>
+  
+</Defs>

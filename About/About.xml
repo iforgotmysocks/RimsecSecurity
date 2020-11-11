@@ -1,8 +1,28 @@
-# RimsecSecurity
-
-RimsecSecurity is now in public testing. Please report bugs and possible mod incompatibilities. As always when testing new mods, backup your saves! Thanks guys.
-
-# Mod description
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<name>RimsecSecurity</name>
+	<author>Shakesthespeare, iforgotmysocks</author>
+	<url></url>
+  <supportedVersions>
+    <li>1.2</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+      <downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
+    </li>
+    <li>
+      <packageId>erdelf.HumanoidAlienRaces</packageId>
+      <displayName>Humanoid Alien Races</displayName>
+      <downloadUrl>https://github.com/erdelf/AlienRaces/wiki</downloadUrl>
+    </li>
+  </modDependencies>
+  <packageId>shakesthespeare.RimsecSecurity</packageId>
+	<description>
+[Version 0.1.2]
+    
 As of now Rimsec Security offers 3 robots, 3 guns, 3 turrets, 1 maintenance station, 1 assembly bench, 1 trade ship (SRS trade ship) and 1 unique component.
 
 The 3 robots are the defender, enforcer and sentinel. The defender is a basic robot that has sufficient skills and power to defend a base and is not recommended for escorting caravans. The enforcer is a more advanced robot that has the sufficient skills and power for a more aggressive doctrine. Lastly, the Sentinel is an advanced heavy robot that is utilised in a supporting role featuring high health, battery capacity and is considered to be quite strong.
@@ -17,15 +37,5 @@ The assembly bench is used to build robots. It however cannot be built but rathe
 The trade ship (SRS trade ship) is where you can acquire robots, assembly bench(es), SRS Processing chips and other vanilla items such as components and chemfuel.
 
 And finally the SRS Processing Unit (unique component) which is a requirement to build SRS Robots and can only be bought!
-
-# Mod dependencies
-- Harmony https://steamcommunity.com/workshop/filedetails/?id=2009463077
-- Humanoid Alien Races 2.0 https://steamcommunity.com/sharedfiles/filedetails/?id=839005762
-
-# Credits
-Shakesthespear - Artwork  
-iforgotmysocks - Code  
-Stormtail - Sounds  
-dpren (freesound.org) - HAAC Sound  
-Jecrell - OversizedWeaponComp.dll  
-
+  </description>
+</ModMetaData>

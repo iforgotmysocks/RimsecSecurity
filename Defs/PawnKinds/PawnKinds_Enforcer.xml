@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <PawnKindDef Name="RSPeacekeeperEnforcerPawnKindBase" Abstract="True">
+    <isFighter>true</isFighter>
+    <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
+    <forceNormalGearQuality>true</forceNormalGearQuality>
+    <defaultFactionType>PlayerTribe</defaultFactionType>
+    <minGenerationAge>0</minGenerationAge>
+    <maxGenerationAge>5000</maxGenerationAge>
+    <chemicalAddictionChance>0.00</chemicalAddictionChance>
+    <apparelTags>
+    </apparelTags>
+    <weaponTags>
+      <li>RSELG22</li>
+    </weaponTags>
+    <apparelMoney>1000~1500</apparelMoney>
+    <backstoryCryptosleepCommonality>0</backstoryCryptosleepCommonality>
+  </PawnKindDef>
+  
+  <PawnKindDef Parent="RSPeacekeeperEnforcerPawnKindBase">
+		<defName>RSPeacekeeperEnforcerPawnKind</defName>
+    <race>RSPeacekeeperEnforcer</race>
+		<backstoryFiltersOverride>
+			<li>
+				<categories>
+					<li>RSPeacekeeperBackstoryChildEnforcer</li>
+          <li>RSPeacekeeperAdult1Backstory</li>
+				</categories>
+			</li>
+		</backstoryFiltersOverride>
+    <combatPower>60</combatPower>
+  </PawnKindDef>
+
+  <PawnKindDef Parent="RSPeacekeeperEnforcerPawnKindBase">
+    <defName>RSPeacekeeperEnforcerForestPawnKind</defName>
+    <race>RSPeacekeeperEnforcerForest</race>
+    <backstoryFiltersOverride>
+      <li>
+        <categories>
+          <li>RSPeacekeeperBackstoryChildEnforcer</li>
+          <li>RSPeacekeeperAdult1Backstory</li>
+        </categories>
+      </li>
+    </backstoryFiltersOverride>
+    <combatPower>60</combatPower>
+  </PawnKindDef>
+
+  <PawnKindDef Parent="RSPeacekeeperEnforcerPawnKindBase">
+    <defName>RSPeacekeeperEnforcerDesertPawnKind</defName>
+    <race>RSPeacekeeperEnforcerDesert</race>
+    <backstoryFiltersOverride>
+      <li>
+        <categories>
+          <li>RSPeacekeeperBackstoryChildEnforcer</li>
+          <li>RSPeacekeeperAdult1Backstory</li>
+        </categories>
+      </li>
+    </backstoryFiltersOverride>
+    <combatPower>60</combatPower>
+  </PawnKindDef>
+
+  <PawnKindDef Parent="RSPeacekeeperEnforcerPawnKindBase">
+    <defName>RSPeacekeeperEnforcerWinterPawnKind</defName>
+    <race>RSPeacekeeperEnforcerWinter</race>
+    <backstoryFiltersOverride>
+      <li>
+        <categories>
+          <li>RSPeacekeeperBackstoryChildEnforcer</li>
+          <li>RSPeacekeeperAdult1Backstory</li>
+        </categories>
+      </li>
+    </backstoryFiltersOverride>
+    <combatPower>60</combatPower>
+  </PawnKindDef>
+  
+</Defs>

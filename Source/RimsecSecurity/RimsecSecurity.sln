@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30413.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RimsecSecurity", "RimsecSecurity\RimsecSecurity.csproj", "{51839870-5302-4DDC-91FE-9E17761CC54B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{51839870-5302-4DDC-91FE-9E17761CC54B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51839870-5302-4DDC-91FE-9E17761CC54B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51839870-5302-4DDC-91FE-9E17761CC54B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51839870-5302-4DDC-91FE-9E17761CC54B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ACFE8D09-ADF3-4C51-8349-E81A1D736B75}
+	EndGlobalSection
+EndGlobal

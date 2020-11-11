@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Defs>
+  <ThingDef ParentName="ResourceBase">
+    <defName>RSSRSProcessingChip</defName>
+    <label>SRS processing chip</label>
+    <description>The SRS Processing Chip is a vital part of manufacturing SRS Robots and without it and the assembly bench, all SRS robots are inoperable without the chip. They can be bough through SRS Trade Ships and can be salvaged from destroyed SRS units.</description>
+    <graphicData>
+      <texPath>Things/SRS_processing_chip</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <soundInteract>Metal_Drop</soundInteract>
+    <soundDrop>Standard_Drop</soundDrop>
+    <stackLimit>50</stackLimit>
+    <healthAffectsPrice>false</healthAffectsPrice>
+    <statBases>
+      <MaxHitPoints>70</MaxHitPoints>
+      <MarketValue>300</MarketValue>
+      <Mass>0.6</Mass>
+      <Flammability>0.6</Flammability>
+      <DeteriorationRate>2.0</DeteriorationRate>
+    </statBases>
+    <intricate>true</intricate>
+    <thingCategories>
+      <li>Manufactured</li>
+    </thingCategories>
+    <tradeTags>
+      <li>ExoticMisc</li>
+    </tradeTags>
+    <thingSetMakerTags>
+    </thingSetMakerTags>
+  </ThingDef>
+</Defs>
