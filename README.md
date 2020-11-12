@@ -23,7 +23,7 @@ And finally the SRS Processing Unit (unique component) which is a requirement to
 - Humanoid Alien Races 2.0 https://steamcommunity.com/sharedfiles/filedetails/?id=839005762
 
 # Credits
-Shakesthespear - Artwork  
+Shakesthespeare - Artwork  
 iforgotmysocks - Code  
 Stormtail - Sounds  
 dpren (freesound.org) - HAAC Sound  
