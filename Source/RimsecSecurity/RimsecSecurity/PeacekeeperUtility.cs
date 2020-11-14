@@ -36,6 +36,9 @@ namespace RimsecSecurity
                 foreach (var trait in allowedTraits) robot.story.traits.GainTrait(new Trait(trait));
             }
 
+            robot.skills.skills.FirstOrDefault(x => x.def == SkillDefOf.Shooting).Level = robotModExt.shootingSkill;
+            robot.skills.skills.FirstOrDefault(x => x.def == SkillDefOf.Melee).Level = robotModExt.meleeSkill;
+
             return robot;
         }
 

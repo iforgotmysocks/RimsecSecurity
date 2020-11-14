@@ -44,6 +44,8 @@
         <stationZOffset>0</stationZOffset>
         <gunDef>RSWeaponEHG</gunDef>
         <batterySeverity>0.2</batterySeverity>
+        <meleeSkill>10</meleeSkill>
+        <shootingSkill>12</shootingSkill>
       </li>
     </modExtensions>
     <race>
