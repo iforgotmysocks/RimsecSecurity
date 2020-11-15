@@ -147,6 +147,7 @@
         </whiteApparelList>
       </raceRestriction>
     </alienRace>
+    <!--<inspectorTabs/>-->
     <statBases>
       <MoveSpeed>4.8</MoveSpeed>
       <Flammability>0</Flammability>

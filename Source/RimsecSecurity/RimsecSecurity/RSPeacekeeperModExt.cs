@@ -15,5 +15,7 @@ namespace RimsecSecurity
         public int repairTicks = 400;
         public ThingDef gunDef = null;
         public float batterySeverity = 0f;
+        public int meleeSkill = 10;
+        public int shootingSkill = 10;
     }
 }

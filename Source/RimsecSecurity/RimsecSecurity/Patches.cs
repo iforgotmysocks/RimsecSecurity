@@ -581,6 +581,28 @@ namespace RimsecSecurity
     }
     #endregion
 
+    #region skills
+    [HarmonyPatch(typeof(Pawn_SkillTracker), "SkillsTick")]
+    public class Pawn_SkillTracker_SkillsTick
+    {
+        public static bool Prefix(Pawn ___pawn)
+        {
+            if (PeacekeeperUtility.IsPeacekeeper(___pawn)) return false;
+            return true;
+        }
+    }
+
+    [HarmonyPatch(typeof(Pawn_SkillTracker), "Learn")]
+    public class Pawn_SkillTracker_Learn
+    {
+        public static bool Prefix(Pawn ___pawn)
+        {
+            if (PeacekeeperUtility.IsPeacekeeper(___pawn)) return false;
+            return true;
+        }
+    }
+    #endregion
+
     public class TargettedPatches
     {
         public static void ColonistBar_CheckRecacheEntries_Postfix(List<ColonistBar.Entry> ___cachedEntries)

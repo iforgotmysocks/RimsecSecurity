@@ -28,6 +28,8 @@
         <stationZOffset>0</stationZOffset>
         <gunDef>RSWeaponDLG</gunDef>
         <batterySeverity>0.1</batterySeverity>
+        <meleeSkill>6</meleeSkill>
+        <shootingSkill>8</shootingSkill>
       </li>
     </modExtensions>
     <race>

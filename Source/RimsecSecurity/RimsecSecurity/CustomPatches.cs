@@ -16,22 +16,8 @@ namespace RimsecSecurity
         {
             PatchRobotNoFoodAndRecipes();
             PatchStorytellers();
-
+            PatchRemoveRottingFromCorpses();
             PatchDebug();
-        }
-
-        private static void PatchDebug()
-        {
-            if (!ModSettings.debugActive) return;
-            RSDefOf.RSRobotAssemblyBench.designationCategory = RSDefOf.RSSRSBuildings;
-            RSDefOf.RSSRSBuildings.AllResolvedDesignators.Add(new Designator_Build(RSDefOf.RSRobotAssemblyBench));
-
-            var recipes = DefDatabase<RecipeDef>.AllDefs.Where(def => def.products.Any(product => product.thingDef.GetCompProperties<CompProperties_SpawnPeacekeeper>() != null));
-            foreach (var recipe in recipes)
-            {
-                recipe.ingredients = new List<IngredientCount>();
-                recipe.workAmount = 10;
-            }
         }
 
         // disabled for now -> handled by recipes
@@ -67,6 +53,31 @@ namespace RimsecSecurity
                     offDays = 10,
                     numIncidentsRange = new FloatRange(1, 1)
                 });
+            }
+        }
+
+        private static void PatchRemoveRottingFromCorpses()
+        {
+            var robots = DefDatabase<PawnKindDef>.AllDefsListForReading.Where(def => def.race.HasModExtension<RSPeacekeeperModExt>());
+
+            foreach (var robot in robots)
+            {
+                var rottableComp = robot.RaceProps.corpseDef.GetCompProperties<CompProperties_Rottable>();
+                if (rottableComp != null) robot.RaceProps.corpseDef.comps.Remove(rottableComp);
+            }
+        }
+
+        private static void PatchDebug()
+        {
+            if (!ModSettings.debugActive) return;
+            RSDefOf.RSRobotAssemblyBench.designationCategory = RSDefOf.RSSRSBuildings;
+            RSDefOf.RSSRSBuildings.AllResolvedDesignators.Add(new Designator_Build(RSDefOf.RSRobotAssemblyBench));
+
+            var recipes = DefDatabase<RecipeDef>.AllDefs.Where(def => def.products.Any(product => product.thingDef.GetCompProperties<CompProperties_SpawnPeacekeeper>() != null));
+            foreach (var recipe in recipes)
+            {
+                recipe.ingredients = new List<IngredientCount>();
+                recipe.workAmount = 10;
             }
         }
 

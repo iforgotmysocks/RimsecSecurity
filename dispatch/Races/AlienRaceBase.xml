@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+      <Operation Class="PatchOperationFindMod">
+        <mods>
+          <li>Combat Extended</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+          <operations>
+
+            <!--<li Class="PatchOperationReplace">
+              <xpath>/Defs/ThingDef[@Name="RSPeacekeeperBase"]/inspectorTabs/li[.="ITab_Pawn_Gear"]</xpath>
+              <value>
+                <li>CombatExtended.ITab_Inventory</li>
+              </value>
+            </li>-->
+
+            <!--<li Class="PatchOperationAdd">
+              <xpath>/Defs/ThingDef[@Name="RSPeacekeeperBase"]/inspectorTabs</xpath>
+              <value>
+                <li>CombatExtended.ITab_Inventory</li>
+              </value>
+            </li>-->
+
+            <li Class="PatchOperationAdd">
+              <xpath>/Defs/ThingDef[@Name="RSPeacekeeperBase"]/comps</xpath>
+              <value>
+                <li Class="CombatExtended.CompProperties_Inventory" />
+              </value>
+            </li>
+
+            <li Class="PatchOperationAddModExtension">
+              <xpath>
+                /Defs/AlienRace.ThingDef_AlienRace[@Name="RSPeacekeeperDefenderBase" or
+                @Name="RSPeacekeeperEnforcerBase" or
+                @Name="RSPeacekeeperSentinelBase" or
+                ]
+              </xpath>
+              <value>
+                <li Class="CombatExtended.RacePropertiesExtensionCE">
+                  <bodyShape>Humanoid</bodyShape>
+                </li>
+              </value>
+            </li>
+<!--
+            <li Class="PatchOperationAdd">
+              <xpath>
+                /Defs/AlienRace.ThingDef_AlienRace[@Name="RSPeacekeeperDefenderBase" or
+                @Name="RSPeacekeeperEnforcerBase" or
+                defName="RSPeacekeeperSentinelBase" or
+                ]/comps
+              </xpath>
+              <value>
+                <li>
+                  <compClass>CombatExtended.CompPawnGizmo</compClass>
+                </li>
+              </value>
+            </li>
+
+            <li Class="PatchOperationAdd">
+              <xpath>
+                /Defs/AlienRace.ThingDef_AlienRace[@Name="RSPeacekeeperEnforcerBase" or
+                defName="RSPeacekeeperSentinelBase" or
+                defName="RSPeacekeeperDefenderBase"
+                ]/comps
+              </xpath>
+              <value>
+                <li Class="CombatExtended.CompProperties_Suppressable" />
+              </value>
+            </li>
+
+            <li Class="PatchOperationAdd">
+              <xpath>/Defs/AlienRace.ThingDef_AlienRace[@Name="RSPeacekeeperDefenderBase"]/statBases</xpath>
+              <value>
+                <MeleeDodgeChance>0.85</MeleeDodgeChance>
+                <MeleeCritChance>0.85</MeleeCritChance>
+                <MeleeParryChance>0.85</MeleeParryChance>
+                <SmokeSensitivity>0.1</SmokeSensitivity>
+              </value>
+            </li>
+            <li Class="PatchOperationReplace">
+              <xpath>/Defs/AlienRace.ThingDef_AlienRace[@Name="RSPeacekeeperDefenderBase"]/statBases/ArmorRating_Sharp</xpath>
+              <value>
+                <ArmorRating_Sharp>0.5</ArmorRating_Sharp>
+              </value>
+            </li>
+
+            <li Class="PatchOperationReplace">
+              <xpath>/Defs/AlienRace.ThingDef_AlienRace[@Name="RSPeacekeeperDefenderBase"]/statBases/ArmorRating_Blunt</xpath>
+              <value>
+                <ArmorRating_Blunt>0.75</ArmorRating_Blunt>
+              </value>
+            </li>
+
+            <li Class="PatchOperationReplace">
+              <xpath>/Defs/AlienRace.ThingDef_AlienRace[@Name="RSPeacekeeperDefenderBase"]/tools</xpath>
+              <value>
+                <tools>
+                  <li Class="CombatExtended.ToolCE">
+                    <label>left fist</label>
+                    <capacities>
+                      <li>Blunt</li>
+                    </capacities>
+                    <power>1</power>
+                    <cooldownTime>2.14</cooldownTime>
+                    <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+                    <armorPenetrationBlunt>0.245</armorPenetrationBlunt>
+                  </li>
+
+                  <li Class="CombatExtended.ToolCE">
+                    <label>right fist</label>
+                    <capacities>
+                      <li>Blunt</li>
+                    </capacities>
+                    <power>1</power>
+                    <cooldownTime>2.14</cooldownTime>
+                    <linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+                    <armorPenetrationBlunt>0.245</armorPenetrationBlunt>
+                  </li>
+
+                  <li Class="CombatExtended.ToolCE">
+                    <label>head</label>
+                    <capacities>
+                      <li>Blunt</li>
+                    </capacities>
+                    <power>2</power>
+                    <cooldownTime>5.61</cooldownTime>
+                    <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+                    <armorPenetrationBlunt>0.40</armorPenetrationBlunt>
+                  </li>
+                </tools>
+              </value>
+            </li>
+            
+
+
+            <li Class="PatchOperationAdd">
+              <xpath>/Defs/AlienRace.ThingDef_AlienRace[@Name="RSPeacekeeperEnforcerBase"]/statBases</xpath>
+              <value>
+                <MeleeDodgeChance>0.95</MeleeDodgeChance>
+                <MeleeCritChance>0.95</MeleeCritChance>
+                <MeleeParryChance>0.95</MeleeParryChance>
+                <Suppressability>0.10</Suppressability>
+                <SmokeSensitivity>0.05</SmokeSensitivity>
+              </value>
+            </li>
+            <li Class="PatchOperationReplace">
+              <xpath>/Defs/AlienRace.ThingDef_AlienRace[@Name="RSPeacekeeperEnforcerBase"]/statBases/ArmorRating_Sharp</xpath>
+              <value>
+                <ArmorRating_Sharp>1</ArmorRating_Sharp>
+              </value>
+            </li>
+
+            <li Class="PatchOperationReplace">
+              <xpath>/Defs/AlienRace.ThingDef_AlienRace[@Name="RSPeacekeeperEnforcerBase"]/statBases/ArmorRating_Blunt</xpath>
+              <value>
+                <ArmorRating_Blunt>1.5</ArmorRating_Blunt>
+              </value>
+            </li>
+
+            <li Class="PatchOperationReplace">
+              <xpath>/Defs/AlienRace.ThingDef_AlienRace[@Name="RSPeacekeeperEnforcerBase"]/tools</xpath>
+              <value>
+                <tools>
+                  <li Class="CombatExtended.ToolCE">
+                    <label>left fist</label>
+                    <capacities>
+                      <li>Blunt</li>
+                    </capacities>
+                    <power>2</power>
+                    <cooldownTime>1.67</cooldownTime>
+                    <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+                    <armorPenetrationBlunt>0.405</armorPenetrationBlunt>
+                  </li>
+
+                  <li Class="CombatExtended.ToolCE">
+                    <label>right fist</label>
+                    <capacities>
+                      <li>Blunt</li>
+                    </capacities>
+                    <power>2</power>
+                    <cooldownTime>1.67</cooldownTime>
+                    <linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+                    <armorPenetrationBlunt>0.405</armorPenetrationBlunt>
+                  </li>
+
+                  <li Class="CombatExtended.ToolCE">
+                    <label>head</label>
+                    <capacities>
+                      <li>Blunt</li>
+                    </capacities>
+                    <power>2</power>
+                    <cooldownTime>4.49</cooldownTime>
+                    <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+                    <armorPenetrationBlunt>0.625</armorPenetrationBlunt>
+                  </li>
+                </tools>
+              </value>
+            </li>
+
+
+            
+            <li Class="PatchOperationAdd">
+              <xpath>/Defs/AlienRace.ThingDef_AlienRace[defName="Android3Tier"]/statBases</xpath>
+              <value>
+                <MeleeDodgeChance>1.45</MeleeDodgeChance>
+                <MeleeCritChance>1.45</MeleeCritChance>
+                <MeleeParryChance>1.45</MeleeParryChance>
+                <SmokeSensitivity>0</SmokeSensitivity>
+              </value>
+            </li>
+            <li Class="PatchOperationReplace">
+              <xpath>/Defs/AlienRace.ThingDef_AlienRace[defName="Android3Tier"]/statBases/ArmorRating_Sharp</xpath>
+              <value>
+                <ArmorRating_Sharp>16</ArmorRating_Sharp>
+              </value>
+            </li>
+
+            <li Class="PatchOperationReplace">
+              <xpath>/Defs/AlienRace.ThingDef_AlienRace[defName="Android3Tier"]/statBases/ArmorRating_Blunt</xpath>
+              <value>
+                <ArmorRating_Blunt>14</ArmorRating_Blunt>
+              </value>
+            </li>
+
+            <li Class="PatchOperationReplace">
+              <xpath>/Defs/AlienRace.ThingDef_AlienRace[defName="Android3Tier"]/tools</xpath>
+              <value>
+                <tools>
+                  <li Class="CombatExtended.ToolCE">
+                    <label>left fist</label>
+                    <capacities>
+                      <li>Blunt</li>
+                    </capacities>
+                    <power>30</power>
+                    <cooldownTime>1.67</cooldownTime>
+                    <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+                    <armorPenetrationBlunt>15</armorPenetrationBlunt>
+                  </li>
+
+                  <li Class="CombatExtended.ToolCE">
+                    <label>right fist</label>
+                    <capacities>
+                      <li>Blunt</li>
+                    </capacities>
+                    <power>30</power>
+                    <cooldownTime>1.67</cooldownTime>
+                    <linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+                    <armorPenetrationBlunt>15</armorPenetrationBlunt>
+                  </li>
+
+                  <li Class="CombatExtended.ToolCE">
+                    <label>head</label>
+                    <capacities>
+                      <li>Blunt</li>
+                    </capacities>
+                    <power>15</power>
+                    <cooldownTime>2.8</cooldownTime>
+                    <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+                    <armorPenetrationBlunt>15</armorPenetrationBlunt>
+                  </li>
+                </tools>
+              </value>
+            </li>
+            
+            -->
+
+
+          </operations>
+        </match>
+      </Operation>
+
+   
+</Patch>
