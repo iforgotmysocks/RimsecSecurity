@@ -124,7 +124,7 @@
       <graphicClass>Graphic_Single</graphicClass>
       <!--<color>(0, 255, 0)</color>-->
       <!--<shaderType>CutoutComplex</shaderType>-->
-      <drawSize>1.4</drawSize>
+      <drawSize>1.2</drawSize>
     </graphicData>
     <soundInteract>Interact_ChargeRifle</soundInteract>
     <statBases>
