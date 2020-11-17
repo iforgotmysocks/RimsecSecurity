@@ -50,7 +50,7 @@ namespace RimsecSecurity
             toil.initAction = delegate ()
             {
                 //Log.Message($"current rest: {Refuelable.needs.rest.CurLevel} stackcount: {Fuel.stackCount} calced {(Fuel.stackCount / 100f)}");
-                Refuelable.needs.rest.CurLevel += ((Fuel.stackCount / 100f) / 2f);
+                Refuelable.needs.rest.CurLevel += (Fuel.stackCount / 100f);
                 Fuel.Destroy();
             };
             toil.defaultCompleteMode = ToilCompleteMode.Instant;
