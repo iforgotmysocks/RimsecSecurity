@@ -32,7 +32,7 @@ namespace RimsecSecurity
 
         private AcceptanceReport CanRefuel(Pawn pawn, object p)
         {
-            if (!Parent.Map.itemAvailability.ThingsAvailableAnywhere(new ThingDefCountClass(ThingDefOf.Chemfuel, 1), pawn)) return new AcceptanceReport("No fuel available");
+            if (!Parent.Map.itemAvailability.ThingsAvailableAnywhere(new ThingDefCountClass(RSDefOf.RSPowerCell, 1), pawn)) return new AcceptanceReport("No fuel available");
             return AcceptanceReport.WasAccepted;
         }
     }

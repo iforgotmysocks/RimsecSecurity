@@ -556,6 +556,47 @@
     </recipeUsers>
   </RecipeDef>
 
+  <RecipeDef>
+    <defName>Make_SRSPowerCell</defName>
+    <label>make powercell from chemfuel</label>
+    <description>todo</description>
+    <jobString>Creating powercells from chemfuel.</jobString>
+    <effectWorking>Cremate</effectWorking>
+    <soundWorking>Recipe_Cremate</soundWorking>
+    <workAmount>400</workAmount>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Chemfuel</li>
+          </thingDefs>
+        </filter>
+        <count>75</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Steel</li>
+          </thingDefs>
+        </filter>
+        <count>75</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Chemfuel</li>
+        <li>Steel</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <RSPowerCell>75</RSPowerCell>
+    </products>
+    <recipeUsers>
+      <li>RSRobotAssemblyBench</li>
+    </recipeUsers>
+  </RecipeDef>
+
 
 
 </Defs>

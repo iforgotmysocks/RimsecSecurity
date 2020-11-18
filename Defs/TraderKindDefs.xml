@@ -24,6 +24,10 @@
         <thingDef>RSSRSProcessingChip</thingDef>
         <countRange>10~30</countRange>
       </li>
+      <li Class="StockGenerator_SingleDef">
+        <thingDef>RSPowerCell</thingDef>
+        <countRange>500~1000</countRange>
+      </li>
      
       <li Class="StockGenerator_SingleDef">
         <thingDef>Chemfuel</thingDef>

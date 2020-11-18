@@ -76,7 +76,7 @@ namespace RimsecSecurity
         internal static void RefuelPawnOnCaravan(Pawn pawn, Caravan caravan)
         {
             if (pawn.needs.rest.CurLevel > 0.4) return;
-            var fuel = caravan.AllThings.FirstOrDefault(t => t.def == ThingDefOf.Chemfuel);
+            var fuel = caravan.AllThings.FirstOrDefault(t => t.def == RSDefOf.RSPowerCell);
             if (fuel == null) return;
             var owner = CaravanInventoryUtility.GetOwnerOf(caravan, fuel);
             var amount = Math.Min(fuel.stackCount, 60);
@@ -94,7 +94,7 @@ namespace RimsecSecurity
         public static Thing FindBestFuel(Pawn pawn)
         {
             var filter = new ThingFilter();
-            filter.SetAllow(ThingDefOf.Chemfuel, true);
+            filter.SetAllow(RSDefOf.RSPowerCell, true);
             bool validator(Thing x) => !x.IsForbidden(pawn) && pawn.CanReserve(x, 1, -1, null, false) && filter.Allows(x);
             return GenClosest.ClosestThingReachable(pawn.Position, pawn.Map, filter.BestThingRequest, PathEndMode.ClosestTouch, TraverseParms.For(pawn, Danger.Deadly, TraverseMode.ByPawn, false), 9999f, validator, null, 0, -1, false, RegionType.Set_Passable, false);
         }
