@@ -20,7 +20,7 @@ namespace RimsecSecurity
 
             yield return new FloatMenuOption("RSFuelRobotFloatMenu".Translate(), delegate ()
             {
-                Job job = RefuelJob(selPawn, Parent);
+                Job job = PeacekeeperUtility.RefuelJob(selPawn, Parent);
                 job.count = 1;
                 selPawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
             }, MenuOptionPriority.Default, null, null, 0f, null, null)
@@ -35,21 +35,5 @@ namespace RimsecSecurity
             if (!Parent.Map.itemAvailability.ThingsAvailableAnywhere(new ThingDefCountClass(ThingDefOf.Chemfuel, 1), pawn)) return new AcceptanceReport("No fuel available");
             return AcceptanceReport.WasAccepted;
         }
-
-        public static Job RefuelJob(Pawn pawn, Thing t, bool forced = false, JobDef customRefuelJob = null, JobDef customAtomicRefuelJob = null)
-        {
-            Thing t2 = FindBestFuel(pawn, t);
-            return JobMaker.MakeJob(customRefuelJob ?? RSDefOf.RSFuelRobot, t, t2);
-        }
-
-        private static Thing FindBestFuel(Pawn pawn, Thing refuelable)
-        {
-            var filter = new ThingFilter();
-            filter.SetAllow(ThingDefOf.Chemfuel, true);
-            Predicate<Thing> validator = (Thing x) => !x.IsForbidden(pawn) && pawn.CanReserve(x, 1, -1, null, false) && filter.Allows(x);
-            return GenClosest.ClosestThingReachable(pawn.Position, pawn.Map, filter.BestThingRequest, PathEndMode.ClosestTouch, TraverseParms.For(pawn, Danger.Deadly, TraverseMode.ByPawn, false), 9999f, validator, null, 0, -1, false, RegionType.Set_Passable, false);
-        }
-
-
     }
 }

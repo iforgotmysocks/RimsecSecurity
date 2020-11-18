@@ -33,10 +33,10 @@ namespace RimsecSecurity
                 }
                 return JobCondition.Succeeded;
             });
-            base.AddFailCondition(() => !this.job.playerForced);
+            //base.AddFailCondition(() => !this.job.playerForced);
             yield return Toils_General.DoAtomic(delegate
             {
-                this.job.count = Convert.ToInt32((Refuelable.needs.rest.MaxLevel - Refuelable.needs.rest.CurLevel) * 200);
+                this.job.count = Convert.ToInt32((Refuelable.needs.rest.MaxLevel - Refuelable.needs.rest.CurLevel) * 100);
                 if (this.job.count > 75) job.count = 75;
             }).FailOn(() => job.count == 0);
             Toil reserveFuel = Toils_Reserve.Reserve(TargetIndex.B, 1, -1, null);

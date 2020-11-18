@@ -15,7 +15,15 @@ namespace RimsecSecurity
         {
             if (pawn.Drafted) return null;
             var emptyChargeStation = PeacekeeperUtility.GetEmptyChargeStation(pawn);
-            if (emptyChargeStation == null || emptyChargeStation.IsForbidden(pawn)) return JobMaker.MakeJob(JobDefOf.Wait, 120, true);
+            if (emptyChargeStation == null || emptyChargeStation.IsForbidden(pawn))
+            {
+                if (pawn.needs.rest.CurLevel < 0.4f)
+                {
+                    var fuel = PeacekeeperUtility.FindBestFuel(pawn);
+                    if (fuel != null) return JobMaker.MakeJob(RSDefOf.RSFuelRobot, pawn, fuel);
+                }
+                return JobMaker.MakeJob(JobDefOf.Wait, 120, true);
+            }
             return JobMaker.MakeJob(RSDefOf.RSRecharge, emptyChargeStation);
         }
     }
