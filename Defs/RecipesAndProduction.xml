@@ -541,6 +541,7 @@
     <soundWorking>Recipe_ButcherCorpseMechanoid</soundWorking>
     <recipeUsers>
       <li>TableMachining</li>
+      <li>RSRobotAssemblyBench</li>
     </recipeUsers>
   </RecipeDef>
 
@@ -572,7 +573,7 @@
             <li>Chemfuel</li>
           </thingDefs>
         </filter>
-        <count>75</count>
+        <count>25</count>
       </li>
       <li>
         <filter>
@@ -580,7 +581,7 @@
             <li>Steel</li>
           </thingDefs>
         </filter>
-        <count>75</count>
+        <count>15</count>
       </li>
     </ingredients>
     <fixedIngredientFilter>
@@ -590,7 +591,7 @@
       </thingDefs>
     </fixedIngredientFilter>
     <products>
-      <RSPowerCell>75</RSPowerCell>
+      <RSPowerCell>50</RSPowerCell>
     </products>
     <recipeUsers>
       <li>RSRobotAssemblyBench</li>

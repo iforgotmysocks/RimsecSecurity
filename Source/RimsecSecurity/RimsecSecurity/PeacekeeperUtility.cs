@@ -79,10 +79,10 @@ namespace RimsecSecurity
             var fuel = caravan.AllThings.FirstOrDefault(t => t.def == RSDefOf.RSPowerCell);
             if (fuel == null) return;
             var owner = CaravanInventoryUtility.GetOwnerOf(caravan, fuel);
-            var amount = Math.Min(fuel.stackCount, 60);
+            var amount = Math.Min(fuel.stackCount, 6);
             if (fuel.stackCount > amount) fuel.stackCount -= amount;
             else owner.inventory.innerContainer.Remove(fuel);
-            pawn.needs.rest.CurLevel += amount / 100f;
+            pawn.needs.rest.CurLevel += amount / 10f;
         }
 
         public static Job RefuelJob(Pawn pawn, Thing t, bool forced = false, JobDef customRefuelJob = null)

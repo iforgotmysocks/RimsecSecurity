@@ -41,7 +41,7 @@
       <graphicClass>Graphic_Single</graphicClass>
       <drawSize>0.85</drawSize>
     </graphicData>
-    <stackLimit>500</stackLimit>
+    <stackLimit>150</stackLimit>
     <healthAffectsPrice>false</healthAffectsPrice>
     <statBases>
       <MaxHitPoints>50</MaxHitPoints>
