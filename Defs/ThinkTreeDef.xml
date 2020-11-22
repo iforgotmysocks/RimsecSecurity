@@ -10,11 +10,6 @@
 				<!-- If we HAVE to keep lying down... -->
 				<li Class="ThinkNode_ConditionalMustKeepLyingDown">
 					<subNodes>
-						<!-- Do a queued job if possible (e.g. watch tv in bed) -->
-						<!--<li Class="ThinkNode_QueuedJob">
-							<inBedOnly>true</inBedOnly>
-						</li>-->
-
 						<!-- Keep lying down -->
 						<li Class="JobGiver_KeepLyingDown" />
 					</subNodes>
@@ -37,6 +32,37 @@
               <subNodes>
                 <li Class="JobGiver_MoveToStandable" />
                 <li Class="JobGiver_Orders" />
+              </subNodes>
+            </li>
+          </subNodes>
+        </li>
+
+        <li Class="ThinkNode_ConditionalColonist">
+          <subNodes>
+            <!-- Seek allowed area -->
+            <li Class="JobGiver_SeekAllowedArea" />
+
+            <!-- Seek safe temperatures -->
+            <li Class="JobGiver_SeekSafeTemperature" />
+
+            <!-- Drop unnused inventory -->
+            <li Class="JobGiver_DropUnusedInventory" />
+
+            <!-- Optimize apparel -->
+            <!--<li Class="ThinkNode_Tagger">
+              <tagToGive>ChangingApparel</tagToGive>
+              <subNodes>
+                <li Class="JobGiver_OptimizeApparel">
+                  <leaveJoinableLordIfIssuesJob>true</leaveJoinableLordIfIssuesJob>
+                </li>
+              </subNodes>
+            </li>-->
+
+            <!-- Unload your inventory -->
+            <li Class="ThinkNode_Tagger">
+              <tagToGive>UnloadingOwnInventory</tagToGive>
+              <subNodes>
+                <li Class="JobGiver_UnloadYourInventory" />
               </subNodes>
             </li>
           </subNodes>

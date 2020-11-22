@@ -1,11 +1,13 @@
 ﻿using AlienRace;
 using RimWorld;
+using RimWorld.Planet;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Verse;
+using Verse.AI;
 
 namespace RimsecSecurity
 {
@@ -69,6 +71,32 @@ namespace RimsecSecurity
                 }
             }
             return null;
+        }
+
+        internal static void RefuelPawnOnCaravan(Pawn pawn, Caravan caravan)
+        {
+            if (pawn.needs.rest.CurLevel > 0.4) return;
+            var fuel = caravan.AllThings.FirstOrDefault(t => t.def == RSDefOf.RSPowerCell);
+            if (fuel == null) return;
+            var owner = CaravanInventoryUtility.GetOwnerOf(caravan, fuel);
+            var amount = Math.Min(fuel.stackCount, 6);
+            if (fuel.stackCount > amount) fuel.stackCount -= amount;
+            else owner.inventory.innerContainer.Remove(fuel);
+            pawn.needs.rest.CurLevel += amount / 10f;
+        }
+
+        public static Job RefuelJob(Pawn pawn, Thing t, bool forced = false, JobDef customRefuelJob = null)
+        {
+            Thing t2 = PeacekeeperUtility.FindBestFuel(pawn);
+            return JobMaker.MakeJob(customRefuelJob ?? RSDefOf.RSFuelRobot, t, t2);
+        }
+
+        public static Thing FindBestFuel(Pawn pawn)
+        {
+            var filter = new ThingFilter();
+            filter.SetAllow(RSDefOf.RSPowerCell, true);
+            bool validator(Thing x) => !x.IsForbidden(pawn) && pawn.CanReserve(x, 1, -1, null, false) && filter.Allows(x);
+            return GenClosest.ClosestThingReachable(pawn.Position, pawn.Map, filter.BestThingRequest, PathEndMode.ClosestTouch, TraverseParms.For(pawn, Danger.Deadly, TraverseMode.ByPawn, false), 9999f, validator, null, 0, -1, false, RegionType.Set_Passable, false);
         }
     }
 }

@@ -26,6 +26,8 @@ namespace RimsecSecurity
 
         public static ThingDef RSRobotAssemblyBench;
 
+        public static ThingDef RSPowerCell;
+
         public static JobDef RSRecharge;
         public static JobDef RSRescueToChargeStation;
         public static JobDef RSFuelRobot;
@@ -48,5 +50,7 @@ namespace RimsecSecurity
         public static IncidentDef RSSRSOrbitalTraderIncident;
 
         public static DesignationCategoryDef RSSRSBuildings;
+
+
     }
 }

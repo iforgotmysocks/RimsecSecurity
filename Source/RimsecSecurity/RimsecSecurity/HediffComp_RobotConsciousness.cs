@@ -20,8 +20,11 @@ namespace RimsecSecurity
         public override void CompPostTick(ref float severityAdjustment)
         {
             if (this.parent?.pawn == null || parent.pawn.Tile == -1) return;
-            if ((Find.TickManager.TicksGame + this.parent.pawn.thingIDNumber) % 120 != 0) return;
+            if ((Find.TickManager.TicksGame + this.parent.pawn.thingIDNumber) % 120 == 0) CheckTerrain();
+        }
 
+        private void CheckTerrain()
+        {
             var selTrait = this.parent.pawn.story.traits.allTraits.FirstOrDefault(trait => trait.def == RSDefOf.RSTraitWinter || trait.def == RSDefOf.RSTraitDesert || trait.def == RSDefOf.RSTraitForest);
             if (selTrait == null) return;
             var apply = false;
@@ -38,7 +41,7 @@ namespace RimsecSecurity
                 }
             }
             else if (this.parent.pawn.Map == null && selBiomes.Contains(Find.WorldGrid.tiles[this.parent.pawn.Tile].biome)
-                || (this.parent.pawn.Map != null && (selTerrain.Contains(this.parent.pawn.Position.GetTerrain(this.parent.pawn.Map)) 
+                || (this.parent.pawn.Map != null && (selTerrain.Contains(this.parent.pawn.Position.GetTerrain(this.parent.pawn.Map))
                     || (selTrait.def == RSDefOf.RSTraitWinter && parent.pawn.Map.snowGrid.TotalDepth > 100f))))
             {
                 apply = true;
@@ -62,8 +65,6 @@ namespace RimsecSecurity
                     this.parent.pawn.health.hediffSet.hediffs.RemoveAll(hediff => hediff.def == RSDefOf.RSTerrainAdvantage);
                 }
             }
-
         }
-
     }
 }

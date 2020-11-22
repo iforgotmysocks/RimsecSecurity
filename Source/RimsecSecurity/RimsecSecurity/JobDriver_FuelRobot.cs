@@ -33,11 +33,10 @@ namespace RimsecSecurity
                 }
                 return JobCondition.Succeeded;
             });
-            base.AddFailCondition(() => !this.job.playerForced);
+            //base.AddFailCondition(() => !this.job.playerForced);
             yield return Toils_General.DoAtomic(delegate
             {
-                this.job.count = Convert.ToInt32((Refuelable.needs.rest.MaxLevel - Refuelable.needs.rest.CurLevel) * 200);
-                if (this.job.count > 75) job.count = 75;
+                this.job.count = Convert.ToInt32((Refuelable.needs.rest.MaxLevel - Refuelable.needs.rest.CurLevel) * 10);
             }).FailOn(() => job.count == 0);
             Toil reserveFuel = Toils_Reserve.Reserve(TargetIndex.B, 1, -1, null);
             yield return reserveFuel;
@@ -50,47 +49,13 @@ namespace RimsecSecurity
             toil.initAction = delegate ()
             {
                 //Log.Message($"current rest: {Refuelable.needs.rest.CurLevel} stackcount: {Fuel.stackCount} calced {(Fuel.stackCount / 100f)}");
-                Refuelable.needs.rest.CurLevel += ((Fuel.stackCount / 100f) / 2f);
+                Refuelable.needs.rest.CurLevel += (Fuel.stackCount / 10f);
                 Fuel.Destroy();
             };
             toil.defaultCompleteMode = ToilCompleteMode.Instant;
             yield return toil;
             yield break;
         }
-
-        public Toil FinalizeRefueling(TargetIndex refuelableInd, TargetIndex fuelInd)
-        {
-            Toil toil = new Toil();
-            toil.initAction = delegate ()
-            {
-                Job curJob = toil.actor.CurJob;
-                var thing = curJob.GetTarget(refuelableInd).Pawn;
-                if (toil.actor.CurJob.placedThings.NullOrEmpty<ThingCountClass>())
-                {
-                    return;
-                }
-                var placed = curJob.placedThings;
-                //Log.Message($"Count placed things: {placed.Count} first placed count: {placed.FirstOrDefault().Count} {placed.FirstOrDefault().thing.Label} {placed.FirstOrDefault().thing.stackCount}");
-                thing.needs.rest.CurLevel += (placed.FirstOrDefault().thing.stackCount / 100);
-                placed.FirstOrDefault().thing.Destroy();
-            };
-            toil.defaultCompleteMode = ToilCompleteMode.Instant;
-            return toil;
-        }
-
-        public void Refuel(List<Thing> fuelThings)
-        {
-            int num = Convert.ToInt32((Refuelable.needs.rest.MaxLevel - Refuelable.needs.rest.CurLevel) * 100);
-            while (num > 0 && fuelThings.Count > 0)
-            {
-                Thing thing = fuelThings.Pop<Thing>();
-                int num2 = Mathf.Min(num, thing.stackCount);
-                Refuelable.needs.rest.CurLevel += (num2 / 100);
-                thing.SplitOff(num2).Destroy(DestroyMode.Vanish);
-                num -= num2;
-            }
-        }
-
 
     }
 }

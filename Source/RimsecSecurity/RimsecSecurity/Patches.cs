@@ -562,6 +562,16 @@ namespace RimsecSecurity
             if (PeacekeeperUtility.IsPeacekeeper(pawn)) __result = null;
         }
     }
+
+    [HarmonyPatch(typeof(Caravan_NeedsTracker), "TrySatisfyPawnNeeds")]
+    public class Caravan_NeedsTracker_TrySatisfyPawnNeeds
+    {
+        public static void Postfix(Pawn pawn, Caravan ___caravan)
+        {
+            if (pawn.Dead || !PeacekeeperUtility.IsPeacekeeper(pawn)) return;
+            PeacekeeperUtility.RefuelPawnOnCaravan(pawn, ___caravan);
+        }
+    }
     #endregion
 
     #region weapons / equipment
