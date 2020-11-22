@@ -37,9 +37,9 @@
     <description>todo</description>
     <tickerType>Normal</tickerType>
     <graphicData>
-      <texPath>Things/Item/Resource/Chemfuel</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-      <drawSize>0.85</drawSize>
+      <texPath>Things/SRSPowerCell</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+      <drawSize>1.25</drawSize>
     </graphicData>
     <stackLimit>150</stackLimit>
     <healthAffectsPrice>false</healthAffectsPrice>
