@@ -160,9 +160,9 @@ namespace RimsecSecurity
                 case 0:
                     return new IntVec3(0, 0, 1);
                 case 1:
-                    return new IntVec3(1, 0, 2);
+                    return new IntVec3(1, 0, 3);
                 case 2:
-                    return new IntVec3(2, 0, 1);
+                    return new IntVec3(3, 0, 1);
                 case 3:
                     return new IntVec3(1, 0, 0);
                 default:
@@ -175,13 +175,13 @@ namespace RimsecSecurity
             switch (rot.AsInt)
             {
                 case 0:
-                    return new IntVec3(2, 0, 1);
+                    return new IntVec3(3, 0, 1);
                 case 1:
                     return new IntVec3(1, 0, 0);
                 case 2:
                     return new IntVec3(0, 0, 1);
                 case 3:
-                    return new IntVec3(1, 0, 2);
+                    return new IntVec3(1, 0, 3);
                 default:
                     return default(IntVec3);
             }
