@@ -137,7 +137,7 @@
       <graphicClass>Graphic_Multi</graphicClass>
       <shaderType>CutoutComplex</shaderType>
       <drawSize>(7,6)</drawSize>
-      <!--<drawOffset>(0, 0, 0.4)</drawOffset>-->
+      <drawOffset>(0, 0, -0.6)</drawOffset>
       <damageData>
         <cornerTL>Damage/Corner</cornerTL>
         <cornerTR>Damage/Corner</cornerTR>
