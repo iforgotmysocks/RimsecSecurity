@@ -66,5 +66,23 @@
       </li>
     </subSounds>
   </SoundDef>
+
+  <SoundDef>
+    <defName>RSShot_Shag</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Folder">
+            <clipFolderPath>Weapons/ShagShot</clipFolderPath>
+          </li>
+        </grains>
+        <volumeRange>20~20</volumeRange>
+        <!--<pitchRange>0.9~1.1</pitchRange>-->
+        <sustainLoop>False</sustainLoop>
+      </li>
+    </subSounds>
+  </SoundDef>
 	
 </Defs>

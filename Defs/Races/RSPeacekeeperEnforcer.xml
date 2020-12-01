@@ -49,12 +49,13 @@
       </li>
     </modExtensions>
     <race>
-      <baseBodySize>1</baseBodySize>
+      <baseBodySize>1.2</baseBodySize>
       <baseHealthScale>2</baseHealthScale>
       <nameGenerator>RSPeacekeeperEnforcerNameGen</nameGenerator>
     </race>
     <statBases>
-      <MarketValue>2000</MarketValue>
+      <!-- has roughly ~ 48% marketvalue -->
+      <MarketValue>4200</MarketValue>
       <MoveSpeed>5.5</MoveSpeed>
       <ArmorRating_Heat>2</ArmorRating_Heat>
       <ArmorRating_Blunt>0.8</ArmorRating_Blunt>
@@ -147,7 +148,7 @@
     <race>
     </race>
     <statBases>
-      <MoveSpeed>4.5</MoveSpeed>
+      
     </statBases>
   </AlienRace.ThingDef_AlienRace>
 

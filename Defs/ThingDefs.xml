@@ -4,7 +4,7 @@
   <ThingDef ParentName="ResourceBase">
     <defName>RSSRSProcessingChip</defName>
     <label>SRS processing chip</label>
-    <description>The SRS Processing Chip is a vital part of manufacturing SRS Robots and without it and the assembly bench, all SRS robots are inoperable without the chip. They can be bough through SRS Trade Ships and can be salvaged from destroyed SRS units.</description>
+    <description>The SRS Processing Chip is a vital part of manufacturing SRS Robots and without it and the assembly bench, all SRS robots are inoperable without the chip. They can be bought through SRS Trade Ships and can be salvaged from destroyed SRS units.</description>
     <graphicData>
       <texPath>Things/SRS_processing_chip</texPath>
       <graphicClass>Graphic_StackCount</graphicClass>
@@ -34,7 +34,7 @@
   <ThingDef ParentName="ResourceBase">
     <defName>RSPowerCell</defName>
     <label>SRS power cell</label>
-    <description>todo</description>
+    <description>The SRS Power Cell is often used to refuel SRS Robots. They can be built via the Assembly bench or can be bought through SRS Trade Ships.</description>
     <tickerType>Normal</tickerType>
     <graphicData>
       <texPath>Things/SRSPowerCell</texPath>
