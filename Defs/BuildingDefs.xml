@@ -137,7 +137,7 @@
       <graphicClass>Graphic_Multi</graphicClass>
       <shaderType>CutoutComplex</shaderType>
       <drawSize>(7,6)</drawSize>
-      <!--<drawOffset>(0, 0, 0.4)</drawOffset>-->
+      <drawOffset>(0, 0, -0.6)</drawOffset>
       <damageData>
         <cornerTL>Damage/Corner</cornerTL>
         <cornerTR>Damage/Corner</cornerTR>
@@ -173,7 +173,7 @@
     <graphicData>
       <texPath>Things/Building/Turrets/LLT/LLT_base</texPath>
       <graphicClass>Graphic_Single</graphicClass>
-      <drawSize>(1.5, 1.5)</drawSize>
+      <drawSize>(3, 3)</drawSize>
       <!--<drawOffset>(0,0,-0.1)</drawOffset>-->
       <damageData>
         <rect>(0.2,0.2,0.6,0.6)</rect>
@@ -187,7 +187,7 @@
     <stealable>false</stealable>
     <rotatable>false</rotatable>
     <minifiedDef>MinifiedThing</minifiedDef>
-    <size>(1,1)</size>
+    <size>(2,2)</size>
     <thingCategories>
       <li>BuildingsSecurity</li>
     </thingCategories>
@@ -209,7 +209,7 @@
     <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
     <building>
       <ai_combatDangerous>true</ai_combatDangerous>
-      <turretTopDrawSize>2</turretTopDrawSize>
+      <turretTopDrawSize>3</turretTopDrawSize>
       <turretTopOffset>(0, 0.05)</turretTopOffset>
     </building>
     <placeWorkers>
@@ -301,7 +301,6 @@
     <graphicData>
       <texPath>Things/Building/Turrets/LLT/LLT_top</texPath>
       <graphicClass>Graphic_Single</graphicClass>
-      <drawSize>(1.5,1.5)</drawSize>
     </graphicData>
     <statBases>
       <AccuracyTouch>0.80</AccuracyTouch>
@@ -337,7 +336,7 @@
     <graphicData>
       <texPath>Things/Building/Turrets/LLT/LLT_base</texPath>
       <graphicClass>Graphic_Single</graphicClass>
-      <drawSize>(3, 3)</drawSize>
+      <drawSize>(4, 4)</drawSize>
       <!--<drawOffset>(0,0,-0.1)</drawOffset>-->
       <damageData>
         <rect>(0.2,0.2,0.6,0.6)</rect>
@@ -350,7 +349,7 @@
     <altitudeLayer>Building</altitudeLayer>
     <stealable>false</stealable>
     <rotatable>false</rotatable>
-    <size>(2,2)</size>
+    <size>(3,3)</size>
     <statBases>
       <MaxHitPoints>500</MaxHitPoints>
       <Flammability>0.5</Flammability>
@@ -368,8 +367,8 @@
     <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
     <building>
       <ai_combatDangerous>true</ai_combatDangerous>
-      <turretTopDrawSize>2</turretTopDrawSize>
-      <turretTopOffset>(0, 0.05)</turretTopOffset>
+      <turretTopDrawSize>4</turretTopDrawSize>
+      <turretTopOffset>(0, 0)</turretTopOffset>
     </building>
     <placeWorkers>
       <li>PlaceWorker_TurretTop</li>
@@ -459,7 +458,6 @@
     <graphicData>
       <texPath>Things/Building/Turrets/HLT/HLT_top</texPath>
       <graphicClass>Graphic_Single</graphicClass>
-      <drawSize>(3,3)</drawSize>
     </graphicData>
     <statBases>
       <AccuracyTouch>0.25</AccuracyTouch>
@@ -491,14 +489,14 @@
     </verbs>
   </ThingDef>
 
-  <!-- other -->
+  <!-- haac -->
 
   <ThingDef ParentName="BuildingBase" Name="RSTurretHAACBase" Abstract="True">
     <thingClass>Building_TurretGun</thingClass>
     <graphicData>
       <texPath>Things/Building/Turrets/LLT/LLT_base</texPath>
       <graphicClass>Graphic_Single</graphicClass>
-      <drawSize>(4, 4)</drawSize>
+      <drawSize>(5, 5)</drawSize>
       <!--<drawOffset>(0,0,-0.1)</drawOffset>-->
       <damageData>
         <rect>(0.2,0.2,0.6,0.6)</rect>
@@ -511,7 +509,7 @@
     <altitudeLayer>Building</altitudeLayer>
     <stealable>false</stealable>
     <rotatable>false</rotatable>
-    <size>(3,3)</size>
+    <size>(4,4)</size>
     <statBases>
       <MaxHitPoints>650</MaxHitPoints>
       <Flammability>0.5</Flammability>
@@ -529,8 +527,8 @@
     <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
     <building>
       <ai_combatDangerous>true</ai_combatDangerous>
-      <turretTopDrawSize>4</turretTopDrawSize>
-      <turretTopOffset>(0, 0.05)</turretTopOffset>
+      <turretTopDrawSize>5</turretTopDrawSize>
+      <turretTopOffset>(0, 0.5)</turretTopOffset>
     </building>
     <placeWorkers>
       <li>PlaceWorker_TurretTop</li>
@@ -624,7 +622,6 @@
     <graphicData>
       <texPath>Things/Building/Turrets/HAAC/HAAC_top</texPath>
       <graphicClass>Graphic_Single</graphicClass>
-      <drawSize>2</drawSize>
     </graphicData>
     <statBases>
       <AccuracyTouch>0.40</AccuracyTouch>

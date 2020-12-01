@@ -266,7 +266,7 @@
         <range>40</range>
         <ticksBetweenBurstShots>60</ticksBetweenBurstShots>
         <burstShotCount>2</burstShotCount>
-        <soundCast>Shot_ChargeRifle</soundCast>
+        <soundCast>RSShot_Shag</soundCast>
         <soundCastTail>GunTail_Medium</soundCastTail>
         <muzzleFlashScale>9</muzzleFlashScale>
       </li>
