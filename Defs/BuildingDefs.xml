@@ -229,8 +229,8 @@
       <!-- like level 8 human shooter -->
     </statBases>
     <costList>
-      <Steel>150</Steel>
-      <Plasteel>25</Plasteel>
+      <Steel>175</Steel>
+      <Plasteel>15</Plasteel>
       <ComponentIndustrial>4</ComponentIndustrial>
       <RSSRSProcessingChip>2</RSSRSProcessingChip>
     </costList>
@@ -289,7 +289,7 @@
     </graphicData>
     <projectile>
       <damageDef>Bullet</damageDef>
-      <damageAmountBase>11</damageAmountBase>
+      <damageAmountBase>12</damageAmountBase>
       <speed>80</speed>
     </projectile>
   </ThingDef>
@@ -387,7 +387,7 @@
       <!-- like level 11 human shooter -->
     </statBases>
     <costList>
-      <Steel>350</Steel>
+      <Steel>300</Steel>
       <Plasteel>25</Plasteel>
       <ComponentIndustrial>8</ComponentIndustrial>
       <RSSRSProcessingChip>6</RSSRSProcessingChip>
@@ -445,7 +445,7 @@
     </graphicData>
     <projectile>
       <damageDef>Bullet</damageDef>
-      <damageAmountBase>10</damageAmountBase>
+      <damageAmountBase>15</damageAmountBase>
       <armorPenetrationBase>0.30</armorPenetrationBase>
       <speed>95</speed>
     </projectile>
