@@ -138,7 +138,6 @@
     <race>
     </race>
     <statBases>
-      <MoveSpeed>2</MoveSpeed>
     </statBases>
   </AlienRace.ThingDef_AlienRace>
 
