@@ -105,7 +105,7 @@
       <MaxHitPoints>300</MaxHitPoints>
       <WorkToBuild>5000</WorkToBuild>
       <Flammability>1.0</Flammability>
-      <MarketValue>10000</MarketValue>
+      <MarketValue>8000</MarketValue>
     </statBases>
     <!--<thingCategories Inherit="false" />-->
     <size>(5,3)</size>
@@ -229,9 +229,9 @@
       <!-- like level 8 human shooter -->
     </statBases>
     <costList>
-      <Steel>450</Steel>
-      <Plasteel>50</Plasteel>
-      <ComponentIndustrial>5</ComponentIndustrial>
+      <Steel>150</Steel>
+      <Plasteel>25</Plasteel>
+      <ComponentIndustrial>4</ComponentIndustrial>
       <RSSRSProcessingChip>2</RSSRSProcessingChip>
     </costList>
     <comps>
@@ -388,7 +388,7 @@
     </statBases>
     <costList>
       <Steel>350</Steel>
-      <Plasteel>50</Plasteel>
+      <Plasteel>25</Plasteel>
       <ComponentIndustrial>8</ComponentIndustrial>
       <RSSRSProcessingChip>6</RSSRSProcessingChip>
     </costList>

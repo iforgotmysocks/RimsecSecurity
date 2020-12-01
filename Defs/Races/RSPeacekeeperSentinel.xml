@@ -46,7 +46,7 @@
     </modExtensions>
     <statBases>
       <MarketValue>7000</MarketValue>
-      <MoveSpeed>2.5</MoveSpeed>
+      <MoveSpeed>3</MoveSpeed>
       <ArmorRating_Heat>2</ArmorRating_Heat>
       <ArmorRating_Blunt>1.5</ArmorRating_Blunt>
       <ArmorRating_Sharp>1.7</ArmorRating_Sharp>
@@ -138,7 +138,7 @@
     <race>
     </race>
     <statBases>
-      <MoveSpeed>1.5</MoveSpeed>
+      <MoveSpeed>2</MoveSpeed>
     </statBases>
   </AlienRace.ThingDef_AlienRace>
 
