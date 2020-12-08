@@ -124,7 +124,7 @@
   <AlienRace.ThingDef_AlienRace ParentName="RSPeacekeeperEnforcerBase" >
     <defName>RSPeacekeeperEnforcer</defName>
     <label>Peacekeeper Enforcer</label>
-    <description>Standard Security variant of the Enforcer, a common sight on war torn planets and are fielded by massive private and planetary armies.</description>
+    <description>Standard Security variant of the Enforcer, a common sight on war torn planets and are fielded by massive private and planetary armies. It features higher armour.</description>
     <alienRace>
       <generalSettings>
         <forcedRaceTraitEntries>
@@ -155,7 +155,7 @@
   <AlienRace.ThingDef_AlienRace ParentName="RSPeacekeeperEnforcerBase" >
     <defName>RSPeacekeeperEnforcerForest</defName>
     <label>Peacekeeper Enforcer Forest</label>
-    <description>Forest variant of the Enforcer.</description>
+    <description>Forest variant of the Enforcer. It features higher melee skills and agility and has a movement bonus on forest terrain.</description>
     <alienRace>
       <generalSettings>
         <forcedRaceTraitEntries>
@@ -186,7 +186,7 @@
   <AlienRace.ThingDef_AlienRace ParentName="RSPeacekeeperEnforcerBase" >
     <defName>RSPeacekeeperEnforcerDesert</defName>
     <label>Peacekeeper Enforcer Desert</label>
-    <description>Desert variant of the Enforcer.</description>
+    <description>Desert variant of the Enforcer. It features higher rate of fire and has a movement bonus on desert terrain.</description>
     <alienRace>
       <generalSettings>
         <forcedRaceTraitEntries>
@@ -217,7 +217,7 @@
   <AlienRace.ThingDef_AlienRace ParentName="RSPeacekeeperEnforcerBase" >
     <defName>RSPeacekeeperEnforcerWinter</defName>
     <label>Peacekeeper Enforcer Winter</label>
-    <description>Winter variant of the Enforcer.</description>
+    <description>Winter variant of the Enforcer. It features higher accuracy and has a movement bonus on snowy terrain.</description>
     <alienRace>
       <generalSettings>
         <forcedRaceTraitEntries>

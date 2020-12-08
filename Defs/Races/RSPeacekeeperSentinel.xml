@@ -48,7 +48,7 @@
       <!-- has roughly ~ 50% marketvalue -->
       <MarketValue>14000</MarketValue>
       <MoveSpeed>3</MoveSpeed>
-      <ArmorRating_Heat>1.8</ArmorRating_Heat>
+      <ArmorRating_Heat>2</ArmorRating_Heat>
       <ArmorRating_Blunt>1.45</ArmorRating_Blunt>
       <ArmorRating_Sharp>1.55</ArmorRating_Sharp>
     </statBases>
@@ -115,7 +115,7 @@
   <AlienRace.ThingDef_AlienRace ParentName="RSPeacekeeperSentinelBase" >
     <defName>RSPeacekeeperSentinel</defName>
     <label>Peacekeeper Sentinel</label>
-    <description>Standard Security variant of the Sentinel, they are often found in few numbers supporting the vast armies of Defenders and Enforcers in an ongoing conflict.</description>
+    <description>Standard Security variant of the Sentinel, they are often found in few numbers supporting the vast armies of Defenders and Enforcers in an ongoing conflict. It features higher armour.</description>
     <alienRace>
       <generalSettings>
         <forcedRaceTraitEntries>
@@ -145,7 +145,7 @@
   <AlienRace.ThingDef_AlienRace ParentName="RSPeacekeeperSentinelBase" >
     <defName>RSPeacekeeperSentinelForest</defName>
     <label>Peacekeeper Sentinel Forest</label>
-    <description>Forest variant of the Sentinel.</description>
+    <description>Forest variant of the Sentinel. It features higher melee skills and agility and has a movement bonus on forest terrain.</description>
     <alienRace>
       <generalSettings>
         <forcedRaceTraitEntries>
@@ -175,7 +175,7 @@
   <AlienRace.ThingDef_AlienRace ParentName="RSPeacekeeperSentinelBase" >
     <defName>RSPeacekeeperSentinelDesert</defName>
     <label>Peacekeeper Sentinel Desert</label>
-    <description>Desert variant of the Sentinel.</description>
+    <description>Desert variant of the Sentinel. It features higher rate of fire and has a movement bonus on desert terrain.</description>
     <alienRace>
       <generalSettings>
         <forcedRaceTraitEntries>
@@ -206,7 +206,7 @@
   <AlienRace.ThingDef_AlienRace ParentName="RSPeacekeeperSentinelBase" >
     <defName>RSPeacekeeperSentinelWinter</defName>
     <label>Peacekeeper Sentinel Winter</label>
-    <description>Winter variant of the Sentinel.</description>
+    <description>Winter variant of the Sentinel. It features higher accuracy and has a movement bonus on snowy terrain.</description>
     <alienRace>
       <generalSettings>
         <forcedRaceTraitEntries>
