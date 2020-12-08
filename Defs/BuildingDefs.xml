@@ -232,7 +232,7 @@
       <Steel>175</Steel>
       <Plasteel>15</Plasteel>
       <ComponentIndustrial>4</ComponentIndustrial>
-      <RSSRSProcessingChip>2</RSSRSProcessingChip>
+      <RSSRSProcessingChip>1</RSSRSProcessingChip>
     </costList>
     <comps>
       <!--<li Class="CompProperties_Explosive">
@@ -390,7 +390,7 @@
       <Steel>300</Steel>
       <Plasteel>25</Plasteel>
       <ComponentIndustrial>8</ComponentIndustrial>
-      <RSSRSProcessingChip>6</RSSRSProcessingChip>
+      <RSSRSProcessingChip>2</RSSRSProcessingChip>
     </costList>
     <comps>
       <!--<li Class="CompProperties_Explosive">
@@ -540,7 +540,7 @@
   <ThingDef ParentName="RSTurretHAACBase">
     <defName>RSTurretHAAC</defName>
     <label>HAAC</label>
-    <description>A Heavy Anti Armour Cannon developed by Saturn Robtics Systems.</description>
+    <description>A Heavy Anti Armour Cannon developed by Saturn Robotics Systems.</description>
     <uiIconPath>Things/Building/Turrets/HAAC/HAACIcon</uiIconPath>
     <statBases>
       <ShootingAccuracyTurret>0.98</ShootingAccuracyTurret>
@@ -550,7 +550,7 @@
       <Steel>550</Steel>
       <Plasteel>75</Plasteel>
       <ComponentIndustrial>12</ComponentIndustrial>
-      <RSSRSProcessingChip>12</RSSRSProcessingChip>
+      <RSSRSProcessingChip>3</RSSRSProcessingChip>
     </costList>
     <comps>
       <li Class="CompProperties_Explosive">
@@ -608,8 +608,8 @@
     <thingClass>Projectile_Explosive</thingClass>
     <projectile>
       <damageDef>Bomb</damageDef>
-      <armorPenetrationBase>0.6</armorPenetrationBase>
-      <explosionRadius>3</explosionRadius>
+      <armorPenetrationBase>0.72</armorPenetrationBase>
+      <explosionRadius>2</explosionRadius>
       <damageAmountBase>40</damageAmountBase>
       <speed>50</speed>
     </projectile>
@@ -618,7 +618,7 @@
   <ThingDef ParentName="BaseWeaponTurret">
     <defName>RSTurretHAACGun</defName>
     <label>autocannon</label>
-    <description>A Heavy Anti Armour Cannon developed by Saturn Robtics Systems..</description>
+    <description>A Heavy Anti Armour Cannon developed by Saturn Robotics Systems.</description>
     <graphicData>
       <texPath>Things/Building/Turrets/HAAC/HAAC_top</texPath>
       <graphicClass>Graphic_Single</graphicClass>

@@ -48,9 +48,9 @@
       <!-- has roughly ~ 50% marketvalue -->
       <MarketValue>14000</MarketValue>
       <MoveSpeed>3</MoveSpeed>
-      <ArmorRating_Heat>2</ArmorRating_Heat>
-      <ArmorRating_Blunt>1.5</ArmorRating_Blunt>
-      <ArmorRating_Sharp>1.7</ArmorRating_Sharp>
+      <ArmorRating_Heat>1.8</ArmorRating_Heat>
+      <ArmorRating_Blunt>1.45</ArmorRating_Blunt>
+      <ArmorRating_Sharp>1.55</ArmorRating_Sharp>
     </statBases>
     <comps>
       <li>
@@ -105,10 +105,10 @@
       </li>
     </tools>
     <butcherProducts>
-      <RSSRSProcessingChip>8</RSSRSProcessingChip>
-      <ComponentIndustrial>14</ComponentIndustrial>
-      <Plasteel>100</Plasteel>
-      <Steel>225</Steel>
+      <RSSRSProcessingChip>6</RSSRSProcessingChip>
+      <ComponentIndustrial>10</ComponentIndustrial>
+      <Plasteel>70</Plasteel>
+      <Steel>200</Steel>
     </butcherProducts>
   </AlienRace.ThingDef_AlienRace>
 

@@ -55,7 +55,7 @@
     </race>
     <statBases>
       <!-- has roughly ~ 48% marketvalue -->
-      <MarketValue>4200</MarketValue>
+      <MarketValue>4750</MarketValue>
       <MoveSpeed>5.5</MoveSpeed>
       <ArmorRating_Heat>2</ArmorRating_Heat>
       <ArmorRating_Blunt>0.8</ArmorRating_Blunt>

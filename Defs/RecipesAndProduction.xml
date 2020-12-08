@@ -90,21 +90,13 @@
   <RecipeDef Name="RSPeacekeeperEnforcerRecipeBase" ParentName="RSPeacekeeperRecipeBase" Abstract="True">
     <description>Create the Peacekeeper Enforcer.</description>
     <ingredients>
-      <!--<li>
-				<filter>
-					<thingDefs>
-						<li>Plasteel</li>
-					</thingDefs>
-				</filter>
-				<count>20</count>
-			</li>-->
             <li>
         <filter>
           <thingDefs>
             <li>Plasteel</li>
           </thingDefs>
         </filter>
-        <count>50</count>
+        <count>48</count>
       </li>
       <li>
         <filter>
@@ -128,16 +120,8 @@
             <li>RSSRSProcessingChip</li>
           </thingDefs>
         </filter>
-        <count>8</count>
+        <count>5</count>
       </li>
-      <!--<li>
-				<filter>
-					<thingDefs>
-						<li>ComponentIndustrial</li>
-					</thingDefs>
-				</filter>
-				<count>10</count>
-			</li>-->
     </ingredients>
     <workAmount>10800</workAmount>
   </RecipeDef>
@@ -151,7 +135,7 @@
             <li>Plasteel</li>
           </thingDefs>
         </filter>
-        <count>200</count>
+        <count>144</count>
       </li>
       <li>
         <filter>
@@ -159,7 +143,7 @@
             <li>Steel</li>
           </thingDefs>
         </filter>
-        <count>750</count>
+        <count>475</count>
       </li>
       <li>
         <filter>
@@ -167,7 +151,7 @@
             <li>ComponentIndustrial</li>
           </thingDefs>
         </filter>
-        <count>24</count>
+        <count>16</count>
       </li>
       <li>
         <filter>
@@ -250,7 +234,8 @@
 
   <RecipeDef ParentName="RSPeacekeeperDefenderRecipeBase">
     <defName>RSCreatePeacekeeperDefender</defName>
-    <label>Create the Peacekeeper Defender</label>
+    <label>Create the Peacekeeper Defender Security.</label>
+    <description>The Defender Security variant features higher armour.</description>
     <products>
       <RSPeacekeeperDefenderSpawner>1</RSPeacekeeperDefenderSpawner>
     </products>
@@ -271,6 +256,7 @@
   <RecipeDef ParentName="RSPeacekeeperDefenderRecipeBase">
     <defName>RSCreatePeacekeeperDefenderForest</defName>
     <label>Create the Peacekeeper Defender Forest</label>
+    <description>The Defender Forest variant features higher melee skills and agility. It has a movement bonus on forest terrain.</description> 
     <products>
       <RSPeacekeeperDefenderForestSpawner>1</RSPeacekeeperDefenderForestSpawner>
     </products>
@@ -291,6 +277,7 @@
   <RecipeDef ParentName="RSPeacekeeperDefenderRecipeBase">
     <defName>RSCreatePeacekeeperDefenderDesert</defName>
     <label>Create the Peacekeeper Defender Desert</label>
+    <description>The Defender Desert variant features higher rate of fire. It has a movement bonus on desert terrain.</description>
     <products>
       <RSPeacekeeperDefenderDesertSpawner>1</RSPeacekeeperDefenderDesertSpawner>
     </products>
@@ -311,6 +298,7 @@
   <RecipeDef ParentName="RSPeacekeeperDefenderRecipeBase">
     <defName>RSCreatePeacekeeperDefenderWinter</defName>
     <label>Create the Peacekeeper Defender Winter</label>
+    <description>The Defender Winter variant features higher accuracy. It has a movement bonus on snowy terrain.</description>
     <products>
       <RSPeacekeeperDefenderWinterSpawner>1</RSPeacekeeperDefenderWinterSpawner>
     </products>
@@ -333,6 +321,7 @@
   <RecipeDef ParentName="RSPeacekeeperEnforcerRecipeBase">
     <defName>RSCreatePeacekeeperEnforcer</defName>
     <label>Create the Peacekeeper Enforcer</label>
+    <description>The Enforcer Security variant features higher armour.</description>
     <products>
       <RSPeacekeeperEnforcerSpawner>1</RSPeacekeeperEnforcerSpawner>
     </products>
@@ -353,6 +342,7 @@
   <RecipeDef ParentName="RSPeacekeeperEnforcerRecipeBase">
     <defName>RSCreatePeacekeeperEnforcerForest</defName>
     <label>Create the Peacekeeper Enforcer Forest</label>
+    <description>The Enforcer Forest variant features higher melee skills and agility. It has a movement bonus on forest terrain.</description>
     <products>
       <RSPeacekeeperEnforcerForestSpawner>1</RSPeacekeeperEnforcerForestSpawner>
     </products>
@@ -373,6 +363,7 @@
   <RecipeDef ParentName="RSPeacekeeperEnforcerRecipeBase">
     <defName>RSCreatePeacekeeperEnforcerDesert</defName>
     <label>Create the Peacekeeper Enforcer Desert</label>
+    <description>The Enforcer Desert variant features higher rate of fire. It has a movement bonus on desert terrain.</description>
     <products>
       <RSPeacekeeperEnforcerDesertSpawner>1</RSPeacekeeperEnforcerDesertSpawner>
     </products>
@@ -393,6 +384,7 @@
   <RecipeDef ParentName="RSPeacekeeperEnforcerRecipeBase">
     <defName>RSCreatePeacekeeperEnforcerWinter</defName>
     <label>Create the Peacekeeper Enforcer Winter</label>
+    <description>The Enforcer Winter variant features higher accuracy. It has a movement bonus on snowy terrain.</description>
     <products>
       <RSPeacekeeperEnforcerWinterSpawner>1</RSPeacekeeperEnforcerWinterSpawner>
     </products>
@@ -415,6 +407,7 @@
   <RecipeDef ParentName="RSPeacekeeperSentinelRecipeBase">
     <defName>RSCreatePeacekeeperSentinel</defName>
     <label>Create the Peacekeeper Sentinel</label>
+    <description>The Sentinel Security variant features higher armour.</description>
     <products>
       <RSPeacekeeperSentinelSpawner>1</RSPeacekeeperSentinelSpawner>
     </products>
@@ -435,6 +428,7 @@
   <RecipeDef ParentName="RSPeacekeeperSentinelRecipeBase">
     <defName>RSCreatePeacekeeperSentinelForest</defName>
     <label>Create the Peacekeeper Sentinel Forest</label>
+    <description>The Sentinel Forest variant features higher melee skills and agility. It has a movement bonus on forest terrain.</description>
     <products>
       <RSPeacekeeperSentinelForestSpawner>1</RSPeacekeeperSentinelForestSpawner>
     </products>
@@ -455,6 +449,7 @@
   <RecipeDef ParentName="RSPeacekeeperSentinelRecipeBase">
     <defName>RSCreatePeacekeeperSentinelDesert</defName>
     <label>Create the Peacekeeper Sentinel Desert</label>
+    <description>The Sentinel Desert variant features higher rate of fire. It has a movement bonus on desert terrain.</description>
     <products>
       <RSPeacekeeperSentinelDesertSpawner>1</RSPeacekeeperSentinelDesertSpawner>
     </products>
@@ -475,6 +470,7 @@
   <RecipeDef ParentName="RSPeacekeeperSentinelRecipeBase">
     <defName>RSCreatePeacekeeperSentinelWinter</defName>
     <label>Create the Peacekeeper Sentinel Winter</label>
+    <description>The Sentinel Winter variant features higher accuracy. It has a movement bonus on snowy terrain.</description>
     <products>
       <RSPeacekeeperSentinelWinterSpawner>1</RSPeacekeeperSentinelWinterSpawner>
     </products>
@@ -560,7 +556,7 @@
   <RecipeDef>
     <defName>Make_SRSPowerCell</defName>
     <label>make powercell from chemfuel</label>
-    <description>todo</description>
+    <description>Create an SRS powercell to aid SRS Robots travelling on long journeys.</description>
     <jobString>Creating powercells from chemfuel.</jobString>
     <effectWorking>Cremate</effectWorking>
     <soundWorking>Recipe_Cremate</soundWorking>

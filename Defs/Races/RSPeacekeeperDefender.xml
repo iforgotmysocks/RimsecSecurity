@@ -98,16 +98,16 @@
     </tools>
     <butcherProducts>
       <RSSRSProcessingChip>1</RSSRSProcessingChip>
-      <ComponentIndustrial>4</ComponentIndustrial>
-      <Plasteel>25</Plasteel>
-      <Steel>75</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+      <Plasteel>4</Plasteel>
+      <Steel>30</Steel>
     </butcherProducts>
   </AlienRace.ThingDef_AlienRace>
 
   <AlienRace.ThingDef_AlienRace ParentName="RSPeacekeeperDefenderBase" >
     <defName>RSPeacekeeperDefender</defName>
     <label>Peacekeeper Defender</label>
-    <description>Standard Security variant of the Defender, mostly commonly found on starships to urban military installations.</description>
+    <description>Standard Security variant of the Defender, mostly commonly found on starships to urban military installations. It features higher armour.</description>
     <alienRace>
       <generalSettings>
         <forcedRaceTraitEntries>
@@ -137,7 +137,7 @@
   <AlienRace.ThingDef_AlienRace ParentName="RSPeacekeeperDefenderBase" >
     <defName>RSPeacekeeperDefenderForest</defName>
     <label>Peacekeeper Defender Forest</label>
-    <description>Forest variant of the Defender.</description>
+    <description>Forest variant of the Defender. It features higher melee skills and agility and has a movement bonus on forest terrain.</description>
     <alienRace>
       <generalSettings>
       <forcedRaceTraitEntries>
@@ -167,7 +167,7 @@
   <AlienRace.ThingDef_AlienRace ParentName="RSPeacekeeperDefenderBase" >
     <defName>RSPeacekeeperDefenderDesert</defName>
     <label>Peacekeeper Defender Desert</label>
-    <description>Desert variant of the Defender.</description>
+    <description>Desert variant of the Defender. It features higher rate of fire and has a movement bonus on desert terrain.</description>
     <alienRace>
       <generalSettings>
       <forcedRaceTraitEntries>
@@ -197,7 +197,7 @@
   <AlienRace.ThingDef_AlienRace ParentName="RSPeacekeeperDefenderBase" >
     <defName>RSPeacekeeperDefenderWinter</defName>
     <label>Peacekeeper Defender Winter</label>
-    <description>Winter variant of the Defender.</description>
+    <description>Winter variant of the Defender. It features higher accuracy and has a movement bonus on snowy terrain.</description>
     <alienRace>
       <generalSettings>
       <forcedRaceTraitEntries>
