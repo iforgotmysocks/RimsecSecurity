@@ -282,7 +282,7 @@
 
   <ThingDef ParentName="BaseBullet">
     <defName>RSTurretLLTBullet</defName>
-    <label>autocannon shell</label>
+    <label>light laser</label>
     <graphicData>
       <texPath>Things/Building/Turrets/LLT/Laserbolt</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -453,7 +453,7 @@
 
   <ThingDef ParentName="BaseWeaponTurret">
     <defName>RSTurretHLTGun</defName>
-    <label>autocannon</label>
+    <label>heavy laser</label>
     <description>An Advanced Laser Defense System from Saturn Robotics System.</description>
     <graphicData>
       <texPath>Things/Building/Turrets/HLT/HLT_top</texPath>
@@ -616,7 +616,7 @@
 
   <ThingDef ParentName="BaseBullet">
     <defName>RSTurretHAACBullet</defName>
-    <label>autocannon shell</label>
+    <label>HAAC shell</label>
     <thingClass>RimsecSecurity.Projectile_BodySize</thingClass>
     <graphicData>
       <texPath>Things/Building/Turrets/HAAC/HAAC_projectile</texPath>
