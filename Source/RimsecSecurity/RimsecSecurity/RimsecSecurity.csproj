@@ -70,6 +70,7 @@
     <Compile Include="JobDriver_ManualRepair.cs" />
     <Compile Include="PatchesCompatibility.cs" />
     <Compile Include="PlaceWorker_ShowTurretRadiusWithOffset.cs" />
+    <Compile Include="Projectile_BodySize.cs" />
     <Compile Include="RSDefOf.cs" />
     <Compile Include="JobDriver_FuelRobot.cs" />
     <Compile Include="JobDriver_TakeToRechargeStation.cs" />

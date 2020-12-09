@@ -543,8 +543,7 @@
     <description>A Heavy Anti Armour Cannon developed by Saturn Robotics Systems.</description>
     <uiIconPath>Things/Building/Turrets/HAAC/HAACIcon</uiIconPath>
     <statBases>
-      <ShootingAccuracyTurret>0.98</ShootingAccuracyTurret>
-      <!-- like level 14 human shooter -->
+      <ShootingAccuracyTurret>0.99</ShootingAccuracyTurret>
     </statBases>
     <costList>
       <Steel>550</Steel>
@@ -615,6 +614,23 @@
     </projectile>
   </ThingDef>
 
+  <ThingDef ParentName="BaseBullet">
+    <defName>RSTurretHAACBullet</defName>
+    <label>autocannon shell</label>
+    <thingClass>RimsecSecurity.Projectile_BodySize</thingClass>
+    <graphicData>
+      <texPath>Things/Building/Turrets/HAAC/HAAC_projectile</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>TransparentPostLight</shaderType>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>25</damageAmountBase>
+      <armorPenetrationBase>0.72</armorPenetrationBase>
+      <speed>70</speed>
+    </projectile>
+  </ThingDef>
+
   <ThingDef ParentName="BaseWeaponTurret">
     <defName>RSTurretHAACGun</defName>
     <label>autocannon</label>
@@ -626,7 +642,7 @@
     <statBases>
       <AccuracyTouch>0.40</AccuracyTouch>
       <AccuracyShort>0.50</AccuracyShort>
-      <AccuracyMedium>0.60</AccuracyMedium>
+      <AccuracyMedium>0.80</AccuracyMedium>
       <AccuracyLong>0.95</AccuracyLong>
       <RangedWeapon_Cooldown>4</RangedWeapon_Cooldown>
       <DeteriorationRate>0</DeteriorationRate>
@@ -637,17 +653,17 @@
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <defaultProjectile>RSMissile</defaultProjectile>
-        <forcedMissRadius>1.2</forcedMissRadius>
+        <defaultProjectile>RSTurretHAACBullet</defaultProjectile>
+        <!--<forcedMissRadius>1.2</forcedMissRadius>-->
         <warmupTime>0</warmupTime>
         <minRange>11.9</minRange>
         <range>50</range>
-        <ticksBetweenBurstShots>0</ticksBetweenBurstShots>
-        <burstShotCount>1</burstShotCount>
+        <ticksBetweenBurstShots>120</ticksBetweenBurstShots>
+        <burstShotCount>2</burstShotCount>
         <soundCast>RSHAACProjectileLaunch</soundCast>
         <soundCastTail>GunTail_Heavy</soundCastTail>
         <muzzleFlashScale>18</muzzleFlashScale>
-        <consumeFuelPerShot>1</consumeFuelPerShot>
+        <consumeFuelPerShot>0.5</consumeFuelPerShot>
       </li>
     </verbs>
   </ThingDef>
