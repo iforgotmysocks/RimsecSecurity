@@ -15,7 +15,7 @@
     <statBases>
       <MaxHitPoints>300</MaxHitPoints>
       <WorkToBuild>5000</WorkToBuild>
-      <Flammability>1.0</Flammability>
+      <Flammability>0.5</Flammability>
       <Comfort>0.4</Comfort>
     </statBases>
     <costList>
@@ -192,8 +192,8 @@
       <li>BuildingsSecurity</li>
     </thingCategories>
     <statBases>
-      <MaxHitPoints>200</MaxHitPoints>
-      <Flammability>0.5</Flammability>
+      <MaxHitPoints>350</MaxHitPoints>
+      <Flammability>0.1</Flammability>
       <WorkToBuild>1800</WorkToBuild>
       <Mass>8</Mass>
       <Beauty>-20</Beauty>
@@ -351,8 +351,8 @@
     <rotatable>false</rotatable>
     <size>(3,3)</size>
     <statBases>
-      <MaxHitPoints>500</MaxHitPoints>
-      <Flammability>0.5</Flammability>
+      <MaxHitPoints>600</MaxHitPoints>
+      <Flammability>0.1</Flammability>
       <WorkToBuild>15000</WorkToBuild>
       <Mass>100</Mass>
       <Beauty>-20</Beauty>
@@ -511,8 +511,8 @@
     <rotatable>false</rotatable>
     <size>(4,4)</size>
     <statBases>
-      <MaxHitPoints>650</MaxHitPoints>
-      <Flammability>0.5</Flammability>
+      <MaxHitPoints>750</MaxHitPoints>
+      <Flammability>0.1</Flammability>
       <WorkToBuild>15000</WorkToBuild>
       <Mass>100</Mass>
       <Beauty>-20</Beauty>
