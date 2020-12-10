@@ -31,7 +31,7 @@
     </alienRace>
     <race>
       <baseBodySize>2</baseBodySize>
-      <baseHealthScale>5</baseHealthScale>
+      <baseHealthScale>3</baseHealthScale>
       <nameGenerator>RSPeacekeeperSentinelNameGen</nameGenerator>
     </race>
     <modExtensions>
@@ -49,7 +49,7 @@
       <MarketValue>14000</MarketValue>
       <MoveSpeed>3</MoveSpeed>
       <ArmorRating_Heat>2</ArmorRating_Heat>
-      <ArmorRating_Blunt>1.45</ArmorRating_Blunt>
+      <ArmorRating_Blunt>1.35</ArmorRating_Blunt>
       <ArmorRating_Sharp>1.55</ArmorRating_Sharp>
     </statBases>
     <comps>
