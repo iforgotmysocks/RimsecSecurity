@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-  
+
   <AlienRace.BackstoryDef>
     <defName>RSPeacekeeperBackstoryChildDefender</defName>
     <title>Defender</title>
@@ -12,7 +12,9 @@
     </spawnCategories>
     <bodyTypeGlobal>Male</bodyTypeGlobal>
     <workDisables>
-      <li>AllWork</li>
+      <li>Commoner</li>
+      <li>ManualDumb</li>
+      <li>Social</li>
     </workDisables>
     <skillGains>
       <li>
@@ -37,7 +39,9 @@
     </spawnCategories>
     <bodyTypeGlobal>Male</bodyTypeGlobal>
     <workDisables>
-      <li>AllWork</li>
+      <li>Commoner</li>
+      <li>ManualDumb</li>
+      <li>Social</li>
     </workDisables>
     <skillGains>
       <li>
@@ -62,7 +66,22 @@
     </spawnCategories>
     <bodyTypeGlobal>Male</bodyTypeGlobal>
     <workDisables>
-      <li>AllWork</li>
+      <!--<li>Animals</li>
+      <li>Crafting</li>
+      <li>Cooking</li>
+      <li>Firefighting</li>
+      <li>Commoner</li>
+      <li>Hunting</li>
+
+      <li>PlantWork</li>
+      <li>Mining</li>
+      <li>Artistic</li>
+      <li>Cleaning</li>
+      <li>Intellectual</li>-->
+      <!--<li>ManualSkilled</li>-->
+      <li>Commoner</li>
+      <li>ManualDumb</li>
+      <li>Social</li>
     </workDisables>
     <skillGains>
       <li>
@@ -97,6 +116,5 @@
       </li>
     </skillGains>
   </AlienRace.BackstoryDef>
-
 
 </Defs>

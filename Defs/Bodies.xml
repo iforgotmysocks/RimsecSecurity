@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+  <BodyPartDef>
+    <defName>RSPeacekeeperHead</defName>
+    <label>head</label>
+    <hitPoints>25</hitPoints>
+    <skinCovered>false</skinCovered>
+    <canSuggestAmputation>false</canSuggestAmputation>
+    <bleedRate>0</bleedRate>
+  </BodyPartDef>
+
 	<BodyDef>
 		<defName>RSPeacekeeperBody</defName>
 		<label>Skeleton</label>
@@ -21,7 +30,8 @@
 					</groups>
 					<parts>
 						<li>
-							<def>Head</def>
+							<!--<def>Head</def>-->
+              <def>RSPeacekeeperHead</def>
 							<coverage>0.80</coverage>
 							<groups>
 								<li>UpperHead</li>

@@ -15,7 +15,7 @@
     <statBases>
       <MaxHitPoints>300</MaxHitPoints>
       <WorkToBuild>5000</WorkToBuild>
-      <Flammability>1.0</Flammability>
+      <Flammability>0.5</Flammability>
       <Comfort>0.4</Comfort>
     </statBases>
     <costList>
@@ -192,8 +192,8 @@
       <li>BuildingsSecurity</li>
     </thingCategories>
     <statBases>
-      <MaxHitPoints>200</MaxHitPoints>
-      <Flammability>0.5</Flammability>
+      <MaxHitPoints>350</MaxHitPoints>
+      <Flammability>0.1</Flammability>
       <WorkToBuild>1800</WorkToBuild>
       <Mass>8</Mass>
       <Beauty>-20</Beauty>
@@ -232,7 +232,7 @@
       <Steel>175</Steel>
       <Plasteel>15</Plasteel>
       <ComponentIndustrial>4</ComponentIndustrial>
-      <RSSRSProcessingChip>2</RSSRSProcessingChip>
+      <RSSRSProcessingChip>1</RSSRSProcessingChip>
     </costList>
     <comps>
       <!--<li Class="CompProperties_Explosive">
@@ -282,7 +282,7 @@
 
   <ThingDef ParentName="BaseBullet">
     <defName>RSTurretLLTBullet</defName>
-    <label>autocannon shell</label>
+    <label>light laser</label>
     <graphicData>
       <texPath>Things/Building/Turrets/LLT/Laserbolt</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -351,8 +351,8 @@
     <rotatable>false</rotatable>
     <size>(3,3)</size>
     <statBases>
-      <MaxHitPoints>500</MaxHitPoints>
-      <Flammability>0.5</Flammability>
+      <MaxHitPoints>600</MaxHitPoints>
+      <Flammability>0.1</Flammability>
       <WorkToBuild>15000</WorkToBuild>
       <Mass>100</Mass>
       <Beauty>-20</Beauty>
@@ -390,7 +390,7 @@
       <Steel>300</Steel>
       <Plasteel>25</Plasteel>
       <ComponentIndustrial>8</ComponentIndustrial>
-      <RSSRSProcessingChip>6</RSSRSProcessingChip>
+      <RSSRSProcessingChip>2</RSSRSProcessingChip>
     </costList>
     <comps>
       <!--<li Class="CompProperties_Explosive">
@@ -453,7 +453,7 @@
 
   <ThingDef ParentName="BaseWeaponTurret">
     <defName>RSTurretHLTGun</defName>
-    <label>autocannon</label>
+    <label>heavy laser</label>
     <description>An Advanced Laser Defense System from Saturn Robotics System.</description>
     <graphicData>
       <texPath>Things/Building/Turrets/HLT/HLT_top</texPath>
@@ -511,8 +511,8 @@
     <rotatable>false</rotatable>
     <size>(4,4)</size>
     <statBases>
-      <MaxHitPoints>650</MaxHitPoints>
-      <Flammability>0.5</Flammability>
+      <MaxHitPoints>750</MaxHitPoints>
+      <Flammability>0.1</Flammability>
       <WorkToBuild>15000</WorkToBuild>
       <Mass>100</Mass>
       <Beauty>-20</Beauty>
@@ -540,17 +540,16 @@
   <ThingDef ParentName="RSTurretHAACBase">
     <defName>RSTurretHAAC</defName>
     <label>HAAC</label>
-    <description>A Heavy Anti Armour Cannon developed by Saturn Robtics Systems.</description>
+    <description>A Heavy Anti Armour Cannon developed by Saturn Robotics Systems.</description>
     <uiIconPath>Things/Building/Turrets/HAAC/HAACIcon</uiIconPath>
     <statBases>
-      <ShootingAccuracyTurret>0.98</ShootingAccuracyTurret>
-      <!-- like level 14 human shooter -->
+      <ShootingAccuracyTurret>0.99</ShootingAccuracyTurret>
     </statBases>
     <costList>
       <Steel>550</Steel>
       <Plasteel>75</Plasteel>
       <ComponentIndustrial>12</ComponentIndustrial>
-      <RSSRSProcessingChip>12</RSSRSProcessingChip>
+      <RSSRSProcessingChip>3</RSSRSProcessingChip>
     </costList>
     <comps>
       <li Class="CompProperties_Explosive">
@@ -608,17 +607,34 @@
     <thingClass>Projectile_Explosive</thingClass>
     <projectile>
       <damageDef>Bomb</damageDef>
-      <armorPenetrationBase>0.6</armorPenetrationBase>
-      <explosionRadius>3</explosionRadius>
+      <armorPenetrationBase>0.72</armorPenetrationBase>
+      <explosionRadius>2</explosionRadius>
       <damageAmountBase>40</damageAmountBase>
       <speed>50</speed>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>RSTurretHAACBullet</defName>
+    <label>HAAC shell</label>
+    <thingClass>RimsecSecurity.Projectile_BodySize</thingClass>
+    <graphicData>
+      <texPath>Things/Building/Turrets/HAAC/HAAC_projectile</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>TransparentPostLight</shaderType>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>25</damageAmountBase>
+      <armorPenetrationBase>0.72</armorPenetrationBase>
+      <speed>70</speed>
     </projectile>
   </ThingDef>
 
   <ThingDef ParentName="BaseWeaponTurret">
     <defName>RSTurretHAACGun</defName>
     <label>autocannon</label>
-    <description>A Heavy Anti Armour Cannon developed by Saturn Robtics Systems..</description>
+    <description>A Heavy Anti Armour Cannon developed by Saturn Robotics Systems.</description>
     <graphicData>
       <texPath>Things/Building/Turrets/HAAC/HAAC_top</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -626,7 +642,7 @@
     <statBases>
       <AccuracyTouch>0.40</AccuracyTouch>
       <AccuracyShort>0.50</AccuracyShort>
-      <AccuracyMedium>0.60</AccuracyMedium>
+      <AccuracyMedium>0.80</AccuracyMedium>
       <AccuracyLong>0.95</AccuracyLong>
       <RangedWeapon_Cooldown>4</RangedWeapon_Cooldown>
       <DeteriorationRate>0</DeteriorationRate>
@@ -637,17 +653,17 @@
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <defaultProjectile>RSMissile</defaultProjectile>
-        <forcedMissRadius>1.2</forcedMissRadius>
+        <defaultProjectile>RSTurretHAACBullet</defaultProjectile>
+        <!--<forcedMissRadius>1.2</forcedMissRadius>-->
         <warmupTime>0</warmupTime>
         <minRange>11.9</minRange>
         <range>50</range>
-        <ticksBetweenBurstShots>0</ticksBetweenBurstShots>
-        <burstShotCount>1</burstShotCount>
+        <ticksBetweenBurstShots>120</ticksBetweenBurstShots>
+        <burstShotCount>2</burstShotCount>
         <soundCast>RSHAACProjectileLaunch</soundCast>
         <soundCastTail>GunTail_Heavy</soundCastTail>
         <muzzleFlashScale>18</muzzleFlashScale>
-        <consumeFuelPerShot>1</consumeFuelPerShot>
+        <consumeFuelPerShot>0.5</consumeFuelPerShot>
       </li>
     </verbs>
   </ThingDef>

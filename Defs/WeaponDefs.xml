@@ -204,7 +204,7 @@
     <projectile>
       <damageDef>Bullet</damageDef>
       <damageAmountBase>8</damageAmountBase>
-      <armorPenetrationBase>0.15</armorPenetrationBase>
+      <armorPenetrationBase>0.10</armorPenetrationBase>
       <speed>75</speed>
     </projectile>
   </ThingDef>
@@ -265,7 +265,7 @@
         <warmupTime>1.7</warmupTime>
         <range>40</range>
         <ticksBetweenBurstShots>60</ticksBetweenBurstShots>
-        <burstShotCount>2</burstShotCount>
+        <burstShotCount>3</burstShotCount>
         <soundCast>RSShot_Shag</soundCast>
         <soundCastTail>GunTail_Medium</soundCastTail>
         <muzzleFlashScale>9</muzzleFlashScale>
@@ -300,10 +300,10 @@
     </graphicData>
     <projectile>
       <damageDef>Bullet</damageDef>
-      <damageAmountBase>25</damageAmountBase>
+      <damageAmountBase>30</damageAmountBase>
       <stoppingPower>3</stoppingPower>
       <speed>120</speed>
-      <armorPenetrationBase>0.7</armorPenetrationBase>
+      <armorPenetrationBase>0.65</armorPenetrationBase>
     </projectile>
   </ThingDef>
 
