@@ -263,7 +263,7 @@
         <hasStandardCommand>true</hasStandardCommand>
         <defaultProjectile>RSWeaponSHAGBullet</defaultProjectile>
         <warmupTime>1.7</warmupTime>
-        <range>40</range>
+        <range>34</range>
         <ticksBetweenBurstShots>60</ticksBetweenBurstShots>
         <burstShotCount>3</burstShotCount>
         <soundCast>RSShot_Shag</soundCast>
