@@ -27,5 +27,7 @@ Shakesthespeare - Artwork
 iforgotmysocks - Code  
 Stormtail - Sounds  
 dpren (freesound.org) - HAAC Sound  
-Jecrell - OversizedWeaponComp.dll  
+Breviceps (freedound.org) - Shag Sound  
+Badman - CE compatibility patch  
+Jecrell - CompOversizedWeapon.dll  
 
