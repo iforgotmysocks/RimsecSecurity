@@ -18,7 +18,7 @@ namespace RimsecSecurity
         protected override IEnumerable<Toil> MakeNewToils()
         {
             yield return Toils_Goto.GotoThing(TargetIndex.A, Station.GetStandPosition(this.pawn)).FailOn(() => this.pawn.Drafted).FailOnDespawnedNullOrForbidden(TargetIndex.A);
-            Toil toil = new Toil();
+            var toil = new Toil();
             toil.initAction = delegate ()
             {
                 base.Map.pawnDestinationReservationManager.Reserve(this.pawn, this.job, this.pawn.Position);

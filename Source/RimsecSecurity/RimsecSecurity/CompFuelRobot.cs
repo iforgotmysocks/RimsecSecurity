@@ -20,7 +20,7 @@ namespace RimsecSecurity
 
             yield return new FloatMenuOption("RSFuelRobotFloatMenu".Translate(), delegate ()
             {
-                Job job = PeacekeeperUtility.RefuelJob(selPawn, Parent);
+                var job = PeacekeeperUtility.RefuelJob(selPawn, Parent);
                 job.count = 1;
                 selPawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
             }, MenuOptionPriority.Default, null, null, 0f, null, null)

@@ -44,7 +44,6 @@ namespace RimsecSecurity
             {
                 if (Parent.CurrentRobot != null && PeacekeeperUtility.IsPeacekeeper(Parent.CurrentRobot))
                 {
-                    //RunDebugStuff();
                     ComponentsForManualRepair = CalculateManualRepairCost();
                     AvailableComponents = Parent.CompFuel.Fuel;
 
@@ -175,35 +174,9 @@ namespace RimsecSecurity
 
         public void RepairManually(Pawn pawn)
         {
-            Job job = JobMaker.MakeJob(RSDefOf.RSManualRepair, this.parent, Parent.CurrentRobot);
+            var job = JobMaker.MakeJob(RSDefOf.RSManualRepair, this.parent, Parent.CurrentRobot);
             job.count = 1;
             pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
-        }
-
-        private void RunDebugStuff()
-        {
-            // todo remove debug stuff
-            Log.Message($"does this run without error?");
-            var pawn = Parent.CurrentRobot;
-            bool flag = !pawn.workSettings.EverWork;
-            if (flag)
-            {
-                pawn.workSettings.EnableAndInitialize();
-            }
-            foreach (WorkTypeDef workTypeDef in DefDatabase<WorkTypeDef>.AllDefs)
-            {
-                //bool flag2 = WorkSettings.WorkDisabled(workTypeDef);
-                //if (flag2)
-                //{
-                //    pawn.workSettings.Disable(workTypeDef);
-                //}
-            }
-            bool flag3 = pawn.timetable == null;
-            if (flag3)
-            {
-                pawn.timetable = new Pawn_TimetableTracker(pawn);
-            }
-            pawn.playerSettings.AreaRestriction = null;
         }
 
     }
