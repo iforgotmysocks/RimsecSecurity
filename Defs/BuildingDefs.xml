@@ -527,7 +527,7 @@
     <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
     <building>
       <ai_combatDangerous>true</ai_combatDangerous>
-      <turretTopDrawSize>5</turretTopDrawSize>
+      <turretTopDrawSize>6.5</turretTopDrawSize>
       <turretTopOffset>(0, 0.5)</turretTopOffset>
     </building>
     <placeWorkers>
