@@ -17,13 +17,13 @@ namespace RimsecSecurity
 
         protected override bool TryExecuteWorker(IncidentParms parms)
         {
-            Map map = (Map)parms.target;
+            var map = (Map)parms.target;
             if (map.passingShipManager.passingShips.Count >= MaxShips)
             {
                 return false;
             }
 
-            TradeShip tradeShip = new TradeShip(RSDefOf.RSSRSTradeShip);
+            var tradeShip = new TradeShip(RSDefOf.RSSRSTradeShip);
             if (map.listerBuildings.allBuildingsColonist.Any((Building b) => b.def.IsCommsConsole && (b.GetComp<CompPowerTrader>() == null || b.GetComp<CompPowerTrader>().PowerOn)))
             {
                 base.SendStandardLetter(tradeShip.def.LabelCap, "TraderArrival".Translate(tradeShip.name, tradeShip.def.label, (tradeShip.Faction == null) ? "TraderArrivalNoFaction".Translate() : "TraderArrivalFromFaction".Translate(tradeShip.Faction.Named("FACTION"))), LetterDefOf.PositiveEvent, parms, LookTargets.Invalid, Array.Empty<NamedArgument>());

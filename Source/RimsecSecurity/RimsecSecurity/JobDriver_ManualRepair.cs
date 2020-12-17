@@ -13,19 +13,21 @@ namespace RimsecSecurity
     class JobDriver_ManualRepair : JobDriver
     {
         protected Building_ChargeStation Station => this.job.GetTarget(TargetIndex.A).Thing as Building_ChargeStation;
-        public override bool TryMakePreToilReservations(bool errorOnFailed) => 
+        public override bool TryMakePreToilReservations(bool errorOnFailed) =>
             this.pawn.Reserve(this.job.targetB, this.job, 1, -1, null, errorOnFailed);
-        
+
         protected override IEnumerable<Toil> MakeNewToils()
         {
             yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.ClosestTouch).FailOn(() => this.pawn.Drafted).FailOnDespawnedNullOrForbidden(TargetIndex.B);
-			yield return Toils_General.Wait(Station.CurrentRobot.def.GetModExtension<RSPeacekeeperModExt>().repairTicks, TargetIndex.None).FailOnDestroyedNullOrForbidden(TargetIndex.A).FailOnCannotTouch(TargetIndex.A, PathEndMode.Touch).WithProgressBarToilDelay(TargetIndex.A, false, -0.5f).WithEffect(EffecterDefOf.ConstructMetal, TargetIndex.A);
-			yield return new Toil {
-				initAction = () => {
-					FullyRepair(Station.CurrentRobot);
-					Station.CompFuel.ConsumeFuel(Station.CompRecharge.ComponentsForManualRepair);
-				} 
-			}.FailOn(() => Station.CurrentRobot == null || Station.CompRecharge.ComponentsForManualRepair == 0);
+            yield return Toils_General.Wait(Station.CurrentRobot.def.GetModExtension<RSPeacekeeperModExt>().repairTicks, TargetIndex.None).FailOnDestroyedNullOrForbidden(TargetIndex.A).FailOnCannotTouch(TargetIndex.A, PathEndMode.Touch).WithProgressBarToilDelay(TargetIndex.A, false, -0.5f).WithEffect(EffecterDefOf.ConstructMetal, TargetIndex.A);
+            yield return new Toil
+            {
+                initAction = () =>
+                {
+                    FullyRepair(Station.CurrentRobot);
+                    Station.CompFuel.ConsumeFuel(Station.CompRecharge.ComponentsForManualRepair);
+                }
+            }.FailOn(() => Station.CurrentRobot == null || Station.CompRecharge.ComponentsForManualRepair == 0);
         }
 
         private void FullyRepair(Pawn currentRobo)
@@ -33,10 +35,10 @@ namespace RimsecSecurity
             MoteMaker.ThrowDustPuffThick(currentRobo.Position.ToVector3(), currentRobo.Map, Rand.Range(1.5f, 3f), new UnityEngine.Color(1f, 1f, 1f, 2.5f));
             foreach (var hediff in currentRobo.health.hediffSet.hediffs.Reverse<Hediff>())
             {
-				if (hediff is Hediff_Injury injury) injury.Severity = 0;
-				if (hediff is Hediff_MissingPart) currentRobo.health.hediffSet.hediffs.Remove(hediff);
+                if (hediff is Hediff_Injury injury) injury.Severity = 0;
+                if (hediff is Hediff_MissingPart) currentRobo.health.hediffSet.hediffs.Remove(hediff);
             }
         }
 
-	}
+    }
 }

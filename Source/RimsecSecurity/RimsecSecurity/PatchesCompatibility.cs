@@ -68,9 +68,7 @@ namespace RimsecSecurity
 
         public static bool JobGiver_Labor_TryIssueJobPackage_Prefix(ref ThinkResult __result, Pawn pawn)
         {
-            Log.Message($"JobPackage: pawn the error is being thrown for: {pawn.NameShortColored} {pawn.def.defName}");
             if (!PeacekeeperUtility.IsPeacekeeper(pawn)) return true;
-            Log.Message($"Prefixing JobPackage");
             __result = ThinkResult.NoJob;
             return false;
         }
@@ -84,9 +82,7 @@ namespace RimsecSecurity
 
         public static bool WorkSettings_InitWorkSettings_Prefix(Pawn pawn)
         {
-            Log.Message($"InitWorkSettings: pawn the error is being thrown for: {pawn.NameShortColored} {pawn.def.defName}");
             if (!PeacekeeperUtility.IsPeacekeeper(pawn)) return true;
-            Log.Message($"Prefixing InitWorkSettings");
             if (pawn?.playerSettings?.AreaRestriction != null) pawn.playerSettings.AreaRestriction = null;
             return false;
         }

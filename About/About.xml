@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
-	<name>RimsecSecurity</name>
+	<name>Rimsec Security</name>
 	<author>Shakesthespeare, iforgotmysocks</author>
 	<url></url>
   <supportedVersions>
@@ -21,7 +21,7 @@
   </modDependencies>
   <packageId>shakesthespeare.RimsecSecurity</packageId>
 	<description>
-[Version 0.1.6]
+[Version 1.0.0]
     
 As of now Rimsec Security offers 3 robots, 3 guns, 3 turrets, 1 maintenance station, 1 assembly bench, 1 trade ship (SRS trade ship) and 1 unique component.
 
@@ -36,6 +36,8 @@ The assembly bench is used to build robots. It however cannot be built but rathe
 
 The trade ship (SRS trade ship) is where you can acquire robots, assembly bench(es), SRS Processing chips and other vanilla items such as components and chemfuel.
 
-And finally the SRS Processing Unit (unique component) which is a requirement to build SRS Robots and can only be bought!
+The SRS Processing Unit (unique component) which is a requirement to build SRS Robots and can only be bought.
+
+And finally the SRS Power Cell (unique fuel) is used to help fuel your robots for long journeys across the Rimworld!
   </description>
 </ModMetaData>
