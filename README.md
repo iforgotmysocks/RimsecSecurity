@@ -1,6 +1,6 @@
 # RimsecSecurity
 
-RimsecSecurity is now in public testing. Please report bugs and possible mod incompatibilities. As always when testing new mods, backup your saves! Thanks guys.
+RimsecSecurity is now released. Please report bugs and possible mod incompatibilities. As always when trying new mods, backup your saves! Thanks guys.
 
 # Mod description
 As of now Rimsec Security offers 3 robots, 3 guns, 3 turrets, 1 maintenance station, 1 assembly bench, 1 trade ship (SRS trade ship) and 1 unique component.
@@ -16,11 +16,17 @@ The assembly bench is used to build robots. It however cannot be built but rathe
 
 The trade ship (SRS trade ship) is where you can acquire robots, assembly bench(es), SRS Processing chips and other vanilla items such as components and chemfuel.
 
-And finally the SRS Processing Unit (unique component) which is a requirement to build SRS Robots and can only be bought!
+The SRS Processing Unit (unique component) which is a requirement to build SRS Robots and can only be bought.
+
+And finally the SRS Power Cell (unique fuel) is used to help fuel your robots for long journeys across the Rimworld!
 
 # Mod dependencies
 - Harmony https://steamcommunity.com/workshop/filedetails/?id=2009463077
 - Humanoid Alien Races 2.0 https://steamcommunity.com/sharedfiles/filedetails/?id=839005762
+
+# Mod incompatibilities
+
+At the moment Rimsec Security is incompatible with Combat Extended however, we do plan on making it compatible with Rimsec Security.
 
 # Credits
 Shakesthespeare - Artwork  
@@ -30,4 +36,3 @@ dpren (freesound.org) - HAAC Sound
 Breviceps (freedound.org) - Shag Sound  
 Badman - CE compatibility patch  
 Jecrell - CompOversizedWeapon.dll  
-
