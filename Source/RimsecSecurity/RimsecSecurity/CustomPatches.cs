@@ -17,7 +17,8 @@ namespace RimsecSecurity
             PatchRobotNoFoodAndRecipes();
             PatchStorytellers();
             PatchRemoveRottingFromCorpses();
-            PatchDebug();
+            // disabled for now
+            //PatchDebug();
         }
 
         // disabled for now -> handled by recipes

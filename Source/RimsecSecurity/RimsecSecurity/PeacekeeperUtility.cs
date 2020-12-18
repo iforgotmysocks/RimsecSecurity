@@ -46,6 +46,34 @@ namespace RimsecSecurity
             return robot;
         }
 
+        internal static void SpawnRandomRobot()
+        {
+            if (Find.World == null)
+            {
+                Messages.Message(new Message("No world found", MessageTypeDefOf.NegativeEvent));
+                return;
+            }
+            var currentMap = Find.RandomPlayerHomeMap;
+            if (currentMap == null)
+            {
+                Messages.Message(new Message("No map found", MessageTypeDefOf.NegativeEvent));
+                return;
+            }
+            var peaceKeepers = DefDatabase<PawnKindDef>.AllDefs.Where(def => def.race.HasModExtension<RSPeacekeeperModExt>());
+            if (peaceKeepers == null || peaceKeepers.Count() == 0) return;
+            var selectedKeeper = peaceKeepers.RandomElement();
+            var robot = GeneratePeacekeeper(selectedKeeper, currentMap.Tile);
+            if (robot == null) return;
+            var cell = currentMap.mapPawns.FreeColonists.FirstOrDefault()?.Position ?? currentMap.AllCells.Where(curCell => curCell.Walkable(currentMap) && !curCell.Fogged(currentMap) && curCell != default).RandomElement();
+            if (cell == default) return;  
+            
+            var spawnedRobot = GenSpawn.Spawn(robot, cell, currentMap) as Pawn;
+            if (spawnedRobot == null) return;
+            var gun = ThingMaker.MakeThing(selectedKeeper.race.GetModExtension<RSPeacekeeperModExt>().gunDef) as ThingWithComps;
+            spawnedRobot.equipment.MakeRoomFor(gun);
+            spawnedRobot.equipment.AddEquipment(gun);
+        }
+
         public static IntVec3 GetSleepingPosForChargeStation(Pawn takee, Thing station)
         {
             var pos = BedUtility.GetSleepingSlotPos(0, station.Position, station.Rotation, station.def.size);

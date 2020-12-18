@@ -29,6 +29,13 @@ namespace RimsecSecurity
                 var post_ColonistBar_CheckRecacheEntries = new HarmonyMethod(typeof(TargettedPatches), nameof(TargettedPatches.ColonistBar_CheckRecacheEntries_Postfix));
                 harmony.Patch(org_ColonistBar_CheckRecacheEntries, null, post_ColonistBar_CheckRecacheEntries);
             }
+
+            if (!ModSettings.countPeacekeepersTowardsPopulation)
+            {
+                var org_StorytellerUtilityPopulation_AdjustedPopulation_get = AccessTools.PropertyGetter(typeof(StorytellerUtilityPopulation), "AdjustedPopulation");
+                var post_StorytellerUtilityPopulation_AdjustedPopulation_get = new HarmonyMethod(typeof(TargettedPatches), nameof(TargettedPatches.StorytellerUtilityPopulation_AdjustedPopulation_get_Postfix));
+                harmony.Patch(org_StorytellerUtilityPopulation_AdjustedPopulation_get, null, post_StorytellerUtilityPopulation_AdjustedPopulation_get);
+            }
         }
     }
 
@@ -618,6 +625,13 @@ namespace RimsecSecurity
         public static void ColonistBar_CheckRecacheEntries_Postfix(List<ColonistBar.Entry> ___cachedEntries)
         {
             ___cachedEntries.RemoveAll(entry => PeacekeeperUtility.IsPeacekeeper(entry.pawn));
+        }
+
+        public static void StorytellerUtilityPopulation_AdjustedPopulation_get_Postfix(ref float __result)
+        {
+            var robotCount = PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive_Colonists?.Where(colonist => PeacekeeperUtility.IsPeacekeeper(colonist))?.Count();
+            if (robotCount == null) return;
+            __result -= (int)robotCount;
         }
     }
 }
