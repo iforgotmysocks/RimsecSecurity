@@ -13,6 +13,8 @@ namespace RimsecSecurity
 {
     static class PatchesCompatibility
     {
+        public static bool guardsForMeActive;
+
         public static void ExecuteCompatibilityPatches(Harmony harmony)
         {
             var prisonLaborAssembly = AppDomain.CurrentDomain.GetAssemblies().FirstOrDefault(assembly => assembly.FullName.ToLower().StartsWith("prisonlabor"));
@@ -48,6 +50,13 @@ namespace RimsecSecurity
                 var org = AccessTools.Method(saveOurShipAssembly.GetType("SaveOurShip2.ShipInteriorMod2"), "hasSpaceSuit");
                 var postfix = new HarmonyMethod(typeof(SaveOurShip2Patches), nameof(SaveOurShip2Patches.ShipInteriorMod2_hasSpaceSuit_Postfix));
                 harmony.Patch(org, null, postfix);
+            }
+
+            var guardsForMeAssembly = AppDomain.CurrentDomain.GetAssemblies().FirstOrDefault(assembly => assembly.FullName.ToLower().StartsWith("guardsforme"));
+            if (guardsForMeAssembly != null)
+            {
+                Log.Message($"Gaurds for me active");
+                guardsForMeActive = true;
             }
         }
     }

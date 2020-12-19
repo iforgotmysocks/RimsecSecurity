@@ -14,6 +14,7 @@ namespace RimsecSecurity
         protected override Job TryGiveJob(Pawn pawn)
         {
             if (pawn.Drafted) return null;
+            if (pawn.needs.rest.CurLevel > (maxEnergyPercentage / 100f)) return null;
             var emptyChargeStation = PeacekeeperUtility.GetEmptyChargeStation(pawn);
             if (emptyChargeStation == null || emptyChargeStation.IsForbidden(pawn))
             {
@@ -26,5 +27,7 @@ namespace RimsecSecurity
             }
             return JobMaker.MakeJob(RSDefOf.RSRecharge, emptyChargeStation);
         }
+
+        protected int maxEnergyPercentage = 101;
     }
 }

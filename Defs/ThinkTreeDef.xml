@@ -22,7 +22,9 @@
         <!-- React to close melee threat -->
         <li Class="JobGiver_ReactToCloseMeleeThreat" />
 
+
         <li Class="ThinkNode_QueuedJob" />
+
 
         <!-- Wait if drafted -->
         <li Class="ThinkNode_ConditionalColonist">
@@ -68,18 +70,24 @@
           </subNodes>
         </li>
 
+
         <li Class="ThinkNode_Subtree">
           <treeDef>LordDuty</treeDef>
         </li>
 
-				<li Class="ThinkNode_Tagger">
+
+        <li Class="RimsecSecurity.JobGiver_Recharge">
+          <maxEnergyPercentage>70</maxEnergyPercentage>
+        </li>
+
+				<li Class="ThinkNode_Tagger" GuardForMeHook="1">
 					<tagToGive>Idle</tagToGive>
-					<subNodes>
-						<li Class="RimsecSecurity.JobGiver_Recharge">
-							<!-- <maxDanger>Deadly</maxDanger> -->
-						</li>
-					</subNodes>
+					<subNodes/>
 				</li>
+        
+        <li Class="RimsecSecurity.JobGiver_Recharge">
+          <maxEnergyPercentage>101</maxEnergyPercentage>
+        </li>
 
 				<!-- todo power saving job --><!--
 				<li Class="ThinkNode_Tagger">

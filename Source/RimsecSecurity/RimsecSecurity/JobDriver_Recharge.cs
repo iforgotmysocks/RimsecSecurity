@@ -27,6 +27,11 @@ namespace RimsecSecurity
             };
             toil.tickAction = delegate ()
             {
+				if (PatchesCompatibility.guardsForMeActive && pawn.needs.rest.CurLevel >= 0.99f)
+                {
+					base.ReadyForNextToil();
+					return;
+                }
                 if (this.job.expiryInterval == -1 && this.job.def == JobDefOf.Wait_Combat && !this.pawn.Drafted)
                 {
                     Log.Error(this.pawn + " in eternal WaitCombat without being drafted.", false);
