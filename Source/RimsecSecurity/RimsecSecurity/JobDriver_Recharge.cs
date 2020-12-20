@@ -19,7 +19,10 @@ namespace RimsecSecurity
         {
             yield return Toils_Goto.GotoThing(TargetIndex.A, Station.GetStandPosition(this.pawn)).FailOn(() => this.pawn.Drafted).FailOnDespawnedNullOrForbidden(TargetIndex.A);
             var toil = new Toil();
-            toil.initAction = delegate ()
+			toil.defaultDuration = Rand.Range(180, 240);
+			toil.defaultCompleteMode = ToilCompleteMode.Never;
+			toil.handlingFacing = true;
+			toil.initAction = delegate ()
             {
                 base.Map.pawnDestinationReservationManager.Reserve(this.pawn, this.job, this.pawn.Position);
                 this.pawn.pather.StopDead();
@@ -27,7 +30,7 @@ namespace RimsecSecurity
             };
             toil.tickAction = delegate ()
             {
-				if (PatchesCompatibility.guardsForMeActive && pawn.needs.rest.CurLevel >= 0.99f)
+				if (ticksLeftThisToil <= 0 && pawn.needs.rest.CurLevel >= 0.99f)
                 {
 					base.ReadyForNextToil();
 					return;
@@ -46,8 +49,6 @@ namespace RimsecSecurity
                 pos.z -= 1;
 				this.pawn.rotationTracker.FaceCell(pos);
 			};
-            toil.defaultCompleteMode = ToilCompleteMode.Never;
-			toil.handlingFacing = true;
             yield return toil;
         }
 
