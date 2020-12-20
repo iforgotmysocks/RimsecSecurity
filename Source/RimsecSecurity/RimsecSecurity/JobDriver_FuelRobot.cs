@@ -18,26 +18,29 @@ namespace RimsecSecurity
         protected Pawn Refuelable => this.job.GetTarget(TargetIndex.A).Pawn;
         protected Thing Fuel => this.job.GetTarget(TargetIndex.B).Thing;
 
+        private IntVec3 startingPos;
+
         public override bool TryMakePreToilReservations(bool errorOnFailed) => 
             this.pawn.Reserve(this.Refuelable, this.job, 1, -1, null, errorOnFailed) 
             && this.pawn.Reserve(this.Fuel, this.job, 1, -1, null, errorOnFailed);
 
         protected override IEnumerable<Toil> MakeNewToils()
         {
+            this.startingPos = Refuelable.Position;
             this.FailOnDespawnedNullOrForbidden(TargetIndex.A);
             base.AddEndCondition(delegate
             {
-                if (Refuelable.needs.rest.CurLevel < 0.9)
+                if (Refuelable.needs.rest.CurLevel < 0.9 || (Refuelable == pawn && pawn.Position != startingPos && pawn.CanReach(startingPos, PathEndMode.OnCell, Danger.Deadly)))
                 {
                     return JobCondition.Ongoing;
                 }
                 return JobCondition.Succeeded;
             });
-            //base.AddFailCondition(() => !this.job.playerForced);
             yield return Toils_General.DoAtomic(delegate
             {
                 this.job.count = Convert.ToInt32((Refuelable.needs.rest.MaxLevel - Refuelable.needs.rest.CurLevel) * 10);
             }).FailOn(() => job.count == 0);
+            //base.AddFailCondition(() => !this.job.playerForced);
             Toil reserveFuel = Toils_Reserve.Reserve(TargetIndex.B, 1, -1, null);
             yield return reserveFuel;
             yield return Toils_Goto.GotoThing(TargetIndex.B, PathEndMode.ClosestTouch).FailOnDespawnedNullOrForbidden(TargetIndex.B).FailOnSomeonePhysicallyInteracting(TargetIndex.B);
@@ -54,6 +57,7 @@ namespace RimsecSecurity
             };
             toil.defaultCompleteMode = ToilCompleteMode.Instant;
             yield return toil;
+            yield return Toils_Goto.GotoCell(startingPos, PathEndMode.OnCell).FailOn(() => this.pawn != Refuelable);
             yield break;
         }
 
