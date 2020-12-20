@@ -31,11 +31,9 @@ namespace RimsecSecurity
         public CompProperties_RechargeRobot Props => (CompProperties_RechargeRobot)props;
         public float ComponentsForManualRepair { get => componentsForManualRepair; set => componentsForManualRepair = value; }
         public float AvailableComponents { get => availableComponents; set => availableComponents = value; }
-        //internal Building_ChargeStation Parent { get => cachedParent; set => cachedParent = value; }
 
         private Building_ChargeStation cachedParent;
         public Building_ChargeStation Parent => cachedParent ?? (cachedParent = this.parent as Building_ChargeStation);
-        //public Building_ChargeStation Parent => this.parent as Building_ChargeStation;
 
         public override void CompTick()
         {
@@ -47,7 +45,6 @@ namespace RimsecSecurity
                     ComponentsForManualRepair = CalculateManualRepairCost();
                     AvailableComponents = Parent.CompFuel.Fuel;
 
-                    //Log.Message($"current: {Parent.CurrentRobot.needs.rest.CurLevel} per second {Props.energyPerSecond}");
                     Parent.CurrentRobot.needs.rest.CurLevel = (Parent.CurrentRobot.needs.rest.CurLevel + Props.energyPerSecond) > Parent.CurrentRobot.needs.rest.MaxLevel ? Parent.CurrentRobot.needs.rest.MaxLevel : Parent.CurrentRobot.needs.rest.CurLevel + Props.energyPerSecond;
                 }
                 ticksCharge = 0;
@@ -164,13 +161,6 @@ namespace RimsecSecurity
                 return new AcceptanceReport((pawn2 == null) ? "Reserved".Translate() : "ReservedBy".Translate(pawn.LabelShort, pawn2));
             }
             if (ComponentsForManualRepair == 0 || AvailableComponents < ComponentsForManualRepair) return new AcceptanceReport($"{ComponentsForManualRepair} components are required for manual repairs, refill the station.");
-            //if (knownSpot != null)
-            //{
-            //	if (!this.CanUseSpot(pawn, knownSpot.Value))
-            //	{
-            //		return new AcceptanceReport("BeginLinkingRitualNeedLinkSpot".Translate());
-            //	}
-            //}
             return AcceptanceReport.WasAccepted;
         }
 
