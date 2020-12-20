@@ -13,8 +13,6 @@ namespace RimsecSecurity
 {
     static class PatchesCompatibility
     {
-        public static bool guardsForMeActive;
-
         public static void ExecuteCompatibilityPatches(Harmony harmony)
         {
             var prisonLaborAssembly = AppDomain.CurrentDomain.GetAssemblies().FirstOrDefault(assembly => assembly.FullName.ToLower().StartsWith("prisonlabor"));
@@ -55,8 +53,26 @@ namespace RimsecSecurity
             var guardsForMeAssembly = AppDomain.CurrentDomain.GetAssemblies().FirstOrDefault(assembly => assembly.FullName.ToLower().StartsWith("guardsforme"));
             if (guardsForMeAssembly != null)
             {
-                Log.Message($"Gaurds for me active");
-                guardsForMeActive = true;
+                Log.Message($"Patching Gaurds for me");
+                var org = AccessTools.Method(guardsForMeAssembly.GetType("aRandomKiwi.GFM.Utils"), "guardNeedFood");
+                var postfix = new HarmonyMethod(typeof(GuardsForMePatches), nameof(GuardsForMePatches.guardNeedFood_Postfix));
+                harmony.Patch(org, null, postfix);
+
+                org = AccessTools.Method(guardsForMeAssembly.GetType("aRandomKiwi.GFM.Utils"), "guardNeedJoy");
+                postfix = new HarmonyMethod(typeof(GuardsForMePatches), nameof(GuardsForMePatches.guardNeedJoy_Postfix));
+                harmony.Patch(org, null, postfix);
+
+                org = AccessTools.Method(guardsForMeAssembly.GetType("aRandomKiwi.GFM.Utils"), "guardNeedMood");
+                postfix = new HarmonyMethod(typeof(GuardsForMePatches), nameof(GuardsForMePatches.guardNeedMood_Postfix));
+                harmony.Patch(org, null, postfix);
+
+                org = AccessTools.Method(guardsForMeAssembly.GetType("aRandomKiwi.GFM.Utils"), "guardNeedHygiene");
+                postfix = new HarmonyMethod(typeof(GuardsForMePatches), nameof(GuardsForMePatches.guardNeedHygiene_Postfix));
+                harmony.Patch(org, null, postfix);
+
+                org = AccessTools.Method(guardsForMeAssembly.GetType("aRandomKiwi.GFM.Utils"), "guardNeedBladder");
+                postfix = new HarmonyMethod(typeof(GuardsForMePatches), nameof(GuardsForMePatches.guardNeedBladder_Postfix));
+                harmony.Patch(org, null, postfix);
             }
         }
     }
@@ -110,6 +126,37 @@ namespace RimsecSecurity
         {
             if (__result == true || !PeacekeeperUtility.IsPeacekeeper(pawn)) return;
             __result = true;
+        }
+    }
+
+    static class GuardsForMePatches
+    {
+        public static void guardNeedFood_Postfix(ref bool __result, Pawn pawn)
+        {
+            if (!PeacekeeperUtility.IsPeacekeeper(pawn)) return;
+            __result = false;
+        }
+
+        public static void guardNeedJoy_Postfix(ref bool __result, Pawn pawn)
+        {
+            if (!PeacekeeperUtility.IsPeacekeeper(pawn)) return;
+            __result = false;
+        }
+
+        public static void guardNeedMood_Postfix(ref bool __result, Pawn pawn)
+        {
+            if (!PeacekeeperUtility.IsPeacekeeper(pawn)) return;
+            __result = false;
+        }
+        public static void guardNeedHygiene_Postfix(ref bool __result, Pawn pawn)
+        {
+            if (!PeacekeeperUtility.IsPeacekeeper(pawn)) return;
+            __result = false;
+        }
+        public static void guardNeedBladder_Postfix(ref bool __result, Pawn pawn)
+        {
+            if (!PeacekeeperUtility.IsPeacekeeper(pawn)) return;
+            __result = false;
         }
     }
 }
