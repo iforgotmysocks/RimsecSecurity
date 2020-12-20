@@ -70,14 +70,13 @@
           </subNodes>
         </li>
 
-
         <li Class="ThinkNode_Subtree">
           <treeDef>LordDuty</treeDef>
         </li>
 
-
         <li Class="RimsecSecurity.JobGiver_Recharge">
-          <maxEnergyPercentage>70</maxEnergyPercentage>
+          <minEnergyRechargePercentage>40</minEnergyRechargePercentage>
+          <minEnergyPowercellPercentage>40</minEnergyPowercellPercentage>
         </li>
 
 				<li Class="ThinkNode_Tagger" GuardForMeHook="1">
@@ -86,7 +85,8 @@
 				</li>
         
         <li Class="RimsecSecurity.JobGiver_Recharge">
-          <maxEnergyPercentage>101</maxEnergyPercentage>
+          <minEnergyRechargePercentage>100</minEnergyRechargePercentage>
+          <minEnergyPowercellPercentage>40</minEnergyPowercellPercentage>
         </li>
 
 				<!-- todo power saving job --><!--
