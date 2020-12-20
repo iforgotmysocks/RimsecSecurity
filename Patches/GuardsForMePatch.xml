@@ -8,21 +8,9 @@
     <match Class="PatchOperationSequence">
       <success>Always</success>
       <operations>
-        <li Class="PatchOperationConditional">
-          <xpath>Defs/ThinkTreeDef[defName = "RSPeacekeeper"]</xpath>
-          <match Class="PatchOperationReplace">
-            <xpath>Defs/ThinkTreeDef[defName = "RSPeacekeeper"]/thinkRoot/subNodes/li[@GuardForMeHook="1"]</xpath>
-            <value>
-              <li Class="ThinkNode_SubtreesByTag">
-                <insertTag>Humanlike_PreMain</insertTag>
-              </li>
-              <!--<li Class="ThinkNode_QueuedJob" />-->
-            </value>
-          </match>
-        </li>
 
         <li Class="PatchOperationInsert">
-          <xpath>Defs/ThinkTreeDef[defName = "RSPeacekeeper"]/thinkRoot/subNodes/li[@Class="ThinkNode_SubtreesByTag" and insertTag="Humanlike_PreMain"]</xpath>
+          <xpath>Defs/ThinkTreeDef[defName = "RSPeacekeeper"]/thinkRoot/subNodes/li[@Class="ThinkNode_SubtreesByTag" and insertTag="GuardsForMeHook"]</xpath>
           <value>
             <li Class="ThinkNode_ConditionalColonist">
               <subNodes>
@@ -97,6 +85,9 @@
                 </li>
               </subNodes>
             </li>
+            
+            
+            <li Class="JobGiver_Work"/>
           </value>
         </li>
       </operations>

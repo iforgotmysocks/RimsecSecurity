@@ -22,9 +22,7 @@
         <!-- React to close melee threat -->
         <li Class="JobGiver_ReactToCloseMeleeThreat" />
 
-
         <li Class="ThinkNode_QueuedJob" />
-
 
         <!-- Wait if drafted -->
         <li Class="ThinkNode_ConditionalColonist">
@@ -78,11 +76,13 @@
           <minEnergyRechargePercentage>40</minEnergyRechargePercentage>
           <minEnergyPowercellPercentage>40</minEnergyPowercellPercentage>
         </li>
-
-				<li Class="ThinkNode_Tagger" GuardForMeHook="1">
-					<tagToGive>Idle</tagToGive>
-					<subNodes/>
-				</li>
+        
+        <li Class="ThinkNode_SubtreesByTag">
+          <insertTag>GuardsForMeHook</insertTag>
+        </li>
+        
+        <!-- disabled by default, lets add it by the guardsforme patch-->
+        <!--<li Class="JobGiver_Work"/>-->
         
         <li Class="RimsecSecurity.JobGiver_Recharge">
           <minEnergyRechargePercentage>100</minEnergyRechargePercentage>
