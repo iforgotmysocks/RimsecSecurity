@@ -11,6 +11,7 @@ namespace RimsecSecurity
     class ModSettings : Verse.ModSettings
     {
         public static int peacekeeperNumber = 1;
+        public static bool butcheredPeacekeeper;
         public static float energyShortageSeverityMult = 10;
         public static bool hidePeacekeepersFromColonistBar = false;
         public static bool debugActive = false;

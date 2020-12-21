@@ -426,19 +426,7 @@ namespace RimsecSecurity
     #endregion
 
     #region thoughts / memories
-    // todo keep! needed in case the prefix below can't be kept
-    //[HarmonyPatch(typeof(PawnDiedOrDownedThoughtsUtility), "Witnessed")]
-    //public class PawnDiedOrDownedThoughtsUtility_Witnessed
-    //{
-    //    public static void Postfix(ref bool __result, Pawn p, Pawn victim)
-    //    {
-    //        if (!__result || !PeacekeeperUtility.IsPeacekeeper(victim)) return;
-    //        __result = false;
-    //    }
-    //}
-
-    // todo if prefix causes issues postfix PawnDiedOrDownedThoughtsUtility.AppendThoughts_ForHumanlike lists and remove values where victim is peacekeeper
-    [HarmonyPatch(typeof(PawnDiedOrDownedThoughtsUtility), "AppendThoughts_ForHumanlike")]
+   [HarmonyPatch(typeof(PawnDiedOrDownedThoughtsUtility), "AppendThoughts_ForHumanlike")]
     public class PawnDiedOrDownedThoughtsUtility_AppendThoughts_ForHumanlike
     {
         public static bool Prefix(Pawn victim, DamageInfo? dinfo, PawnDiedOrDownedThoughtsKind thoughtsKind, List<IndividualThoughtToAdd> outIndividualThoughts, List<ThoughtToAddToAll> outAllColonistsThoughts)
@@ -458,36 +446,33 @@ namespace RimsecSecurity
         }
     }
 
-    // todo cleanup - some nice work for nothing me dumbfuck, we don't need self-memory patches, our race has them disabled
-    //[HarmonyPatch(typeof(MemoryThoughtHandler), "TryGainMemory", new Type[] { typeof(ThoughtDef), typeof(Pawn) })]
-    //public class MemoryThoughtHandler_TryGainMemory
-    //{
-    //    public static bool Prefix(MemoryThoughtHandler __instance, ThoughtDef def, Pawn otherPawn = null)
-    //    {
-    //        if (!PeacekeeperUtility.IsPeacekeeper(__instance.pawn)) return true;
-    //        return false;
-    //    }
-    //}
+    [HarmonyPatch(typeof(Pawn), "ButcherProducts")]
+    public class Pawn_ButcherProducts
+    {
+        public static void Postfix(Pawn __instance, Pawn butcher, float efficiency)
+        {
+            ModSettings.butcheredPeacekeeper = PeacekeeperUtility.IsPeacekeeper(__instance);
+        }
+    }
 
-    //[HarmonyPatch(typeof(MemoryThoughtHandler), "TryGainMemory", new Type[] { typeof(Thought_Memory), typeof(Pawn)})]
-    //public class MemoryThoughtHandler_TryGainMemory2
-    //{
-    //    public static bool Prefix(MemoryThoughtHandler __instance, Thought_Memory newThought, Pawn otherPawn = null)
-    //    {
-    //        if (!PeacekeeperUtility.IsPeacekeeper(__instance.pawn)) return true;
-    //        return false;
-    //    }
-    //}
+    [HarmonyPatch(typeof(MemoryThoughtHandler), "TryGainMemory", new Type[] { typeof(ThoughtDef), typeof(Pawn) })]
+    public class MemoryThoughtHandler_TryGainMemory
+    {
+        public static ThoughtDef[] badThoughts = new[] { ThoughtDefOf.ButcheredHumanlikeCorpse, ThoughtDefOf.KnowButcheredHumanlikeCorpse };
+        public static bool Prefix(MemoryThoughtHandler __instance, ThoughtDef def, Pawn otherPawn = null)
+        {
+            return ModSettings.butcheredPeacekeeper && badThoughts.Contains(def);
+        }
+    }
 
-    //[HarmonyPatch(typeof(MemoryThoughtHandler), "TryGainMemoryFast")]
-    //public class MemoryThoughtHandler_TryGainMemoryFast
-    //{
-    //    public static bool Prefix(MemoryThoughtHandler __instance, ThoughtDef mem)
-    //    {
-    //        if (!PeacekeeperUtility.IsPeacekeeper(__instance.pawn)) return true;
-    //        return false;
-    //    }
-    //}
+    [HarmonyPatch(typeof(Corpse), "GiveObservedThought")]
+    public class Corpse_GiveObservedThought
+    {
+        public static void Postfix(ref Thought_Memory __result, Corpse __instance)
+        {
+            if (__result != null && PeacekeeperUtility.IsPeacekeeper(__instance.InnerPawn)) __result = null;
+        }
+    }
     #endregion
 
     #region social
