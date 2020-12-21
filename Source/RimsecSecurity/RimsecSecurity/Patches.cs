@@ -461,7 +461,8 @@ namespace RimsecSecurity
         public static ThoughtDef[] badThoughts = new[] { ThoughtDefOf.ButcheredHumanlikeCorpse, ThoughtDefOf.KnowButcheredHumanlikeCorpse };
         public static bool Prefix(MemoryThoughtHandler __instance, ThoughtDef def, Pawn otherPawn = null)
         {
-            return ModSettings.butcheredPeacekeeper && badThoughts.Contains(def);
+            if (ModSettings.butcheredPeacekeeper && badThoughts.Contains(def)) return false;
+            return true;
         }
     }
 
