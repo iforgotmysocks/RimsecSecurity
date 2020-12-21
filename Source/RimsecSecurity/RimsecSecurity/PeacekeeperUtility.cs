@@ -22,7 +22,7 @@ namespace RimsecSecurity
 
         public static Pawn GeneratePeacekeeper(PawnKindDef pawnKind, int tile)
         {
-            var robot = PawnGenerator.GeneratePawn(new PawnGenerationRequest(pawnKind, Faction.OfPlayer, PawnGenerationContext.NonPlayer, tile, false, false, false, false, true, false, 20f, true, true, true, true, false, false, false, false, 0f, null, 1f, null, null, null, null, new float?(0.2f), 0, null, Gender.Male, null, null, null, null));
+            var robot = PawnGenerator.GeneratePawn(new PawnGenerationRequest(pawnKind, Faction.OfPlayer, PawnGenerationContext.NonPlayer, tile, false, false, false, false, false, true, 0f, false, true, false, false, false, false, false, false, 0f, null, 0f, null, null, null, null, new float?(0.2f), 0, null, Gender.Male, null, null, null, null));
             robot.Name = new NameSingle(robot.Name.ToStringShort + " #" + ModSettings.peacekeeperNumber++);
             var hediff = HediffMaker.MakeHediff(RSDefOf.RSRobotConsciousness, robot);
             if (robot != null) robot.health.AddHediff(hediff, robot.health.hediffSet.GetBrain(), null, null);
