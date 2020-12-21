@@ -14,7 +14,7 @@ namespace RimsecSecurity
     class PeacekeeperUtility
     {
         public static bool IsPeacekeeper(Pawn pawn) => pawn != null && pawn.def.HasModExtension<RSPeacekeeperModExt>();
-        public static Thing GetEmptyChargeStation(Pawn pawn) => pawn.Map?.listerBuildings.allBuildingsColonist.OfType<Building_ChargeStation>().Where(x => x.CurrentRobot == null && x.def == pawn.def?.GetModExtension<RSPeacekeeperModExt>()?.stationDef && pawn.Map.reservationManager.CanReserve(pawn, x)).OrderBy(station => pawn.Position.DistanceTo(station.Position)).FirstOrDefault();
+        public static Thing GetEmptyChargeStation(Pawn pawn) => pawn.Map?.listerBuildings.allBuildingsColonist.OfType<Building_ChargeStation>().Where(x => (x.CurrentRobot == null || x.CurrentRobot == pawn) && x.def == pawn.def?.GetModExtension<RSPeacekeeperModExt>()?.stationDef && pawn.Map.reservationManager.CanReserve(pawn, x)).OrderBy(station => pawn.Position.DistanceTo(station.Position)).FirstOrDefault();
         public static bool IsInChargeStation(Pawn pawn) => pawn == null || pawn.Map == null ? false : pawn.Position.GetThingList(pawn.Map).Any(x => x.def == pawn.def.GetModExtension<RSPeacekeeperModExt>().stationDef && ((Building_ChargeStation)x).CurrentRobot == pawn);
         public static bool IsChargeStationFree(Thing station) => station.Map.reservationManager.IsReservedByAnyoneOf(station, Faction.OfPlayer);
         public static Pawn GetCurrentPawn(Thing pawn) => pawn.Position.GetFirstPawn(pawn.Map) ?? PositionAbove(pawn).GetFirstPawn(pawn.Map);
@@ -22,7 +22,7 @@ namespace RimsecSecurity
 
         public static Pawn GeneratePeacekeeper(PawnKindDef pawnKind, int tile)
         {
-            var robot = PawnGenerator.GeneratePawn(new PawnGenerationRequest(pawnKind, Faction.OfPlayer, PawnGenerationContext.NonPlayer, tile, false, false, false, false, true, false, 20f, true, true, true, true, false, false, false, false, 0f, null, 1f, null, null, null, null, new float?(0.2f), 0, null, Gender.Male, null, null, null, null));
+            var robot = PawnGenerator.GeneratePawn(new PawnGenerationRequest(pawnKind, Faction.OfPlayer, PawnGenerationContext.NonPlayer, tile, false, false, false, false, false, true, 0f, false, true, false, false, false, false, false, false, 0f, null, 0f, null, null, null, null, new float?(0.2f), 0, null, Gender.Male, null, null, null, null));
             robot.Name = new NameSingle(robot.Name.ToStringShort + " #" + ModSettings.peacekeeperNumber++);
             var hediff = HediffMaker.MakeHediff(RSDefOf.RSRobotConsciousness, robot);
             if (robot != null) robot.health.AddHediff(hediff, robot.health.hediffSet.GetBrain(), null, null);

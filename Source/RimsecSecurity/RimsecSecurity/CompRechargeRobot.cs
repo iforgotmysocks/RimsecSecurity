@@ -31,31 +31,28 @@ namespace RimsecSecurity
         public CompProperties_RechargeRobot Props => (CompProperties_RechargeRobot)props;
         public float ComponentsForManualRepair { get => componentsForManualRepair; set => componentsForManualRepair = value; }
         public float AvailableComponents { get => availableComponents; set => availableComponents = value; }
-        //internal Building_ChargeStation Parent { get => cachedParent; set => cachedParent = value; }
 
         private Building_ChargeStation cachedParent;
         public Building_ChargeStation Parent => cachedParent ?? (cachedParent = this.parent as Building_ChargeStation);
-        //public Building_ChargeStation Parent => this.parent as Building_ChargeStation;
 
         public override void CompTick()
         {
             if (Parent == null || Parent.PowerOff()) return;
             if (ticksCharge >= 60)
             {
-                if (Parent.CurrentRobot != null && PeacekeeperUtility.IsPeacekeeper(Parent.CurrentRobot))
+                if (RobotTreatable())
                 {
                     ComponentsForManualRepair = CalculateManualRepairCost();
                     AvailableComponents = Parent.CompFuel.Fuel;
 
-                    //Log.Message($"current: {Parent.CurrentRobot.needs.rest.CurLevel} per second {Props.energyPerSecond}");
                     Parent.CurrentRobot.needs.rest.CurLevel = (Parent.CurrentRobot.needs.rest.CurLevel + Props.energyPerSecond) > Parent.CurrentRobot.needs.rest.MaxLevel ? Parent.CurrentRobot.needs.rest.MaxLevel : Parent.CurrentRobot.needs.rest.CurLevel + Props.energyPerSecond;
                 }
                 ticksCharge = 0;
             }
 
-            if (ticksHeal >= 1799 && Parent.CompFuel?.HasFuel == true)
+            if (ticksHeal >= 1799 && Parent?.CompFuel?.HasFuel == true)
             {
-                if (Parent.CurrentRobot != null && PeacekeeperUtility.IsPeacekeeper(Parent.CurrentRobot))
+                if (RobotTreatable())
                 {
                     var foundRobotConsciousness = false;
                     var injuriesTreatedCount = 0;
@@ -81,9 +78,9 @@ namespace RimsecSecurity
                 ticksHeal = 0;
             }
 
-            if (ticksHealPermanent >= Props.ticksHealPermanent && Parent.CompFuel?.HasFuel == true)
+            if (ticksHealPermanent >= Props.ticksHealPermanent && Parent?.CompFuel?.HasFuel == true)
             {
-                if (Parent.CurrentRobot != null && PeacekeeperUtility.IsPeacekeeper(Parent.CurrentRobot))
+                if (RobotTreatable())
                 {
                     var permInjury = Parent.CurrentRobot.health.hediffSet.hediffs?.OfType<Hediff_Injury>()?.InRandomOrder()?.FirstOrDefault(hediff => hediff.IsPermanent());
                     if (permInjury != null) Parent.CurrentRobot.health.RemoveHediff(permInjury);
@@ -91,9 +88,9 @@ namespace RimsecSecurity
                 ticksHealPermanent = 0;
             }
 
-            if (ticksRestorePart >= Props.ticksRestorePart && Parent.CompFuel?.HasFuel == true)
+            if (ticksRestorePart >= Props.ticksRestorePart && Parent?.CompFuel?.HasFuel == true)
             {
-                if (Parent.CurrentRobot != null && PeacekeeperUtility.IsPeacekeeper(Parent.CurrentRobot))
+                if (RobotTreatable())
                 {
                     var missingPart = Parent.CurrentRobot.health.hediffSet.hediffs?.OfType<Hediff_MissingPart>()?.InRandomOrder()?.FirstOrDefault();
                     if (missingPart != null) Parent.CurrentRobot.health.RestorePart(missingPart.Part);
@@ -107,11 +104,13 @@ namespace RimsecSecurity
             ticksRestorePart++;
         }
 
+        private bool RobotTreatable() => Parent.CurrentRobot != null && !Parent.CurrentRobot.Dead && PeacekeeperUtility.IsPeacekeeper(Parent.CurrentRobot);
+
         private Pawn GetCurrentPawn() => this.parent.Position.GetFirstPawn(this.parent.Map) ?? (new IntVec3(parent.Position.x, parent.Position.y, parent.Position.z + 1).GetFirstPawn(this.parent.Map));
 
         private float CalculateManualRepairCost()
         {
-            if (Parent.CurrentRobot == null) return 0;
+            if (Parent?.CurrentRobot?.health?.hediffSet == null) return 0;
             var total = 0f;
             foreach (var hediff in Parent.CurrentRobot.health.hediffSet.hediffs)
             {
@@ -133,7 +132,7 @@ namespace RimsecSecurity
         {
             foreach (var baseOption in base.CompFloatMenuOptions(selPawn)) yield return baseOption;
 
-            if (Parent.CurrentRobot == null || Parent.PowerOff() || Parent.CompRecharge.componentsForManualRepair == 0) yield break;
+            if (!RobotTreatable() || Parent.PowerOff() || ComponentsForManualRepair == 0) yield break;
 
             AcceptanceReport acceptanceReport = CanRepairRobo(selPawn);
             var text = "RSRepairManually".Translate();
@@ -162,13 +161,6 @@ namespace RimsecSecurity
                 return new AcceptanceReport((pawn2 == null) ? "Reserved".Translate() : "ReservedBy".Translate(pawn.LabelShort, pawn2));
             }
             if (ComponentsForManualRepair == 0 || AvailableComponents < ComponentsForManualRepair) return new AcceptanceReport($"{ComponentsForManualRepair} components are required for manual repairs, refill the station.");
-            //if (knownSpot != null)
-            //{
-            //	if (!this.CanUseSpot(pawn, knownSpot.Value))
-            //	{
-            //		return new AcceptanceReport("BeginLinkingRitualNeedLinkSpot".Translate());
-            //	}
-            //}
             return AcceptanceReport.WasAccepted;
         }
 

@@ -72,14 +72,22 @@
           <treeDef>LordDuty</treeDef>
         </li>
 
-				<li Class="ThinkNode_Tagger">
-					<tagToGive>Idle</tagToGive>
-					<subNodes>
-						<li Class="RimsecSecurity.JobGiver_Recharge">
-							<!-- <maxDanger>Deadly</maxDanger> -->
-						</li>
-					</subNodes>
-				</li>
+        <li Class="RimsecSecurity.JobGiver_Recharge">
+          <minEnergyRechargePercentage>40</minEnergyRechargePercentage>
+          <minEnergyPowercellPercentage>40</minEnergyPowercellPercentage>
+        </li>
+        
+        <li Class="ThinkNode_SubtreesByTag">
+          <insertTag>GuardsForMeHook</insertTag>
+        </li>
+        
+        <!-- disabled by default, lets add it by the guardsforme patch-->
+        <!--<li Class="JobGiver_Work"/>-->
+        
+        <li Class="RimsecSecurity.JobGiver_Recharge">
+          <minEnergyRechargePercentage>100</minEnergyRechargePercentage>
+          <minEnergyPowercellPercentage>40</minEnergyPowercellPercentage>
+        </li>
 
 				<!-- todo power saving job --><!--
 				<li Class="ThinkNode_Tagger">
