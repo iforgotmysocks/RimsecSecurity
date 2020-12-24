@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RimWorld;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,8 @@ namespace RimsecSecurity
         {
             base.CompPostTick(ref severityAdjustment);
             if (Pawn.needs.rest.CurLevel > 0.01) this.parent.Severity = 0;
+            if (Pawn != null && this.parent.Severity >= 1f && Pawn.Faction != Faction.OfPlayer) Pawn.Kill(null, this.parent); 
         }
+
     }
 }
