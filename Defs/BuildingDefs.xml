@@ -136,8 +136,11 @@
       <texPath>Things/Building/RobotAssemblyBench/SRSworkbench</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
       <shaderType>CutoutComplex</shaderType>
-      <drawSize>(7,6)</drawSize>
-      <drawOffset>(0, 0, -0.6)</drawOffset>
+      <drawSize>(7,6.5)</drawSize>
+      <drawOffsetNorth>(0, 0, 0.53)</drawOffsetNorth>
+      <drawOffsetSouth>(0, 0, -0.53)</drawOffsetSouth>
+      <drawOffsetEast>(0.3, 0, 0.3)</drawOffsetEast>
+      <drawOffsetWest>(-0.3, 0, -0.3)</drawOffsetWest>
       <damageData>
         <cornerTL>Damage/Corner</cornerTL>
         <cornerTR>Damage/Corner</cornerTR>
