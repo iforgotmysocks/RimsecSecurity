@@ -515,6 +515,7 @@
       </thingDefs>
       <specialFiltersToAllow>
         <li>AllowCorpsesColonist</li>
+        <li>AllowCorpsesStranger</li>
       </specialFiltersToAllow>
     </defaultIngredientFilter>
     <fixedIngredientFilter>
