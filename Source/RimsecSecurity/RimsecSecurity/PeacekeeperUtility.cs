@@ -14,7 +14,7 @@ namespace RimsecSecurity
     class PeacekeeperUtility
     {
         public static bool IsPeacekeeper(Pawn pawn) => pawn != null && pawn.def.HasModExtension<RSPeacekeeperModExt>();
-        public static Thing GetEmptyChargeStation(Pawn pawn) => pawn.Map?.listerBuildings.allBuildingsColonist.OfType<Building_ChargeStation>().Where(x => (x.CurrentRobot == null || x.CurrentRobot == pawn) && x.def == pawn.def?.GetModExtension<RSPeacekeeperModExt>()?.stationDef && pawn.Map.reservationManager.CanReserve(pawn, x)).OrderBy(station => pawn.Position.DistanceTo(station.Position)).FirstOrDefault();
+        public static Thing GetEmptyChargeStation(Pawn pawn) => pawn.Faction != Faction.OfPlayerSilentFail ? null : pawn.Map?.listerBuildings.allBuildingsColonist.OfType<Building_ChargeStation>().Where(x => (x.CurrentRobot == null || x.CurrentRobot == pawn) && x.def == pawn.def?.GetModExtension<RSPeacekeeperModExt>()?.stationDef && pawn.Map.reservationManager.CanReserve(pawn, x)).OrderBy(station => pawn.Position.DistanceTo(station.Position)).FirstOrDefault();
         public static bool IsInChargeStation(Pawn pawn) => pawn == null || pawn.Map == null ? false : pawn.Position.GetThingList(pawn.Map).Any(x => x.def == pawn.def.GetModExtension<RSPeacekeeperModExt>().stationDef && ((Building_ChargeStation)x).CurrentRobot == pawn);
         public static bool IsChargeStationFree(Thing station) => station.Map.reservationManager.IsReservedByAnyoneOf(station, Faction.OfPlayer);
         public static Pawn GetCurrentPawn(Thing pawn) => pawn.Position.GetFirstPawn(pawn.Map) ?? PositionAbove(pawn).GetFirstPawn(pawn.Map);

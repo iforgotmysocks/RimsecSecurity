@@ -14,7 +14,7 @@ namespace RimsecSecurity
         {
             base.CompPostTick(ref severityAdjustment);
             if (Pawn.needs.rest.CurLevel > 0.01) this.parent.Severity = 0;
-            if (Pawn != null && this.parent.Severity >= 1f && Pawn.Faction != Faction.OfPlayer) Pawn.Kill(null, this.parent); 
+            if (Pawn != null && Pawn.Faction != Faction.OfPlayer) Pawn.Kill(null, this.parent); 
         }
 
     }
