@@ -18,7 +18,7 @@
         <minAgeForAdulthood>3</minAgeForAdulthood>
         <alienPartGenerator>
           <useGenderedHeads>false</useGenderedHeads>
-          <headBodyPartDef>RSPeacekeeperHead</headBodyPartDef>
+          <headBodyPartDef>MechanicalHead</headBodyPartDef>
           <colorChannels>
             <li>
               <name>skin</name>

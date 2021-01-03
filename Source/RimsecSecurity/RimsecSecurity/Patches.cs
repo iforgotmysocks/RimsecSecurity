@@ -377,15 +377,6 @@ namespace RimsecSecurity
         }
     }
 
-    [HarmonyPatch(typeof(HediffComp_Infecter), "CheckMakeInfection")]
-    public class HediffComp_Infecter_CheckMakeInfection
-    {
-        public static void Postfix(ref int ___ticksUntilInfect, HediffComp_Infecter __instance)
-        {
-            if (PeacekeeperUtility.IsPeacekeeper(__instance.parent.pawn)) ___ticksUntilInfect = -2;
-        }
-    }
-
     // disabled, lets try to do this by patching needs rescue and needs doctor
     /* 
     [HarmonyPatch(typeof(RestUtility), "InBed")]
