@@ -128,5 +128,22 @@ namespace RimsecSecurity
             bool validator(Thing x) => !x.IsForbidden(pawn) && pawn.CanReserve(x, 1, -1, null, false) && filter.Allows(x);
             return GenClosest.ClosestThingReachable(pawn.Position, pawn.Map, filter.BestThingRequest, PathEndMode.ClosestTouch, TraverseParms.For(pawn, Danger.Deadly, TraverseMode.ByPawn, false), 9999f, validator, null, 0, -1, false, RegionType.Set_Passable, false);
         }
+
+        public static void RunSavely(Action action) => RunSavely(() => { action(); return 0; });
+
+        public static T RunSavely<T>(Func<T> action)
+        {
+            try
+            {
+               return action();
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex.ToString());
+            }
+
+            return default(T);
+        }
+
     }
 }
