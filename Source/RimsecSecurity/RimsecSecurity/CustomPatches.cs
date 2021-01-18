@@ -14,63 +14,63 @@ namespace RimsecSecurity
     {
         static CustomPatches()
         {
-            PatchRobotNoFoodAndRecipes();
-            PatchStorytellers();
-            PatchRemoveRottingFromCorpses();
+            PeacekeeperUtility.RunSavely(PatchRobotNoFoodAndRecipes);
+            PeacekeeperUtility.RunSavely(PatchStorytellers);
+            PeacekeeperUtility.RunSavely(PatchRemoveRottingFromCorpses);
+            PeacekeeperUtility.RunSavely(PatchFuelConsumption);
+        }
+
+        private static void PatchFuelConsumption()
+        {
+            var benchDef = RSDefOf.RSChargeStation;
+            var fuelComp = benchDef.GetCompProperties<CompProperties_Refuelable>();
+            if (fuelComp == null) return;
+            fuelComp.fuelConsumptionRate = ModSettings.fuelConsumptionRate;
         }
 
         public static void PatchRobotNoFoodAndRecipes()
         {
-            PeacekeeperUtility.RunSavely(() =>
+            var robots = DefDatabase<PawnKindDef>.AllDefsListForReading.Where(def => def?.race?.HasModExtension<RSPeacekeeperModExt>() == true);
+            var vanResRemove = DefDatabase<RecipeDef>.GetNamedSilentFail("ButcherCorpseFlesh");
+            if (vanResRemove == null) Log.Error($"ButcherCorpseFlesh recipe not found and null");
+            var recipes = DefDatabase<RecipeDef>.AllDefs.Where(def => def.workerClass == typeof(Recipe_AdministerIngestible));
+
+            foreach (var robot in robots)
             {
-                var robots = DefDatabase<PawnKindDef>.AllDefsListForReading.Where(def => def?.race?.HasModExtension<RSPeacekeeperModExt>() == true);
-                var vanResRemove = DefDatabase<RecipeDef>.GetNamedSilentFail("ButcherCorpseFlesh");
-                if (vanResRemove == null) Log.Error($"ButcherCorpseFlesh recipe not found and null");
-                var recipes = DefDatabase<RecipeDef>.AllDefs.Where(def => def.workerClass == typeof(Recipe_AdministerIngestible));
+                robot.RaceProps.corpseDef.ingestible.foodType = FoodTypeFlags.None;
+                if (vanResRemove != null) vanResRemove.fixedIngredientFilter.SetAllow(robot.RaceProps.corpseDef, false);
 
-                foreach (var robot in robots)
+                foreach (var recipe in recipes)
                 {
-                    robot.RaceProps.corpseDef.ingestible.foodType = FoodTypeFlags.None;
-                    if (vanResRemove != null) vanResRemove.fixedIngredientFilter.SetAllow(robot.RaceProps.corpseDef, false);
-
-                    foreach (var recipe in recipes)
-                    {
-                        if (recipe.recipeUsers == null) continue;
-                        recipe.recipeUsers.Remove(robot.race);
-                    }
+                    if (recipe.recipeUsers == null) continue;
+                    recipe.recipeUsers.Remove(robot.race);
                 }
-            });
+            }
         }
 
         public static void PatchStorytellers()
         {
-            PeacekeeperUtility.RunSavely(() =>
+            foreach (var storyteller in DefDatabase<StorytellerDef>.AllDefs)
             {
-                foreach (var storyteller in DefDatabase<StorytellerDef>.AllDefs)
+                storyteller.comps.Add(new StorytellerCompProperties_OnOffCycle()
                 {
-                    storyteller.comps.Add(new StorytellerCompProperties_OnOffCycle()
-                    {
-                        incident = RSDefOf.RSSRSOrbitalTraderIncident,
-                        onDays = 7,
-                        offDays = 10,
-                        numIncidentsRange = new FloatRange(1, 1)
-                    });
-                }
-            });
+                    incident = RSDefOf.RSSRSOrbitalTraderIncident,
+                    onDays = 7,
+                    offDays = 10,
+                    numIncidentsRange = new FloatRange(1, 1)
+                });
+            }
         }
 
         private static void PatchRemoveRottingFromCorpses()
         {
-            PeacekeeperUtility.RunSavely(() =>
-            {
-                var robots = DefDatabase<PawnKindDef>.AllDefsListForReading.Where(def => def.race.HasModExtension<RSPeacekeeperModExt>());
+            var robots = DefDatabase<PawnKindDef>.AllDefsListForReading.Where(def => def.race.HasModExtension<RSPeacekeeperModExt>());
 
-                foreach (var robot in robots)
-                {
-                    var rottableComp = robot.RaceProps.corpseDef.GetCompProperties<CompProperties_Rottable>();
-                    if (rottableComp != null) robot.RaceProps.corpseDef.comps.Remove(rottableComp);
-                }
-            });
+            foreach (var robot in robots)
+            {
+                var rottableComp = robot.RaceProps.corpseDef.GetCompProperties<CompProperties_Rottable>();
+                if (rottableComp != null) robot.RaceProps.corpseDef.comps.Remove(rottableComp);
+            }
         }
 
     }
