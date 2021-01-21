@@ -5,6 +5,7 @@
     <defName>RSSRSTradeShip</defName>
     <label>SRS trade ship</label>
     <orbital>true</orbital>
+    <commonality>0</commonality>
     <stockGenerators>
 
       <!-- Resources -->

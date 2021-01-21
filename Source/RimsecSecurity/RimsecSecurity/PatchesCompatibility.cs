@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,9 +14,10 @@ namespace RimsecSecurity
 {
     static class PatchesCompatibility
     {
+        public static Assembly hygieneAssembly;
         public static void ExecuteCompatibilityPatches(Harmony harmony)
         {
-            var prisonLaborAssembly = AppDomain.CurrentDomain.GetAssemblies().FirstOrDefault(assembly => assembly.FullName.ToLower().StartsWith("prisonlabor"));
+            var prisonLaborAssembly = PeacekeeperUtility.GetAssemblyFromString("prisonlabor");
             if (prisonLaborAssembly != null)
             {
                 Log.Message($"Patching prison labor");
@@ -41,7 +43,7 @@ namespace RimsecSecurity
                 harmony.Patch(org, prefix, null);
             }
 
-            var saveOurShipAssembly = AppDomain.CurrentDomain.GetAssemblies().FirstOrDefault(assembly => assembly.FullName.ToLower().StartsWith("shipshaveinsides"));
+            var saveOurShipAssembly = PeacekeeperUtility.GetAssemblyFromString("shipshaveinsides");
             if (saveOurShipAssembly != null)
             {
                 Log.Message($"Patching sos2");
@@ -50,7 +52,7 @@ namespace RimsecSecurity
                 harmony.Patch(org, null, postfix);
             }
 
-            var guardsForMeAssembly = AppDomain.CurrentDomain.GetAssemblies().FirstOrDefault(assembly => assembly.FullName.ToLower().StartsWith("guardsforme"));
+            var guardsForMeAssembly = PeacekeeperUtility.GetAssemblyFromString("guardsforme");
             if (guardsForMeAssembly != null)
             {
                 Log.Message($"Patching Gaurds for me");
@@ -72,6 +74,14 @@ namespace RimsecSecurity
 
                 org = AccessTools.Method(guardsForMeAssembly.GetType("aRandomKiwi.GFM.Utils"), "guardNeedBladder");
                 postfix = new HarmonyMethod(typeof(GuardsForMePatches), nameof(GuardsForMePatches.guardNeedBladder_Postfix));
+                harmony.Patch(org, null, postfix);
+            }
+
+            hygieneAssembly = PeacekeeperUtility.GetAssemblyFromString("badhygiene");
+            if (hygieneAssembly != null)
+            {
+                var org = AccessTools.Method(typeof(Pawn_NeedsTracker), "ShouldHaveNeed");
+                var postfix = new HarmonyMethod(typeof(DubsHygienePatches), nameof(DubsHygienePatches.Pawn_NeedsTracker_ShouldHaveNeed_Postfix));
                 harmony.Patch(org, null, postfix);
             }
         }
@@ -156,6 +166,22 @@ namespace RimsecSecurity
         public static void guardNeedBladder_Postfix(ref bool __result, Pawn pawn)
         {
             if (!PeacekeeperUtility.IsPeacekeeper(pawn)) return;
+            __result = false;
+        }
+    }
+
+    static class DubsHygienePatches
+    {
+        public static void Pawn_NeedsTracker_ShouldHaveNeed_Postfix(Pawn_NeedsTracker __instance, ref bool __result, Pawn ___pawn, NeedDef nd)
+        {
+            if (!__result) return;
+            if (!PeacekeeperUtility.IsPeacekeeper(___pawn)) return;
+
+            var t = PatchesCompatibility.hygieneAssembly.GetType("DubsBadHygiene.NeedsUtil");
+            var checkInfo = t.GetMethod("IsHygieneNeed", new[] { typeof(NeedDef) });
+            var isHygieneNeed = (bool)checkInfo.Invoke(null, new object[] { nd } );
+
+            if (!isHygieneNeed) return;
             __result = false;
         }
     }

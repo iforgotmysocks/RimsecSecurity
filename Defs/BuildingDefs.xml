@@ -55,6 +55,7 @@
         <basePowerConsumption>200</basePowerConsumption>
       </li>
       <li Class="CompProperties_Refuelable">
+        <!-- fuelConsumptionRate is being overwritten with ingame settings -->
         <fuelConsumptionRate>0.5</fuelConsumptionRate>
         <fuelCapacity>10.0</fuelCapacity>
         <fuelConsumptionPerTickInRain>0</fuelConsumptionPerTickInRain>
