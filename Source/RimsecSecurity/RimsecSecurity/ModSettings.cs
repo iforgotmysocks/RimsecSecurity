@@ -40,7 +40,7 @@ namespace RimsecSecurity
             options.CheckboxLabeled("Count peacekeeper robots towards colonist population  (change requires restart)", ref countPeacekeepersTowardsPopulation);
             options.Label($"Maintenance station: Component fuel consumption rate per day: {Math.Round(fuelConsumptionRate, 2)}  (change requires restart)");
             fuelConsumptionRate = options.Slider(fuelConsumptionRate, 0.01f, 2f);
-            options.Label($"Interval of days between trade ships (+2 days on which the event can happen): {Math.Round(daysPauseBetweenTradeShips, 1)}  (change requires restart)");
+            options.Label($"Interval of days between SRS trade ships (+2 days on which the event can happen): {Math.Round(daysPauseBetweenTradeShips, 1)}  (change requires restart)");
             daysPauseBetweenTradeShips = options.Slider(daysPauseBetweenTradeShips, 1f, 60f);
             options.Gap(24f);
             if (options.ButtonTextLabeled("Spawn random test robot at random colonist location", "Spawn")) PeacekeeperUtility.SpawnRandomRobot(); 
