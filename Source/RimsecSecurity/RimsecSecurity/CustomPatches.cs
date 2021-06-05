@@ -55,10 +55,10 @@ namespace RimsecSecurity
                 storyteller.comps.Add(new StorytellerCompProperties_OnOffCycle()
                 {
                     incident = RSDefOf.RSSRSOrbitalTraderIncident,
-                    onDays = 7,
-                    offDays = 10,
+                    onDays = 2,
+                    offDays = ModSettings.daysPauseBetweenTradeShips,
                     numIncidentsRange = new FloatRange(1, 1)
-                });
+                }); 
             }
         }
 
