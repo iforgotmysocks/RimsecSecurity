@@ -18,6 +18,7 @@ namespace RimsecSecurity
             PeacekeeperUtility.RunSavely(PatchStorytellers);
             PeacekeeperUtility.RunSavely(PatchRemoveRottingFromCorpses);
             PeacekeeperUtility.RunSavely(PatchFuelConsumption);
+            PeacekeeperUtility.RunSavely(PatchRobotClothing);
         }
 
         private static void PatchFuelConsumption()
@@ -45,6 +46,17 @@ namespace RimsecSecurity
                     if (recipe.recipeUsers == null) continue;
                     recipe.recipeUsers.Remove(robot.race);
                 }
+            }
+        }
+
+        public static void PatchRobotClothing()
+        {
+            if (!ModSettings.allowClothing) return;
+            var robots = DefDatabase<PawnKindDef>.AllDefsListForReading.Where(def => def?.race?.HasModExtension<RSPeacekeeperModExt>() == true);
+            foreach (var robot in robots)
+            {
+                var alienRace = robot.race as ThingDef_AlienRace;
+                alienRace.alienRace.raceRestriction.onlyUseRaceRestrictedApparel = false;
             }
         }
 
