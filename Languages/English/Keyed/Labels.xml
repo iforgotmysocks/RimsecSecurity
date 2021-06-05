@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
 	<RSEnergyLabel>Energy</RSEnergyLabel>
-	<RSEnergyDesc>EnergyDescTodo</RSEnergyDesc>
+	<RSEnergyDesc>Energy levels</RSEnergyDesc>
 
   <RSCoolantFiltration>Coolant Filtration</RSCoolantFiltration>
   <RSCoolantCirculation>Coolant Circulation</RSCoolantCirculation>

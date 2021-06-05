@@ -18,6 +18,7 @@ namespace RimsecSecurity
             PeacekeeperUtility.RunSavely(PatchStorytellers);
             PeacekeeperUtility.RunSavely(PatchRemoveRottingFromCorpses);
             PeacekeeperUtility.RunSavely(PatchFuelConsumption);
+            PeacekeeperUtility.RunSavely(PatchRobotClothing);
         }
 
         private static void PatchFuelConsumption()
@@ -48,6 +49,17 @@ namespace RimsecSecurity
             }
         }
 
+        public static void PatchRobotClothing()
+        {
+            if (!ModSettings.allowClothing) return;
+            var robots = DefDatabase<PawnKindDef>.AllDefsListForReading.Where(def => def?.race?.HasModExtension<RSPeacekeeperModExt>() == true);
+            foreach (var robot in robots)
+            {
+                var alienRace = robot.race as ThingDef_AlienRace;
+                alienRace.alienRace.raceRestriction.onlyUseRaceRestrictedApparel = false;
+            }
+        }
+
         public static void PatchStorytellers()
         {
             foreach (var storyteller in DefDatabase<StorytellerDef>.AllDefs)
@@ -55,10 +67,10 @@ namespace RimsecSecurity
                 storyteller.comps.Add(new StorytellerCompProperties_OnOffCycle()
                 {
                     incident = RSDefOf.RSSRSOrbitalTraderIncident,
-                    onDays = 7,
-                    offDays = 10,
+                    onDays = 2,
+                    offDays = ModSettings.daysPauseBetweenTradeShips,
                     numIncidentsRange = new FloatRange(1, 1)
-                });
+                }); 
             }
         }
 

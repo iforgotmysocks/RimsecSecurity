@@ -12,7 +12,7 @@ using Verse.AI;
 
 namespace RimsecSecurity
 {
-    class PeacekeeperUtility
+    public class PeacekeeperUtility
     {
         public static bool IsPeacekeeper(Pawn pawn) => pawn != null && pawn.def.HasModExtension<RSPeacekeeperModExt>();
         public static Thing GetEmptyChargeStation(Pawn pawn) => pawn.Faction != Faction.OfPlayerSilentFail ? null : pawn.Map?.listerBuildings.allBuildingsColonist.OfType<Building_ChargeStation>().Where(x => (x.CurrentRobot == null || x.CurrentRobot == pawn) && x.def == pawn.def?.GetModExtension<RSPeacekeeperModExt>()?.stationDef && pawn.Map.reservationManager.CanReserve(pawn, x)).OrderBy(station => pawn.Position.DistanceTo(station.Position)).FirstOrDefault();
@@ -54,7 +54,7 @@ namespace RimsecSecurity
                 Messages.Message(new Message("No world found", MessageTypeDefOf.NegativeEvent));
                 return;
             }
-            var currentMap = Find.RandomPlayerHomeMap;
+            var currentMap = Find.CurrentMap ?? Find.RandomPlayerHomeMap;
             if (currentMap == null)
             {
                 Messages.Message(new Message("No map found", MessageTypeDefOf.NegativeEvent));

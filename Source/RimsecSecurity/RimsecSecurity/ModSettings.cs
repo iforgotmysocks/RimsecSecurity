@@ -17,6 +17,8 @@ namespace RimsecSecurity
         public static bool debugActive = false;
         public static bool countPeacekeepersTowardsPopulation = true;
         public static float fuelConsumptionRate;
+        public static float daysPauseBetweenTradeShips = 15;
+        public static bool allowClothing = false;
 
         public override void ExposeData()
         {
@@ -27,17 +29,24 @@ namespace RimsecSecurity
             Scribe_Values.Look(ref countPeacekeepersTowardsPopulation, "countPeacekeepersTowardsPopulation", true);
             Scribe_Values.Look(ref fuelConsumptionRate, "fuelConsumptionRate", 0.5f);
             Scribe_Values.Look(ref debugActive, "debugActive", false);
+            Scribe_Values.Look(ref daysPauseBetweenTradeShips, "daysPauseBetweenTradeShips", 15);
+            Scribe_Values.Look(ref allowClothing, "allowClothing", false);
         }
         
         public void DoWindowContents(Rect rect)
         {
             var options = new Listing_Standard();
             options.Begin(rect);
+            options.Label("All changes (except maint. station fuel consumption) require a restart to take effect.");
             options.Gap(24f);
-            options.CheckboxLabeled("Hide peacekeeper robots from colonist bar  (change requires restart)", ref hidePeacekeepersFromColonistBar);
-            options.CheckboxLabeled("Count peacekeeper robots towards colonist population  (change requires restart)", ref countPeacekeepersTowardsPopulation);
-            options.Label($"Maintenance station: Component fuel consumption rate per day: {Math.Round(fuelConsumptionRate, 2)}  (change requires restart)");
+            options.CheckboxLabeled("Hide peacekeeper robots from colonist bar", ref hidePeacekeepersFromColonistBar);
+            options.CheckboxLabeled("Count peacekeeper robots towards colonist population", ref countPeacekeepersTowardsPopulation);
+            options.CheckboxLabeled("Allow robots to wear clothes? (clothes may not completely fit but that won't be addressed)", ref allowClothing);
+            options.Gap(24f);
+            options.Label($"Maintenance station: Component fuel consumption rate per day: {Math.Round(fuelConsumptionRate, 2)}");
             fuelConsumptionRate = options.Slider(fuelConsumptionRate, 0.01f, 2f);
+            options.Label($"Interval of days between SRS trade ships (+2 days on which the event can happen): {Math.Round(daysPauseBetweenTradeShips, 1)}");
+            daysPauseBetweenTradeShips = options.Slider(daysPauseBetweenTradeShips, 1f, 60f);
             options.Gap(24f);
             if (options.ButtonTextLabeled("Spawn random test robot at random colonist location", "Spawn")) PeacekeeperUtility.SpawnRandomRobot(); 
 

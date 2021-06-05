@@ -10,7 +10,7 @@
 			<li>
 				<label>Artificial Consciousness</label>
 				<description>I am, so I serve.</description>
-				<baseMoodEffect>20</baseMoodEffect>
+				<baseMoodEffect>100</baseMoodEffect>
 			</li>
 		</stages>
 	</ThoughtDef>
