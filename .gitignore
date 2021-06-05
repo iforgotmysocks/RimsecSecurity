@@ -352,3 +352,4 @@ MigrationBackup/
 # apple image stuff
 .DS_Store
 
+/Source/RimsecSecurity/ignore
