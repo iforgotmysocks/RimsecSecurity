@@ -83,7 +83,7 @@ namespace RimsecSecurity
                 if (RobotTreatable())
                 {
                     var permInjury = Parent.CurrentRobot.health.hediffSet.hediffs?.OfType<Hediff_Injury>()?.InRandomOrder()?.FirstOrDefault(hediff => hediff.IsPermanent());
-                    if (permInjury != null) Parent.CurrentRobot.health.RemoveHediff(permInjury);
+                    if (permInjury != null) HealthUtility.CureHediff(permInjury);
                 }
                 ticksHealPermanent = 0;
             }
@@ -93,7 +93,7 @@ namespace RimsecSecurity
                 if (RobotTreatable())
                 {
                     var missingPart = Parent.CurrentRobot.health.hediffSet.hediffs?.OfType<Hediff_MissingPart>()?.InRandomOrder()?.FirstOrDefault();
-                    if (missingPart != null) Parent.CurrentRobot.health.RestorePart(missingPart.Part);
+                    if (missingPart != null) HealthUtility.CureHediff(missingPart);
                 }
                 ticksRestorePart = 0;
             }

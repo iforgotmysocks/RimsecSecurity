@@ -377,6 +377,19 @@ namespace RimsecSecurity
         }
     }
 
+    // todo rare nre seems to happen here for some reason -> figure out why
+    //[HarmonyPatch(typeof(Alert_NeedDoctor), "get_Patients")]
+    //public class Alert_NeedDoctor_get_Patients
+    //{
+    //    public static void Postfix(ref bool __result, Pawn p)
+    //    {
+    //        Log.Message($"")
+
+    //        if (!__result || !PeacekeeperUtility.IsPeacekeeper(p)) return;
+    //        if (PeacekeeperUtility.IsInChargeStation(p)) __result = false;
+    //    }
+    //}
+
     // disabled, lets try to do this by patching needs rescue and needs doctor
     /* 
     [HarmonyPatch(typeof(RestUtility), "InBed")]
@@ -417,7 +430,7 @@ namespace RimsecSecurity
     #endregion
 
     #region thoughts / memories
-   [HarmonyPatch(typeof(PawnDiedOrDownedThoughtsUtility), "AppendThoughts_ForHumanlike")]
+    [HarmonyPatch(typeof(PawnDiedOrDownedThoughtsUtility), "AppendThoughts_ForHumanlike")]
     public class PawnDiedOrDownedThoughtsUtility_AppendThoughts_ForHumanlike
     {
         public static bool Prefix(Pawn victim, DamageInfo? dinfo, PawnDiedOrDownedThoughtsKind thoughtsKind, List<IndividualThoughtToAdd> outIndividualThoughts, List<ThoughtToAddToAll> outAllColonistsThoughts)

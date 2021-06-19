@@ -35,8 +35,7 @@ namespace RimsecSecurity
             MoteMaker.ThrowDustPuffThick(currentRobo.Position.ToVector3(), currentRobo.Map, Rand.Range(1.5f, 3f), new UnityEngine.Color(1f, 1f, 1f, 2.5f));
             foreach (var hediff in currentRobo.health.hediffSet.hediffs.Reverse<Hediff>())
             {
-                if (hediff is Hediff_Injury injury) injury.Severity = 0;
-                if (hediff is Hediff_MissingPart) currentRobo.health.hediffSet.hediffs.Remove(hediff);
+                if (hediff is Hediff_Injury || hediff is Hediff_MissingPart) HealthUtility.CureHediff(hediff);
             }
         }
 
