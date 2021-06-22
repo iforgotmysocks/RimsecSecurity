@@ -14,14 +14,19 @@ namespace RimsecSecurity
 		{
 			var count = this.countRange.RandomInRange;
 			var validPawnKinds = DefDatabase<PawnKindDef>.AllDefsListForReading.Where(def => def.race.HasModExtension<RSPeacekeeperModExt>());
+			if (validPawnKinds == null || validPawnKinds.Count() == 0) yield break;
 			for (int i = 0; i < count; i++)
 			{
 				validPawnKinds.TryRandomElementByWeight(new Func<PawnKindDef, float>(this.SelectionWeight), out var pawnKind);
 				var robot = PeacekeeperUtility.GeneratePeacekeeper(pawnKind, forTile);
+				if (robot == null) continue;
 				robot.SetFaction(Faction.OfMechanoids);
                 var gun = ThingMaker.MakeThing(pawnKind.race.GetModExtension<RSPeacekeeperModExt>().gunDef) as ThingWithComps;
-				robot.equipment.MakeRoomFor(gun);
-				robot.equipment.AddEquipment(gun);
+				if (gun != null)
+                {
+					robot.equipment.MakeRoomFor(gun);
+					robot.equipment.AddEquipment(gun);
+				}
                 yield return robot;
 			}
 			yield break;
