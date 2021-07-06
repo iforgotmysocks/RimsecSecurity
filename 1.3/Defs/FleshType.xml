@@ -5,16 +5,16 @@
 		<defName>RSPeacekeeper</defName>
 		<corpseCategory>CorpsesMechanoid</corpseCategory>
 		<damageEffecter>Damage_HitMechanoid</damageEffecter>
-		<wounds>
-			<li>
-				<texture>Things/Pawn/Wounds/WoundMechA</texture>
-			</li>
-			<li>
-				<texture>Things/Pawn/Wounds/WoundMechB</texture>
-			</li>
-			<li>
-				<texture>Things/Pawn/Wounds/WoundMechC</texture>
-			</li>
-		</wounds>
+    <genericWounds>
+      <li>
+        <texture>Things/Pawn/Wounds/WoundMechA</texture>
+      </li>
+      <li>
+        <texture>Things/Pawn/Wounds/WoundMechB</texture>
+      </li>
+      <li>
+        <texture>Things/Pawn/Wounds/WoundMechC</texture>
+      </li>
+    </genericWounds>
 	</FleshTypeDef>
 </Defs>
