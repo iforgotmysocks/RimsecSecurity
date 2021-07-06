@@ -36,7 +36,7 @@ namespace RimsecSecurity
                 .FailOnDespawnedNullOrForbidden(TargetIndex.A)
                 .FailOnDespawnedNullOrForbidden(TargetIndex.B)
                 .FailOn(() => this.job.def == JobDefOf.Arrest && !this.Takee.CanBeArrestedBy(this.pawn))
-                .FailOn(() => !this.pawn.CanReach(this.DropBed, PathEndMode.Touch, Danger.Deadly, false, TraverseMode.ByPawn))
+                .FailOn(() => !this.pawn.CanReach(this.DropBed, PathEndMode.Touch, Danger.Deadly, false, false, TraverseMode.ByPawn))
                 .FailOn(() => this.job.def == RSDefOf.RSRescueToChargeStation && !this.Takee.Downed)
                 .FailOnSomeonePhysicallyInteracting(TargetIndex.A);
 

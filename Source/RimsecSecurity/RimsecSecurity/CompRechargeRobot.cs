@@ -66,7 +66,7 @@ namespace RimsecSecurity
                             injury.Heal(Props.injuryHealAmountPer30s);
                             if (injuriesTreatedCount++ > Props.injuryHealCount) break;
                         }
-                        else injury.Tended_NewTemp(1f, 1f);
+                        else injury.Tended(1f, 1f);
                     }
 
                     if (!foundRobotConsciousness)
@@ -83,7 +83,7 @@ namespace RimsecSecurity
                 if (RobotTreatable())
                 {
                     var permInjury = Parent.CurrentRobot.health.hediffSet.hediffs?.OfType<Hediff_Injury>()?.InRandomOrder()?.FirstOrDefault(hediff => hediff.IsPermanent());
-                    if (permInjury != null) HealthUtility.CureHediff(permInjury);
+                    if (permInjury != null) HealthUtility.Cure(permInjury);
                 }
                 ticksHealPermanent = 0;
             }
@@ -93,7 +93,7 @@ namespace RimsecSecurity
                 if (RobotTreatable())
                 {
                     var missingPart = Parent.CurrentRobot.health.hediffSet.hediffs?.OfType<Hediff_MissingPart>()?.InRandomOrder()?.FirstOrDefault();
-                    if (missingPart != null) HealthUtility.CureHediff(missingPart);
+                    if (missingPart != null) HealthUtility.Cure(missingPart);
                 }
                 ticksRestorePart = 0;
             }
@@ -154,7 +154,7 @@ namespace RimsecSecurity
         public AcceptanceReport CanRepairRobo(Pawn pawn)
         {
             if (pawn.Dead || pawn.Faction != Faction.OfPlayer) return false;
-            if (!pawn.CanReach(this.parent, PathEndMode.Touch, Danger.Deadly, false, TraverseMode.ByPawn)) return new AcceptanceReport("can't reach");
+            if (!pawn.CanReach(this.parent, PathEndMode.Touch, Danger.Deadly, false, false, TraverseMode.ByPawn)) return new AcceptanceReport("can't reach");
             if (!pawn.Map.reservationManager.CanReserve(pawn, Parent.CurrentRobot, 1, -1, null, false))
             {
                 Pawn pawn2 = pawn.Map.reservationManager.FirstRespectedReserver(Parent.CurrentRobot, pawn);
