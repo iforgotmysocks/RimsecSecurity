@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Defs>
+	<ThoughtDef>
+		<defName>RSRobotHappiness</defName>
+		<workerClass>ThoughtWorker_Hediff</workerClass>
+		<hediff>RSRobotConsciousness</hediff>
+		<validWhileDespawned>true</validWhileDespawned>
+		<stages>
+			<li>
+				<label>Artificial Consciousness</label>
+				<description>I am, so I serve.</description>
+				<baseMoodEffect>100</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+</Defs>

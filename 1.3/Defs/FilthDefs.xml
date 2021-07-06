@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ThingDef ParentName="BaseFilth">
+		<defName>RSFilthCoolant</defName>
+		<label>Coolant</label>
+		<statBases>
+			<Beauty>-10</Beauty>
+			<Cleanliness>-5</Cleanliness>
+		</statBases>
+		<graphicData>
+			<texPath>Things/Coolant</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+			<color>(0, 0, 0, 0)</color>
+		</graphicData>
+		<filth>
+			<rainWashes>true</rainWashes>
+			<cleaningWorkToReduceThickness>70</cleaningWorkToReduceThickness>
+			<canFilthAttach>true</canFilthAttach>
+		</filth>
+	</ThingDef>
+</Defs>

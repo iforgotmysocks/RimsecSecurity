@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<LifeStageDef>
+		<defName>RSPeacekeeper</defName>
+		<label>Standard design</label>
+		<visible>false</visible>
+		<reproductive>false</reproductive>
+	</LifeStageDef>
+	
+</Defs>

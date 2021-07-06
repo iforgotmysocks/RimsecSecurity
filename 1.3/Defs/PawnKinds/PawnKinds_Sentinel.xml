@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <PawnKindDef Name="RSPeacekeeperSentinelPawnKindBase" Abstract="True">
+    <isFighter>true</isFighter>
+    <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
+    <forceNormalGearQuality>true</forceNormalGearQuality>
+    <defaultFactionType>PlayerTribe</defaultFactionType>
+    <minGenerationAge>0</minGenerationAge>
+    <maxGenerationAge>5000</maxGenerationAge>
+    <chemicalAddictionChance>0.00</chemicalAddictionChance>
+    <apparelTags>
+    </apparelTags>
+    <weaponTags>
+      <li>RSSHAG1</li>
+    </weaponTags>
+    <apparelMoney>1000~1500</apparelMoney>
+    <backstoryCryptosleepCommonality>0</backstoryCryptosleepCommonality>
+  </PawnKindDef>
+
+  <PawnKindDef Parent="RSPeacekeeperSentinelPawnKindBase">
+    <defName>RSPeacekeeperSentinelPawnKind</defName>
+    <race>RSPeacekeeperSentinel</race>
+    <backstoryFiltersOverride>
+      <li>
+        <categories>
+          <li>RSPeacekeeperBackstoryChildSentinel</li>
+          <li>RSPeacekeeperAdult1Backstory</li>
+        </categories>
+      </li>
+    </backstoryFiltersOverride>
+    <combatPower>60</combatPower>
+  </PawnKindDef>
+
+  <PawnKindDef Parent="RSPeacekeeperSentinelPawnKindBase">
+    <defName>RSPeacekeeperSentinelForestPawnKind</defName>
+    <race>RSPeacekeeperSentinelForest</race>
+    <backstoryFiltersOverride>
+      <li>
+        <categories>
+          <li>RSPeacekeeperBackstoryChildSentinel</li>
+          <li>RSPeacekeeperAdult1Backstory</li>
+        </categories>
+      </li>
+    </backstoryFiltersOverride>
+    <combatPower>60</combatPower>
+  </PawnKindDef>
+
+  <PawnKindDef Parent="RSPeacekeeperSentinelPawnKindBase">
+    <defName>RSPeacekeeperSentinelDesertPawnKind</defName>
+    <race>RSPeacekeeperSentinelDesert</race>
+    <backstoryFiltersOverride>
+      <li>
+        <categories>
+          <li>RSPeacekeeperBackstoryChildSentinel</li>
+          <li>RSPeacekeeperAdult1Backstory</li>
+        </categories>
+      </li>
+    </backstoryFiltersOverride>
+    <combatPower>60</combatPower>
+  </PawnKindDef>
+
+  <PawnKindDef Parent="RSPeacekeeperSentinelPawnKindBase">
+    <defName>RSPeacekeeperSentinelWinterPawnKind</defName>
+    <race>RSPeacekeeperSentinelWinter</race>
+    <backstoryFiltersOverride>
+      <li>
+        <categories>
+          <li>RSPeacekeeperBackstoryChildSentinel</li>
+          <li>RSPeacekeeperAdult1Backstory</li>
+        </categories>
+      </li>
+    </backstoryFiltersOverride>
+    <combatPower>60</combatPower>
+  </PawnKindDef>
+
+</Defs>

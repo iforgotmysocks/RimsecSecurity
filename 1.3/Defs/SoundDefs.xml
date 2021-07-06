@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <SoundDef>
+    <defName>RSLLTProjectileLaunch</defName>
+    <context>MapOnly</context>
+    <!--<sustain>True</sustain>-->
+    <maxSimultaneous>1</maxSimultaneous>
+    <!--<priorityMode>PrioritizeNearest</priorityMode>-->
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Folder">
+            <clipFolderPath>Buildings/Turrets/RSLLTProjectileLaunch</clipFolderPath>
+          </li>
+        </grains>
+        <volumeRange>40~40</volumeRange>
+        <!--<pitchRange>0.9~1.1</pitchRange>-->
+        <sustainLoop>False</sustainLoop>
+        <!--<sustainAttack>1.1</sustainAttack>-->
+        <!--<distRange>50~200</distRange>-->
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>RSHLTProjectileLaunch</defName>
+    <context>MapOnly</context>
+    <!--<sustain>True</sustain>-->
+    <maxSimultaneous>1</maxSimultaneous>
+    <!--<priorityMode>PrioritizeNearest</priorityMode>-->
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Folder">
+            <clipFolderPath>Buildings/Turrets/RSHLTProjectileLaunch</clipFolderPath>
+          </li>
+        </grains>
+        <volumeRange>60~60</volumeRange>
+        <!--<pitchRange>0.9~1.1</pitchRange>-->
+        <sustainLoop>False</sustainLoop>
+        <!--<sustainAttack>1.1</sustainAttack>-->
+        <!--<distRange>50~200</distRange>-->
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>RSHAACProjectileLaunch</defName>
+    <context>MapOnly</context>
+    <!--<sustain>True</sustain>-->
+    <maxSimultaneous>1</maxSimultaneous>
+    <!--<priorityMode>PrioritizeNearest</priorityMode>-->
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Folder">
+            <clipFolderPath>Buildings/Turrets/RSHAACProjectileLaunch</clipFolderPath>
+          </li>
+        </grains>
+        <volumeRange>130~130</volumeRange>
+        <!--<pitchRange>0.9~1.1</pitchRange>-->
+        <sustainLoop>False</sustainLoop>
+        <!--<sustainAttack>1.1</sustainAttack>-->
+        <!--<distRange>50~200</distRange>-->
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>RSShot_Shag</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Folder">
+            <clipFolderPath>Weapons/ShagShot</clipFolderPath>
+          </li>
+        </grains>
+        <volumeRange>20~20</volumeRange>
+        <!--<pitchRange>0.9~1.1</pitchRange>-->
+        <sustainLoop>False</sustainLoop>
+      </li>
+    </subSounds>
+  </SoundDef>
+	
+</Defs>
