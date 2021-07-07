@@ -174,6 +174,7 @@
 
   <ThingDef ParentName="BuildingBase" Name="RSTurretLLTBase" Abstract="True">
     <thingClass>Building_TurretGun</thingClass>
+    <drawerType>MapMeshAndRealTime</drawerType>
     <graphicData>
       <texPath>Things/Building/Turrets/LLT/LLT_base</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -336,6 +337,7 @@
   <!-- HLT -->
 
   <ThingDef ParentName="BuildingBase" Name="RSTurretHLTBase" Abstract="True">
+    <drawerType>MapMeshAndRealTime</drawerType>
     <thingClass>Building_TurretGun</thingClass>
     <graphicData>
       <texPath>Things/Building/Turrets/LLT/LLT_base</texPath>
@@ -497,6 +499,7 @@
 
   <ThingDef ParentName="BuildingBase" Name="RSTurretHAACBase" Abstract="True">
     <thingClass>Building_TurretGun</thingClass>
+    <drawerType>MapMeshAndRealTime</drawerType>
     <graphicData>
       <texPath>Things/Building/Turrets/LLT/LLT_base</texPath>
       <graphicClass>Graphic_Single</graphicClass>
