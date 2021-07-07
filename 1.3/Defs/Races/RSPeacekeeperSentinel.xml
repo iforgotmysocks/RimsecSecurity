@@ -40,7 +40,7 @@
     <modExtensions>
       <li Class="RimsecSecurity.RSPeacekeeperModExt">
         <stationDef>RSChargeStation</stationDef>
-        <stationZOffset>1</stationZOffset>
+        <stationZOffset>0</stationZOffset>
         <gunDef>RSWeaponSHAG</gunDef>
         <batterySeverity>0.3</batterySeverity>
         <meleeSkill>13</meleeSkill>
