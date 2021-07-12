@@ -22,10 +22,10 @@
   </modDependencies>
   <packageId>shakesthespeare.RimsecSecurity</packageId>
 	<description>
-[Version 2.0.1]
+[Version 2.0.2]
     
 As of now Rimsec Security offers 3 robots, 3 guns, 3 turrets, 1 maintenance station, 1 assembly bench, 1 trade ship (SRS trade ship) and 1 unique component.
-
+ 
 The 3 robots are the defender, enforcer and sentinel. The defender is a basic robot that has sufficient skills and power to defend a base and is not recommended for escorting caravans. The enforcer is a more advanced robot that has the sufficient skills and power for a more aggressive doctrine. Lastly, the Sentinel is an advanced heavy robot that is utilised in a supporting role featuring high health, battery capacity and is considered to be quite strong.
 All 3 robots come in 4 variants; security, desert, forest, winter with special traits and skill.
 
