@@ -124,27 +124,24 @@
         <li>
           <key>HairDef</key>
           <value>
-            <hasStyle>true</hasStyle>
+            <hasStyle>false</hasStyle>
             <styleTags>
-              <li>NoHair</li>
             </styleTags>
           </value>
         </li>
         <li>
           <key>BeardDef</key>
           <value>
-            <hasStyle>true</hasStyle>
+            <hasStyle>false</hasStyle>
             <styleTags>
-              <li>NoBeard</li>
             </styleTags>
           </value>
         </li>
         <li>
           <key>TattooDef</key>
           <value>
-            <hasStyle>true</hasStyle>
+            <hasStyle>false</hasStyle>
             <styleTags>
-              <li>NoTattoo</li>
             </styleTags>
           </value>
         </li>
