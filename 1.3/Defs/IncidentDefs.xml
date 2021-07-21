@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Defs>
+  <IncidentDef>
+    <defName>RSSRSOrbitalTraderIncident</defName>
+    <label>SRS trade ship arrival</label>
+    <targetTags>
+      <li>Map_PlayerHome</li>
+    </targetTags>
+    <workerClass>RimsecSecurity.IncidentWorker_OrbitalTraderSRS</workerClass>
+    <category>OrbitalVisitor</category>
+    <baseChance>3</baseChance>
+    <requireColonistsPresent>True</requireColonistsPresent>
+  </IncidentDef>
+</Defs>

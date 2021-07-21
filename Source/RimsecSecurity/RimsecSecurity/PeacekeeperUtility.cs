@@ -23,7 +23,21 @@ namespace RimsecSecurity
 
         public static Pawn GeneratePeacekeeper(PawnKindDef pawnKind, int tile)
         {
-            var robot = PawnGenerator.GeneratePawn(new PawnGenerationRequest(pawnKind, Faction.OfPlayer, PawnGenerationContext.NonPlayer, tile, false, false, false, false, false, true, 0f, false, true, false, false, false, false, false, false, 0f, null, 0f, null, null, null, null, new float?(0.2f), 0, null, Gender.Male, null, null, null, null));
+            var robot = PawnGenerator.GeneratePawn(new PawnGenerationRequest()
+            {
+                KindDef = pawnKind,
+                Faction = Faction.OfPlayer,
+                Context = PawnGenerationContext.NonPlayer,
+                Tile = tile,
+                FixedBiologicalAge = 0,
+                FixedGender = Gender.Male,
+                AllowAddictions = false,
+                FixedMelanin = 0,
+                CanGeneratePawnRelations = false, 
+                FixedIdeo = null,
+                ForceNoIdeo = true
+            });
+
             robot.Name = new NameSingle(robot.Name.ToStringShort + " #" + ModSettings.peacekeeperNumber++);
             var hediff = HediffMaker.MakeHediff(RSDefOf.RSRobotConsciousness, robot);
             if (robot != null && !robot.health.hediffSet.HasHediff(RSDefOf.RSRobotConsciousness)) robot.health.AddHediff(hediff, robot.health.hediffSet.GetBrain(), null, null);
@@ -43,6 +57,8 @@ namespace RimsecSecurity
 
             robot.skills.skills.FirstOrDefault(x => x.def == SkillDefOf.Shooting).Level = robotModExt.shootingSkill;
             robot.skills.skills.FirstOrDefault(x => x.def == SkillDefOf.Melee).Level = robotModExt.meleeSkill;
+
+            robot.guest.joinStatus = JoinStatus.JoinAsColonist;
 
             return robot;
         }

@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <AlienRace.ThingDef_AlienRace Name="RSPeacekeeperSentinelBase" ParentName="RSPeacekeeperBase" Abstract="True">
+    <alienRace>
+      <generalSettings>
+        <alienPartGenerator>
+          <aliencrowntypes>
+            <li>Normal</li>
+          </aliencrowntypes>
+          <alienbodytypes>
+            <li>Male</li>
+          </alienbodytypes>
+          <useGenderedHeads>false</useGenderedHeads>
+          <useGenderedBodies>false</useGenderedBodies>
+          <!--<customDrawSize>(2, 2)</customDrawSize>-->
+          <customDrawSize>(1.8, 1.8)</customDrawSize>
+          <!--<customHeadDrawSize>(1.8, 1.8)</customHeadDrawSize>-->
+          <customHeadDrawSize>(1.6, 1.6)</customHeadDrawSize>
+          <!--<headOffset>(0, 0.3)</headOffset>-->
+          <headOffset>(0, 0.2)</headOffset>
+          <customPortraitDrawSize>(1.5, 1.5)</customPortraitDrawSize>
+          <customPortraitHeadDrawSize>(1.4, 1.4)</customPortraitHeadDrawSize>
+        </alienPartGenerator>
+      </generalSettings>
+      <raceRestriction>
+        <onlyUseRaceRestrictedApparel>true</onlyUseRaceRestrictedApparel>
+        <onlyUseRaceRestrictedWeapons>false</onlyUseRaceRestrictedWeapons>
+        <apparelList>
+        </apparelList>
+        <whiteApparelList>
+        </whiteApparelList>
+      </raceRestriction>
+    </alienRace>
+    <race>
+      <baseBodySize>2</baseBodySize>
+      <baseHealthScale>3</baseHealthScale>
+      <nameGenerator>RSPeacekeeperSentinelNameGen</nameGenerator>
+    </race>
+    <modExtensions>
+      <li Class="RimsecSecurity.RSPeacekeeperModExt">
+        <stationDef>RSChargeStation</stationDef>
+        <stationZOffset>0</stationZOffset>
+        <gunDef>RSWeaponSHAG</gunDef>
+        <batterySeverity>0.3</batterySeverity>
+        <meleeSkill>13</meleeSkill>
+        <shootingSkill>15</shootingSkill>
+      </li>
+    </modExtensions>
+    <statBases>
+      <!-- has roughly ~ 50% marketvalue -->
+      <MarketValue>14000</MarketValue>
+      <MoveSpeed>3</MoveSpeed>
+      <ArmorRating_Heat>2</ArmorRating_Heat>
+      <ArmorRating_Blunt>1.35</ArmorRating_Blunt>
+      <ArmorRating_Sharp>1.55</ArmorRating_Sharp>
+    </statBases>
+    <comps>
+      <li>
+        <compClass>RimsecSecurity.CompFuelRobot</compClass>
+      </li>
+    </comps>
+    <tools>
+      <li>
+        <label>left fist</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>20</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>24</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
+      </li>
+      <li>
+        <label>right fist</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>20</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>24</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
+      </li>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>15</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+        <chanceFactor>0.2</chanceFactor>
+      </li>
+    </tools>
+    <butcherProducts>
+      <RSSRSProcessingChip>6</RSSRSProcessingChip>
+      <ComponentIndustrial>10</ComponentIndustrial>
+      <Plasteel>70</Plasteel>
+      <Steel>200</Steel>
+    </butcherProducts>
+  </AlienRace.ThingDef_AlienRace>
+
+  <AlienRace.ThingDef_AlienRace ParentName="RSPeacekeeperSentinelBase" >
+    <defName>RSPeacekeeperSentinel</defName>
+    <label>Peacekeeper Sentinel</label>
+    <description>Standard Security variant of the Sentinel, they are often found in few numbers supporting the vast armies of Defenders and Enforcers in an ongoing conflict. It features higher armour.</description>
+    <alienRace>
+      <generalSettings>
+        <forcedRaceTraitEntries>
+          <li>
+            <defName>RSTraitSecurity</defName>
+          </li>
+        </forcedRaceTraitEntries>
+      </generalSettings>
+      <graphicPaths>
+        <li>
+          <head>Races/Head/Sentinel/Sentinel_Security/</head>
+          <body>Races/Body/Sentinel/Sentinel_Security/</body>
+        </li>
+        <li>
+          <lifeStageDefs>
+            <li>HumanlikeAdult</li>
+          </lifeStageDefs>
+        </li>
+      </graphicPaths>
+    </alienRace>
+    <race>
+    </race>
+    <statBases>
+    </statBases>
+  </AlienRace.ThingDef_AlienRace>
+
+  <AlienRace.ThingDef_AlienRace ParentName="RSPeacekeeperSentinelBase" >
+    <defName>RSPeacekeeperSentinelForest</defName>
+    <label>Peacekeeper Sentinel Forest</label>
+    <description>Forest variant of the Sentinel. It features higher melee skills and agility and has a movement bonus on forest terrain.</description>
+    <alienRace>
+      <generalSettings>
+        <forcedRaceTraitEntries>
+          <li>
+            <defName>RSTraitForest</defName>
+          </li>
+        </forcedRaceTraitEntries>
+      </generalSettings>
+      <graphicPaths>
+        <li>
+          <head>Races/Head/Sentinel/Sentinel_Forest/</head>
+          <body>Races/Body/Sentinel/Sentinel_Forest/</body>
+        </li>
+        <li>
+          <lifeStageDefs>
+            <li>HumanlikeAdult</li>
+          </lifeStageDefs>
+        </li>
+      </graphicPaths>
+    </alienRace>
+    <race>
+    </race>
+    <statBases>
+    </statBases>
+  </AlienRace.ThingDef_AlienRace>
+
+  <AlienRace.ThingDef_AlienRace ParentName="RSPeacekeeperSentinelBase" >
+    <defName>RSPeacekeeperSentinelDesert</defName>
+    <label>Peacekeeper Sentinel Desert</label>
+    <description>Desert variant of the Sentinel. It features higher rate of fire and has a movement bonus on desert terrain.</description>
+    <alienRace>
+      <generalSettings>
+        <forcedRaceTraitEntries>
+          <li>
+            <defName>RSTraitDesert</defName>
+          </li>
+        </forcedRaceTraitEntries>
+      </generalSettings>
+      <graphicPaths>
+        <li>
+          <head>Races/Head/Sentinel/Sentinel_Desert/</head>
+          <body>Races/Body/Sentinel/Sentinel_Desert/</body>
+        </li>
+        <li>
+          <lifeStageDefs>
+            <li>HumanlikeAdult</li>
+          </lifeStageDefs>
+        </li>
+      </graphicPaths>
+    </alienRace>
+    <!--<size>(1,1)</size>-->
+    <race>
+    </race>
+    <statBases>
+    </statBases>
+  </AlienRace.ThingDef_AlienRace>
+
+  <AlienRace.ThingDef_AlienRace ParentName="RSPeacekeeperSentinelBase" >
+    <defName>RSPeacekeeperSentinelWinter</defName>
+    <label>Peacekeeper Sentinel Winter</label>
+    <description>Winter variant of the Sentinel. It features higher accuracy and has a movement bonus on snowy terrain.</description>
+    <alienRace>
+      <generalSettings>
+        <forcedRaceTraitEntries>
+          <li>
+            <defName>RSTraitWinter</defName>
+          </li>
+        </forcedRaceTraitEntries>
+      </generalSettings>
+      <graphicPaths>
+        <li>
+          <head>Races/Head/Sentinel/Sentinel_Winter/</head>
+          <body>Races/Body/Sentinel/Sentinel_Winter/</body>
+        </li>
+        <li>
+          <lifeStageDefs>
+            <li>HumanlikeAdult</li>
+          </lifeStageDefs>
+        </li>
+      </graphicPaths>
+    </alienRace>
+    <race>
+    </race>
+    <statBases>
+    </statBases>
+  </AlienRace.ThingDef_AlienRace>
+
+
+</Defs>

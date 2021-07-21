@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <PawnKindDef Name="RSPeacekeeperDefenderPawnKindBase" Abstract="True">
+    <isFighter>true</isFighter>
+    <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
+    <forceNormalGearQuality>true</forceNormalGearQuality>
+    <defaultFactionType>PlayerTribe</defaultFactionType>
+    <minGenerationAge>0</minGenerationAge>
+    <maxGenerationAge>5000</maxGenerationAge>
+    <chemicalAddictionChance>0.00</chemicalAddictionChance>
+    <apparelTags>
+    </apparelTags>
+    <weaponTags>
+      <li>RSDLG20</li>
+    </weaponTags>
+    <apparelMoney>1000~1500</apparelMoney>
+    <backstoryCryptosleepCommonality>0</backstoryCryptosleepCommonality>
+  </PawnKindDef>
+  
+  <PawnKindDef Parent="RSPeacekeeperDefenderPawnKindBase">
+		<defName>RSPeacekeeperDefenderPawnKind</defName>
+    <race>RSPeacekeeperDefender</race>
+		<backstoryFiltersOverride>
+			<li>
+				<categories>
+					<li>RSPeacekeeperBackstoryChildDefender</li>
+          <li>RSPeacekeeperAdult1Backstory</li>
+				</categories>
+			</li>
+		</backstoryFiltersOverride>
+    <combatPower>60</combatPower>
+    <initialWillRange>0~1</initialWillRange>
+    <initialResistanceRange>10~17</initialResistanceRange>
+  </PawnKindDef>
+
+  <PawnKindDef Parent="RSPeacekeeperDefenderPawnKindBase">
+    <defName>RSPeacekeeperDefenderForestPawnKind</defName>
+    <race>RSPeacekeeperDefenderForest</race>
+    <backstoryFiltersOverride>
+      <li>
+        <categories>
+          <li>RSPeacekeeperBackstoryChildDefender</li>
+          <li>RSPeacekeeperAdult1Backstory</li>
+        </categories>
+      </li>
+    </backstoryFiltersOverride>
+    <combatPower>60</combatPower>
+    <initialWillRange>0~1</initialWillRange>
+    <initialResistanceRange>10~17</initialResistanceRange>
+  </PawnKindDef>
+
+  <PawnKindDef Parent="RSPeacekeeperDefenderPawnKindBase">
+    <defName>RSPeacekeeperDefenderDesertPawnKind</defName>
+    <race>RSPeacekeeperDefenderDesert</race>
+    <backstoryFiltersOverride>
+      <li>
+        <categories>
+          <li>RSPeacekeeperBackstoryChildDefender</li>
+          <li>RSPeacekeeperAdult1Backstory</li>
+        </categories>
+      </li>
+    </backstoryFiltersOverride>
+    <combatPower>60</combatPower>
+    <initialWillRange>0~1</initialWillRange>
+    <initialResistanceRange>10~17</initialResistanceRange>
+  </PawnKindDef>
+
+  <PawnKindDef Parent="RSPeacekeeperDefenderPawnKindBase">
+    <defName>RSPeacekeeperDefenderWinterPawnKind</defName>
+    <race>RSPeacekeeperDefenderWinter</race>
+    <backstoryFiltersOverride>
+      <li>
+        <categories>
+          <li>RSPeacekeeperBackstoryChildDefender</li>
+          <li>RSPeacekeeperAdult1Backstory</li>
+        </categories>
+      </li>
+    </backstoryFiltersOverride>
+    <combatPower>60</combatPower>
+    <initialWillRange>0~1</initialWillRange>
+    <initialResistanceRange>10~17</initialResistanceRange>
+  </PawnKindDef>
+  
+</Defs>

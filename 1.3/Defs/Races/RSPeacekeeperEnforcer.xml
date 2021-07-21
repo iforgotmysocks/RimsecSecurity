@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <AlienRace.ThingDef_AlienRace Name="RSPeacekeeperEnforcerBase" ParentName="RSPeacekeeperBase" Abstract="True">
+    <alienRace>
+      <generalSettings>
+        <alienPartGenerator>
+          <aliencrowntypes>
+            <li>Normal</li>
+          </aliencrowntypes>
+          <alienbodytypes>
+            <li>Male</li>
+          </alienbodytypes>
+          <!--<customDrawSize>(1, 1)</customDrawSize>-->
+          <!--<customHeadDrawSize>(3.5, 3.5)</customHeadDrawSize>-->
+          <!--<customPortraitDrawSize>(0.8, 0.8)</customPortraitDrawSize>-->
+          <!--<customPortraitHeadDrawSize>(0.7, 0.7)</customPortraitHeadDrawSize>-->
+          <!--<headOffset>(0, 0.7)</headOffset>-->
+        </alienPartGenerator>
+      </generalSettings>
+      <!--<graphicPaths>
+				<li>
+					<head>Races/Head/Enforcer/Enforcer_Desert/</head>
+					<body>Races/Body/Enforcer/Enforcer_Desert/</body>
+				</li>
+				<li>
+					<lifeStageDefs>
+						<li>HumanlikeAdult</li>
+					</lifeStageDefs>
+				</li>
+			</graphicPaths>-->
+      <raceRestriction>
+        <onlyUseRaceRestrictedApparel>true</onlyUseRaceRestrictedApparel>
+        <onlyUseRaceRestrictedWeapons>false</onlyUseRaceRestrictedWeapons>
+        <apparelList>
+        </apparelList>
+        <whiteApparelList>
+        </whiteApparelList>
+      </raceRestriction>
+    </alienRace>
+    <modExtensions>
+      <li Class="RimsecSecurity.RSPeacekeeperModExt">
+        <stationDef>RSChargeStation</stationDef>
+        <stationZOffset>0</stationZOffset>
+        <gunDef>RSWeaponEHG</gunDef>
+        <batterySeverity>0.2</batterySeverity>
+        <meleeSkill>10</meleeSkill>
+        <shootingSkill>12</shootingSkill>
+      </li>
+    </modExtensions>
+    <race>
+      <baseBodySize>1.2</baseBodySize>
+      <baseHealthScale>2</baseHealthScale>
+      <nameGenerator>RSPeacekeeperEnforcerNameGen</nameGenerator>
+    </race>
+    <statBases>
+      <!-- has roughly ~ 48% marketvalue -->
+      <MarketValue>4750</MarketValue>
+      <MoveSpeed>5.5</MoveSpeed>
+      <ArmorRating_Heat>2</ArmorRating_Heat>
+      <ArmorRating_Blunt>0.8</ArmorRating_Blunt>
+      <ArmorRating_Sharp>1</ArmorRating_Sharp>
+    </statBases>
+    <comps>
+      <li>
+        <compClass>RimsecSecurity.CompFuelRobot</compClass>
+      </li>
+    </comps>
+    <tools>
+      <li>
+        <label>left fist</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>16</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>18</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
+      </li>
+      <li>
+        <label>right fist</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>16</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>18</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
+      </li>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>10</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+        <chanceFactor>0.2</chanceFactor>
+      </li>
+    </tools>
+    <butcherProducts>
+      <RSSRSProcessingChip>4</RSSRSProcessingChip>
+      <ComponentIndustrial>7</ComponentIndustrial>
+      <Plasteel>50</Plasteel>
+      <Steel>150</Steel>
+    </butcherProducts>
+  </AlienRace.ThingDef_AlienRace>
+
+  <AlienRace.ThingDef_AlienRace ParentName="RSPeacekeeperEnforcerBase" >
+    <defName>RSPeacekeeperEnforcer</defName>
+    <label>Peacekeeper Enforcer</label>
+    <description>Standard Security variant of the Enforcer, a common sight on war torn planets and are fielded by massive private and planetary armies. It features higher armour.</description>
+    <alienRace>
+      <generalSettings>
+        <forcedRaceTraitEntries>
+          <li>
+            <defName>RSTraitSecurity</defName>
+          </li>
+        </forcedRaceTraitEntries>
+      </generalSettings>
+      <graphicPaths>
+        <li>
+          <head>Races/Head/Enforcer/Enforcer_Security/</head>
+          <body>Races/Body/Enforcer/Enforcer_Security/</body>
+        </li>
+        <li>
+          <lifeStageDefs>
+            <li>HumanlikeAdult</li>
+          </lifeStageDefs>
+        </li>
+      </graphicPaths>
+    </alienRace>
+    <race>
+    </race>
+    <statBases>
+      
+    </statBases>
+  </AlienRace.ThingDef_AlienRace>
+
+  <AlienRace.ThingDef_AlienRace ParentName="RSPeacekeeperEnforcerBase" >
+    <defName>RSPeacekeeperEnforcerForest</defName>
+    <label>Peacekeeper Enforcer Forest</label>
+    <description>Forest variant of the Enforcer. It features higher melee skills and agility and has a movement bonus on forest terrain.</description>
+    <alienRace>
+      <generalSettings>
+        <forcedRaceTraitEntries>
+          <li>
+            <defName>RSTraitForest</defName>
+          </li>
+        </forcedRaceTraitEntries>
+      </generalSettings>
+      <graphicPaths>
+        <li>
+          <head>Races/Head/Enforcer/Enforcer_Forest/</head>
+          <body>Races/Body/Enforcer/Enforcer_Forest/</body>
+        </li>
+        <li>
+          <lifeStageDefs>
+            <li>HumanlikeAdult</li>
+          </lifeStageDefs>
+        </li>
+      </graphicPaths>
+
+    </alienRace>
+    <race>
+    </race>
+    <statBases>
+    </statBases>
+  </AlienRace.ThingDef_AlienRace>
+
+  <AlienRace.ThingDef_AlienRace ParentName="RSPeacekeeperEnforcerBase" >
+    <defName>RSPeacekeeperEnforcerDesert</defName>
+    <label>Peacekeeper Enforcer Desert</label>
+    <description>Desert variant of the Enforcer. It features higher rate of fire and has a movement bonus on desert terrain.</description>
+    <alienRace>
+      <generalSettings>
+        <forcedRaceTraitEntries>
+          <li>
+            <defName>RSTraitDesert</defName>
+          </li>
+        </forcedRaceTraitEntries>
+      </generalSettings>
+      <graphicPaths>
+        <li>
+          <head>Races/Head/Enforcer/Enforcer_Desert/</head>
+          <body>Races/Body/Enforcer/Enforcer_Desert/</body>
+        </li>
+        <li>
+          <lifeStageDefs>
+            <li>HumanlikeAdult</li>
+          </lifeStageDefs>
+        </li>
+      </graphicPaths>
+
+    </alienRace>
+    <race>
+    </race>
+    <statBases>
+    </statBases>
+  </AlienRace.ThingDef_AlienRace>
+
+  <AlienRace.ThingDef_AlienRace ParentName="RSPeacekeeperEnforcerBase" >
+    <defName>RSPeacekeeperEnforcerWinter</defName>
+    <label>Peacekeeper Enforcer Winter</label>
+    <description>Winter variant of the Enforcer. It features higher accuracy and has a movement bonus on snowy terrain.</description>
+    <alienRace>
+      <generalSettings>
+        <forcedRaceTraitEntries>
+          <li>
+            <defName>RSTraitWinter</defName>
+          </li>
+        </forcedRaceTraitEntries>
+      </generalSettings>
+      <graphicPaths>
+        <li>
+          <head>Races/Head/Enforcer/Enforcer_Winter/</head>
+          <body>Races/Body/Enforcer/Enforcer_Winter/</body>
+        </li>
+        <li>
+          <lifeStageDefs>
+            <li>HumanlikeAdult</li>
+          </lifeStageDefs>
+        </li>
+      </graphicPaths>
+
+    </alienRace>
+    <race>
+    </race>
+    <statBases>
+    </statBases>
+  </AlienRace.ThingDef_AlienRace>
+
+</Defs>

@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <AlienRace.ThingDef_AlienRace Name="RSPeacekeeperDefenderBase" ParentName="RSPeacekeeperBase" Abstract="True">
+    <alienRace>
+      <generalSettings>
+        <alienPartGenerator>
+          <aliencrowntypes>
+            <li>Normal</li>
+          </aliencrowntypes>
+          <alienbodytypes>
+            <li>Male</li>
+          </alienbodytypes>
+        </alienPartGenerator>
+      </generalSettings>
+      <raceRestriction>
+        <onlyUseRaceRestrictedApparel>true</onlyUseRaceRestrictedApparel>
+        <onlyUseRaceRestrictedWeapons>false</onlyUseRaceRestrictedWeapons>
+        <apparelList>
+        </apparelList>
+        <whiteApparelList>
+        </whiteApparelList>
+      </raceRestriction>
+    </alienRace>
+    <modExtensions>
+      <li Class="RimsecSecurity.RSPeacekeeperModExt">
+        <stationDef>RSChargeStation</stationDef>
+        <stationZOffset>0</stationZOffset>
+        <gunDef>RSWeaponDLG</gunDef>
+        <batterySeverity>0.1</batterySeverity>
+        <meleeSkill>6</meleeSkill>
+        <shootingSkill>8</shootingSkill>
+      </li>
+    </modExtensions>
+    <race>
+      <baseBodySize>1</baseBodySize>
+      <baseHealthScale>1</baseHealthScale>
+    </race>
+    <statBases>
+      <!-- has roughly ~ 37% marketvalue -->
+      <MarketValue>2800</MarketValue>
+      <MoveSpeed>4.5</MoveSpeed>
+      <ArmorRating_Heat>2</ArmorRating_Heat>
+      <ArmorRating_Blunt>0.5</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.5</ArmorRating_Sharp>
+    </statBases>
+    <comps>
+      <li>
+        <compClass>RimsecSecurity.CompFuelRobot</compClass>
+      </li>
+    </comps>
+    <tools>
+      <li>
+        <label>left fist</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>12</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>14</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
+      </li>
+      <li>
+        <label>right fist</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>12</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>14</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
+      </li>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8.5</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+        <chanceFactor>0.2</chanceFactor>
+      </li>
+    </tools>
+    <butcherProducts>
+      <RSSRSProcessingChip>1</RSSRSProcessingChip>
+      <ComponentIndustrial>1</ComponentIndustrial>
+      <Plasteel>4</Plasteel>
+      <Steel>30</Steel>
+    </butcherProducts>
+  </AlienRace.ThingDef_AlienRace>
+
+  <AlienRace.ThingDef_AlienRace ParentName="RSPeacekeeperDefenderBase" >
+    <defName>RSPeacekeeperDefender</defName>
+    <label>Peacekeeper Defender</label>
+    <description>Standard Security variant of the Defender, mostly commonly found on starships to urban military installations. It features higher armour.</description>
+    <alienRace>
+      <generalSettings>
+        <forcedRaceTraitEntries>
+          <li>
+            <defName>RSTraitSecurity</defName>
+          </li>
+        </forcedRaceTraitEntries>
+      </generalSettings>
+      <graphicPaths>
+        <li>
+          <head>Races/Head/Defender/Defender_Security/</head>
+          <body>Races/Body/Defender/Defender_Security/</body>
+        </li>
+        <li>
+          <lifeStageDefs>
+            <li>HumanlikeAdult</li>
+          </lifeStageDefs>
+        </li>
+      </graphicPaths>
+    </alienRace>
+    <race>
+    </race>
+    <statBases>
+    </statBases>
+  </AlienRace.ThingDef_AlienRace>
+
+  <AlienRace.ThingDef_AlienRace ParentName="RSPeacekeeperDefenderBase" >
+    <defName>RSPeacekeeperDefenderForest</defName>
+    <label>Peacekeeper Defender Forest</label>
+    <description>Forest variant of the Defender. It features higher melee skills and agility and has a movement bonus on forest terrain.</description>
+    <alienRace>
+      <generalSettings>
+      <forcedRaceTraitEntries>
+        <li>
+          <defName>RSTraitForest</defName>
+        </li>
+      </forcedRaceTraitEntries>
+        </generalSettings>
+      <graphicPaths>
+        <li>
+          <head>Races/Head/Defender/Defender_Forest/</head>
+          <body>Races/Body/Defender/Defender_Forest/</body>
+        </li>
+        <li>
+          <lifeStageDefs>
+            <li>HumanlikeAdult</li>
+          </lifeStageDefs>
+        </li>
+      </graphicPaths>
+    </alienRace>
+    <race>
+    </race>
+    <statBases>
+    </statBases>
+  </AlienRace.ThingDef_AlienRace>
+
+  <AlienRace.ThingDef_AlienRace ParentName="RSPeacekeeperDefenderBase" >
+    <defName>RSPeacekeeperDefenderDesert</defName>
+    <label>Peacekeeper Defender Desert</label>
+    <description>Desert variant of the Defender. It features higher rate of fire and has a movement bonus on desert terrain.</description>
+    <alienRace>
+      <generalSettings>
+      <forcedRaceTraitEntries>
+        <li>
+          <defName>RSTraitDesert</defName>
+        </li>
+      </forcedRaceTraitEntries>
+      </generalSettings>
+      <graphicPaths>
+        <li>
+          <head>Races/Head/Defender/Defender_Desert/</head>
+          <body>Races/Body/Defender/Defender_Desert/</body>
+        </li>
+        <li>
+          <lifeStageDefs>
+            <li>HumanlikeAdult</li>
+          </lifeStageDefs>
+        </li>
+      </graphicPaths>
+    </alienRace>
+    <race>
+    </race>
+    <statBases>
+    </statBases>
+  </AlienRace.ThingDef_AlienRace>
+
+  <AlienRace.ThingDef_AlienRace ParentName="RSPeacekeeperDefenderBase" >
+    <defName>RSPeacekeeperDefenderWinter</defName>
+    <label>Peacekeeper Defender Winter</label>
+    <description>Winter variant of the Defender. It features higher accuracy and has a movement bonus on snowy terrain.</description>
+    <alienRace>
+      <generalSettings>
+      <forcedRaceTraitEntries>
+        <li>
+          <defName>RSTraitWinter</defName>
+        </li>
+      </forcedRaceTraitEntries>
+        </generalSettings>
+      <graphicPaths>
+        <li>
+          <head>Races/Head/Defender/Defender_Winter/</head>
+          <body>Races/Body/Defender/Defender_Winter/</body>
+        </li>
+        <li>
+          <lifeStageDefs>
+            <li>HumanlikeAdult</li>
+          </lifeStageDefs>
+        </li>
+      </graphicPaths>
+    </alienRace>
+    <race>
+    </race>
+    <statBases>
+    </statBases>
+  </AlienRace.ThingDef_AlienRace>
+
+</Defs>

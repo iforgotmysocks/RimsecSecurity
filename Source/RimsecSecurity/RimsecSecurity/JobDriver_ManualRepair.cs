@@ -32,10 +32,10 @@ namespace RimsecSecurity
 
         private void FullyRepair(Pawn currentRobo)
         {
-            MoteMaker.ThrowDustPuffThick(currentRobo.Position.ToVector3(), currentRobo.Map, Rand.Range(1.5f, 3f), new UnityEngine.Color(1f, 1f, 1f, 2.5f));
+            FleckMaker.ThrowDustPuffThick(currentRobo.Position.ToVector3(), currentRobo.Map, Rand.Range(1.5f, 3f), new UnityEngine.Color(1f, 1f, 1f, 2.5f));
             foreach (var hediff in currentRobo.health.hediffSet.hediffs.Reverse<Hediff>())
             {
-                if (hediff is Hediff_Injury || hediff is Hediff_MissingPart) HealthUtility.CureHediff(hediff);
+                if (hediff is Hediff_Injury || hediff is Hediff_MissingPart) HealthUtility.Cure(hediff);
             }
         }
 

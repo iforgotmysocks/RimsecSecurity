@@ -233,7 +233,7 @@ namespace RimsecSecurity
     public class RestUtility_IsValidBedFor
     {
         // todo - may need some revision
-        public static void Postfix(ref bool __result, Thing bedThing, Pawn sleeper, Pawn traveler, bool sleeperWillBePrisoner, bool checkSocialProperness, bool allowMedBedEvenIfSetToNoCare, bool ignoreOtherReservations)
+        public static void Postfix(ref bool __result, Thing bedThing, Pawn sleeper)
         {
             if (PeacekeeperUtility.IsPeacekeeper(sleeper) && bedThing.def == RSDefOf.RSChargeStation) __result = true;
             else if (PeacekeeperUtility.IsPeacekeeper(sleeper) && bedThing.def != RSDefOf.RSChargeStation) __result = false;
@@ -459,7 +459,7 @@ namespace RimsecSecurity
         }
     }
 
-    [HarmonyPatch(typeof(MemoryThoughtHandler), "TryGainMemory", new Type[] { typeof(ThoughtDef), typeof(Pawn) })]
+    [HarmonyPatch(typeof(MemoryThoughtHandler), "TryGainMemory", new Type[] { typeof(ThoughtDef), typeof(Pawn), typeof(Precept) })]
     public class MemoryThoughtHandler_TryGainMemory
     {
         public static ThoughtDef[] badThoughts = new[] { ThoughtDefOf.ButcheredHumanlikeCorpse, ThoughtDefOf.KnowButcheredHumanlikeCorpse };
@@ -582,8 +582,8 @@ namespace RimsecSecurity
     #endregion
 
     #region weapons / equipment
-    [HarmonyPatch(typeof(EquipmentUtility), "CanEquip_NewTmp")]
-    public class EquipmentUtility_CanEquip_NewTemp
+    [HarmonyPatch(typeof(EquipmentUtility), "CanEquip", new Type[] { typeof(Thing), typeof(Pawn), typeof(string), typeof(bool) }, new ArgumentType[] { ArgumentType.Normal, ArgumentType.Normal, ArgumentType.Out, ArgumentType.Normal })]
+    public class EquipmentUtility_CanEquip
     {
         public static void Postfix(ref bool __result, Thing thing, Pawn pawn, ref string cantReason, bool checkBonded = true)
         {

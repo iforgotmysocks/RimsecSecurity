@@ -37,7 +37,7 @@ namespace RimsecSecurity
                 }
                 if (this.job.expiryInterval == -1 && this.job.def == JobDefOf.Wait_Combat && !this.pawn.Drafted)
                 {
-                    Log.Error(this.pawn + " in eternal WaitCombat without being drafted.", false);
+                    Log.Error(this.pawn + " in eternal WaitCombat without being drafted.");
                     base.ReadyForNextToil();
                     return;
                 }

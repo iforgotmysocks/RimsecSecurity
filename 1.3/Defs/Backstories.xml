@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <AlienRace.BackstoryDef>
+    <defName>RSPeacekeeperBackstoryChildDefender</defName>
+    <title>Defender</title>
+    <titleShort>Defender</titleShort>
+    <baseDescription>Mass produced and distributed on a galactic scale the Peacekeeper Defender is a common defence unit that is often used to protect commerce and military installations. Due to being, a low budget defence unit it lacks the sufficient power to operate for long periods of time making it only suitable for defensive purposes.</baseDescription>
+    <slot>Childhood</slot>
+    <spawnCategories>
+      <li>RSPeacekeeperBackstoryChildDefender</li>
+    </spawnCategories>
+    <bodyTypeGlobal>Male</bodyTypeGlobal>
+    <workDisables>
+      <li>Commoner</li>
+      <li>ManualDumb</li>
+      <li>Social</li>
+    </workDisables>
+    <skillGains>
+      <li>
+        <defName>Shooting</defName>
+        <amount>8</amount>
+      </li>
+      <li>
+        <defName>Melee</defName>
+        <amount>9</amount>
+      </li>
+    </skillGains>
+  </AlienRace.BackstoryDef>
+
+  <AlienRace.BackstoryDef>
+    <defName>RSPeacekeeperBackstoryChildEnforcer</defName>
+    <title>Enforcer</title>
+    <titleShort>Enforcer</titleShort>
+    <baseDescription>After the major success of the Defender, Saturn Robotics Systems introduced the Enforcer a highly advanced combat robot for more aggressive purposes thus allowing a higher battery capacity for longer engagements and operations.</baseDescription>
+    <slot>Childhood</slot>
+    <spawnCategories>
+      <li>RSPeacekeeperBackstoryChildEnforcer</li>
+    </spawnCategories>
+    <bodyTypeGlobal>Male</bodyTypeGlobal>
+    <workDisables>
+      <li>Commoner</li>
+      <li>ManualDumb</li>
+      <li>Social</li>
+    </workDisables>
+    <skillGains>
+      <li>
+        <defName>Shooting</defName>
+        <amount>12</amount>
+      </li>
+      <li>
+        <defName>Melee</defName>
+        <amount>13</amount>
+      </li>
+    </skillGains>
+  </AlienRace.BackstoryDef>
+
+  <AlienRace.BackstoryDef>
+    <defName>RSPeacekeeperBackstoryChildSentinel</defName>
+    <title>Sentinel</title>
+    <titleShort>Sentinel</titleShort>
+    <baseDescription>Although the Defender and Enforcer could be wielded in superior numbers, for many users it was costly to maintain such numbers due to staggeringly high casualties and expensive repairs for damaged units. Eventually, Saturn Robotics Systems developed the Sentinel a heavy-duty multipurpose siege robot that is equipped with Saturn Robotics Systems’ heavy assault gun designated as the Sentinel Heavy Assault Gun 1 (SHAG-1). Although it was more costly than the Defenders and Enforcers, the Sentinel is a common face among armies featuring SRS combat units due to its sheer firepower and advanced armour.</baseDescription>
+    <slot>Childhood</slot>
+    <spawnCategories>
+      <li>RSPeacekeeperBackstoryChildSentinel</li>
+    </spawnCategories>
+    <bodyTypeGlobal>Male</bodyTypeGlobal>
+    <workDisables>
+      <!--<li>Animals</li>
+      <li>Crafting</li>
+      <li>Cooking</li>
+      <li>Firefighting</li>
+      <li>Commoner</li>
+      <li>Hunting</li>
+
+      <li>PlantWork</li>
+      <li>Mining</li>
+      <li>Artistic</li>
+      <li>Cleaning</li>
+      <li>Intellectual</li>-->
+      <!--<li>ManualSkilled</li>-->
+      <li>Commoner</li>
+      <li>ManualDumb</li>
+      <li>Social</li>
+    </workDisables>
+    <skillGains>
+      <li>
+        <defName>Shooting</defName>
+        <amount>15</amount>
+      </li>
+      <li>
+        <defName>Melee</defName>
+        <amount>14</amount>
+      </li>
+    </skillGains>
+  </AlienRace.BackstoryDef>
+
+  <AlienRace.BackstoryDef>
+    <defName>RSPeacekeeperAdult1Backstory</defName>
+    <title>Old robot</title>
+    <titleShort>Old robot</titleShort>
+    <baseDescription>This particular unit has served for a long period of time beyond its peak lifespan and its systems have been damaged resulting in lower peak performance.</baseDescription>
+    <slot>Adulthood</slot>
+    <spawnCategories>
+      <li>RSPeacekeeperAdult1Backstory</li>
+    </spawnCategories>
+    <bodyTypeGlobal>Male</bodyTypeGlobal>
+    <skillGains>
+      <li>
+        <defName>Shooting</defName>
+        <amount>-3</amount>
+      </li>
+      <li>
+        <defName>Melee</defName>
+        <amount>-3</amount>
+      </li>
+    </skillGains>
+  </AlienRace.BackstoryDef>
+
+</Defs>

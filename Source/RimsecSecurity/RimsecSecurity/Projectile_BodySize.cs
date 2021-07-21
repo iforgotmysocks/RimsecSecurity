@@ -17,7 +17,7 @@ namespace RimsecSecurity
             var map = base.Map;
             var position = base.Position;
             GenClamor.DoClamor(this, 2.1f, ClamorDefOf.Impact);
-            MoteMaker.MakeStaticMote(position, Map, ThingDef.Named("Mote_BlastFlame"), 2);
+            FleckMaker.Static(position, Map, DefDatabase<FleckDef>.GetNamed("BlastFlame"), 2);
             SoundDef.Named("Explosion_Bomb").PlayOneShot(new TargetInfo(base.Position, base.Map, false));
 
             this.Destroy(DestroyMode.Vanish);
@@ -59,10 +59,10 @@ namespace RimsecSecurity
             SoundDefOf.BulletImpact_Ground.PlayOneShot(new TargetInfo(base.Position, map, false));
             if (base.Position.GetTerrain(map).takeSplashes)
             {
-                MoteMaker.MakeWaterSplash(this.ExactPosition, map, Mathf.Sqrt((float)base.DamageAmount) * 1f, 4f);
+                FleckMaker.WaterSplash(this.ExactPosition, map, Mathf.Sqrt((float)base.DamageAmount) * 1f, 4f);
                 return;
             }
-            MoteMaker.MakeStaticMote(this.ExactPosition, map, ThingDefOf.Mote_ShotHit_Dirt, 1f);
+            FleckMaker.Static(this.ExactPosition, map, FleckDefOf.ShotHit_Dirt, 1f);
         }
 
 
