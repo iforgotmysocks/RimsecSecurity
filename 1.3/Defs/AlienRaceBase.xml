@@ -120,8 +120,6 @@
 					</li>-->
         </disallowedTraits>
       </generalSettings>
-
-
       <styleSettings>
         <li>
           <key>HairDef</key>
@@ -151,7 +149,6 @@
           </value>
         </li>
       </styleSettings>
-
       <relationSettings>
         <relationChanceModifierChild>0</relationChanceModifierChild>
         <relationChanceModifierExLover>0</relationChanceModifierExLover>

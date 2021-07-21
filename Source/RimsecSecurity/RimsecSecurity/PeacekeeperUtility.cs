@@ -58,6 +58,8 @@ namespace RimsecSecurity
             robot.skills.skills.FirstOrDefault(x => x.def == SkillDefOf.Shooting).Level = robotModExt.shootingSkill;
             robot.skills.skills.FirstOrDefault(x => x.def == SkillDefOf.Melee).Level = robotModExt.meleeSkill;
 
+            robot.guest.joinStatus = JoinStatus.JoinAsColonist;
+
             return robot;
         }
 
