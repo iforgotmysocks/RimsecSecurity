@@ -120,9 +120,38 @@
 					</li>-->
         </disallowedTraits>
       </generalSettings>
-      <hairSettings>
-        <hasHair>false</hasHair>
-      </hairSettings>
+
+
+      <styleSettings>
+        <li>
+          <key>HairDef</key>
+          <value>
+            <hasStyle>true</hasStyle>
+            <styleTags>
+              <li>NoHair</li>
+            </styleTags>
+          </value>
+        </li>
+        <li>
+          <key>BeardDef</key>
+          <value>
+            <hasStyle>true</hasStyle>
+            <styleTags>
+              <li>NoBeard</li>
+            </styleTags>
+          </value>
+        </li>
+        <li>
+          <key>TattooDef</key>
+          <value>
+            <hasStyle>true</hasStyle>
+            <styleTags>
+              <li>NoTattoo</li>
+            </styleTags>
+          </value>
+        </li>
+      </styleSettings>
+
       <relationSettings>
         <relationChanceModifierChild>0</relationChanceModifierChild>
         <relationChanceModifierExLover>0</relationChanceModifierExLover>

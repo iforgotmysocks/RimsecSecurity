@@ -34,6 +34,8 @@ namespace RimsecSecurity
                 AllowAddictions = false,
                 FixedMelanin = 0,
                 CanGeneratePawnRelations = false, 
+                FixedIdeo = null,
+                ForceNoIdeo = true
             });
 
             robot.Name = new NameSingle(robot.Name.ToStringShort + " #" + ModSettings.peacekeeperNumber++);
