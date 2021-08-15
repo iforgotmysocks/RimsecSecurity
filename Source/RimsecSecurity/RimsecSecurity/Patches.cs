@@ -487,24 +487,17 @@ namespace RimsecSecurity
         {
             var codes = new List<CodeInstruction>(instructions);
             if (!ModSettings.removeIdeologyImpact) return codes;
-#pragma warning disable CS0252
             var idx = codes.FindIndex(code => code.operand != null && code.operand.ToString().Contains("get_IsPrisoner"));
-#pragma warning restore CS0252 
             if (idx == -1)
             {
-                Log.Warning($"Could not find GetLabelFor code instruction; skipping changes");
+                Log.Warning($"Could not find get_IsPrisoner code instruction; skipping changes");
                 return instructions;
             }
             codes.Insert(idx + 2, new CodeInstruction(OpCodes.Ldloc_2));
             codes.Insert(idx + 3, new CodeInstruction(OpCodes.Ldloc_3));
             codes.Insert(idx + 4, new CodeInstruction(OpCodes.Callvirt, AccessTools.Method(typeof(List<Pawn>), "get_Item", new Type[] { typeof(Int32) })));
             codes.Insert(idx + 5, new CodeInstruction(OpCodes.Callvirt, AccessTools.Method(typeof(PeacekeeperUtility), nameof(PeacekeeperUtility.IsPeacekeeper), new Type[] { typeof(Pawn) })));
-            codes.Insert(idx + 6, new CodeInstruction(OpCodes.Brtrue_S, codes[idx + 1].operand)); //  { labels = codes[idx + 1].labels }
-
-            //for (int i = 0; i < codes.Count; i++)
-            //{
-            //    Log.Message($"Idx: {i} opcode: {codes[i].opcode} operand: {codes[i].operand}");
-            //}
+            codes.Insert(idx + 6, new CodeInstruction(OpCodes.Brtrue_S, codes[idx + 1].operand));
 
             return codes;
         }
