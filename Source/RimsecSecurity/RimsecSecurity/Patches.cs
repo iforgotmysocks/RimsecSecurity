@@ -503,8 +503,51 @@ namespace RimsecSecurity
         }
     }
 
+    [HarmonyPatch(typeof(ThoughtWorker_Precept_IdeoDiversity_Uniform), "ShouldHaveThought")]
+    public class ThoughtWorker_Precept_IdeoDiversity_Uniform_ShouldHaveThought
+    {
+        public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        {
+            var codes = new List<CodeInstruction>(instructions);
+            if (!ModSettings.removeIdeologyImpact) return codes;
+            var idx = codes.FindIndex(code => code.operand != null && code.operand.ToString().Contains("IsQuestLodger"));
+            if (idx == -1)
+            {
+                Log.Warning($"Could not find IsQuestLodger code instruction; skipping changes");
+                return instructions;
+            }
+            codes.Insert(idx + 2, new CodeInstruction(OpCodes.Ldloc_0));
+            codes.Insert(idx + 3, new CodeInstruction(OpCodes.Ldloc_2));
+            codes.Insert(idx + 4, new CodeInstruction(OpCodes.Callvirt, AccessTools.Method(typeof(List<Pawn>), "get_Item", new Type[] { typeof(Int32) })));
+            codes.Insert(idx + 5, new CodeInstruction(OpCodes.Callvirt, AccessTools.Method(typeof(PeacekeeperUtility), nameof(PeacekeeperUtility.IsPeacekeeper), new Type[] { typeof(Pawn) })));
+            codes.Insert(idx + 6, new CodeInstruction(OpCodes.Brtrue_S, codes[idx + 1].operand));
+
+            return codes;
+        }
+    }
+
     [HarmonyPatch(typeof(ThoughtWorker_Precept_IdeoDiversity_Social), "ShouldHaveThought")]
     public class ThoughtWorker_Precept_IdeoDiversity_Social_ShouldHaveThought
+    {
+        public static void Postfix(ref ThoughtState __result, Pawn p, Pawn otherPawn)
+        {
+            if (!ModSettings.removeIdeologyImpact || __result.StageIndex == ThoughtState.Inactive.StageIndex) return;
+            if (PeacekeeperUtility.IsPeacekeeper(p) || PeacekeeperUtility.IsPeacekeeper(otherPawn)) __result = false;
+        }
+    }
+
+    [HarmonyPatch(typeof(ThoughtWorker_Precept_AnyBodyPartCovered_Social), "ShouldHaveThought")]
+    public class ThoughtWorker_Precept_AnyBodyPartCovered_Social_ShouldHaveThought
+    {
+        public static void Postfix(ref ThoughtState __result, Pawn p, Pawn otherPawn)
+        {
+            if (!ModSettings.removeIdeologyImpact || __result.StageIndex == ThoughtState.Inactive.StageIndex) return;
+            if (PeacekeeperUtility.IsPeacekeeper(p) || PeacekeeperUtility.IsPeacekeeper(otherPawn)) __result = false;
+        }
+    }
+
+    [HarmonyPatch(typeof(ThoughtWorker_Precept_GroinUncovered_Social), "ShouldHaveThought")]
+    public class ThoughtWorker_Precept_GroinUncovered_Social_ShouldHaveThought
     {
         public static void Postfix(ref ThoughtState __result, Pawn p, Pawn otherPawn)
         {
