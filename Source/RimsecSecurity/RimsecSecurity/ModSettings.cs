@@ -19,6 +19,7 @@ namespace RimsecSecurity
         public static float fuelConsumptionRate;
         public static float daysPauseBetweenTradeShips = 15;
         public static bool allowClothing = false;
+        public static bool removeIdeologyImpact = true;
 
         public override void ExposeData()
         {
@@ -31,6 +32,7 @@ namespace RimsecSecurity
             Scribe_Values.Look(ref debugActive, "debugActive", false);
             Scribe_Values.Look(ref daysPauseBetweenTradeShips, "daysPauseBetweenTradeShips", 15);
             Scribe_Values.Look(ref allowClothing, "allowClothing", false);
+            Scribe_Values.Look(ref removeIdeologyImpact, "removeIdeologyImpact", true);
         }
         
         public void DoWindowContents(Rect rect)
@@ -47,6 +49,8 @@ namespace RimsecSecurity
             fuelConsumptionRate = options.Slider(fuelConsumptionRate, 0.01f, 2f);
             options.Label($"Interval of days between SRS trade ships (+2 days on which the event can happen): {Math.Round(daysPauseBetweenTradeShips, 1)}");
             daysPauseBetweenTradeShips = options.Slider(daysPauseBetweenTradeShips, 1f, 60f);
+            options.CheckboxLabeled("Remove ideology diversity impact", ref ModSettings.removeIdeologyImpact);
+
             options.Gap(24f);
             if (options.ButtonTextLabeled("Spawn random test robot at random colonist location", "Spawn")) PeacekeeperUtility.SpawnRandomRobot(); 
 
