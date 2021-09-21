@@ -13,12 +13,12 @@
           </alienbodytypes>
           <useGenderedHeads>false</useGenderedHeads>
           <useGenderedBodies>false</useGenderedBodies>
-          <customDrawSize>(2, 2)</customDrawSize>
-          <!--<customDrawSize>(1.8, 1.8)</customDrawSize>-->
-          <customHeadDrawSize>(1.8, 1.8)</customHeadDrawSize>
-          <!--<customHeadDrawSize>(1.6, 1.6)</customHeadDrawSize>-->
-          <headOffset>(0, 0.3)</headOffset>
-          <!--<headOffset>(0, 0.2)</headOffset>-->
+          <!--<customDrawSize>(2, 2)</customDrawSize>-->
+          <customDrawSize>(1.8, 1.8)</customDrawSize>
+          <!--<customHeadDrawSize>(1.8, 1.8)</customHeadDrawSize>-->
+          <customHeadDrawSize>(1.6, 1.6)</customHeadDrawSize>
+          <!--<headOffset>(0, 0.3)</headOffset>-->
+          <headOffset>(0, 0.2)</headOffset>
           <customPortraitDrawSize>(1.5, 1.5)</customPortraitDrawSize>
           <customPortraitHeadDrawSize>(1.4, 1.4)</customPortraitHeadDrawSize>
         </alienPartGenerator>
@@ -40,7 +40,7 @@
     <modExtensions>
       <li Class="RimsecSecurity.RSPeacekeeperModExt">
         <stationDef>RSChargeStation</stationDef>
-        <stationZOffset>1</stationZOffset>
+        <stationZOffset>0</stationZOffset>
         <gunDef>RSWeaponSHAG</gunDef>
         <batterySeverity>0.3</batterySeverity>
         <meleeSkill>13</meleeSkill>
