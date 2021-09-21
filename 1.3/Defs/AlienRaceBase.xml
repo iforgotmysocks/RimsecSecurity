@@ -17,8 +17,6 @@
         </validBeds>
         <minAgeForAdulthood>3</minAgeForAdulthood>
         <alienPartGenerator>
-          <borderScale>2</borderScale>
-          <atlasScale>2</atlasScale>
           <useGenderedHeads>false</useGenderedHeads>
           <headBodyPartDef>MechanicalHead</headBodyPartDef>
           <colorChannels>
