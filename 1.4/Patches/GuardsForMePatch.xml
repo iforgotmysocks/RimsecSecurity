@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>Guards For Me</li>
+    </mods>
+    <match Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+
+        <li Class="PatchOperationInsert">
+          <xpath>Defs/ThinkTreeDef[defName = "RSPeacekeeper"]/thinkRoot/subNodes/li[@Class="ThinkNode_SubtreesByTag" and insertTag="GuardsForMeHook"]</xpath>
+          <value>
+            <li Class="ThinkNode_ConditionalColonist">
+              <subNodes>
+                <li Class="ThinkNode_ConditionalDrafted">
+                  <invert>true</invert>
+                  <subNodes>
+                    <li Class="aRandomKiwi.GFM.ThinkNode_ConditionalShouldPatrol">
+                      <subNodes>
+                        <li Class="aRandomKiwi.GFM.JobGiver_AIGotoPatrolWaypoint"/>
+                      </subNodes>
+                    </li>
+                  </subNodes>
+                </li>
+              </subNodes>
+            </li>
+            <li Class="ThinkNode_ConditionalColonist">
+              <subNodes>
+                <li Class="ThinkNode_ConditionalDrafted">
+                  <invert>true</invert>
+                  <subNodes>
+                    <li Class="aRandomKiwi.GFM.ThinkNode_ConditionalShouldGuardSpotAttack">
+                      <subNodes>
+                        <li Class="aRandomKiwi.GFM.JobGiver_AIFightEnemiesNearGuardSpot">
+                          <chaseTarget>false</chaseTarget>
+                        </li>
+                      </subNodes>
+                    </li>
+                    <li Class="aRandomKiwi.GFM.ThinkNode_ConditionalShouldGuardSpot">
+                      <subNodes>
+                        <li Class="aRandomKiwi.GFM.JobGiver_AIGotoGuardSpot"/>
+                        <li Class="aRandomKiwi.GFM.JobGiver_IdleCombat"/>
+                      </subNodes>
+                    </li>
+                  </subNodes>
+                </li>
+              </subNodes>
+            </li>
+            <li Class="ThinkNode_ConditionalColonist">
+              <subNodes>
+                <li Class="ThinkNode_ConditionalDrafted">
+                  <invert>true</invert>
+                  <subNodes>
+                    <li Class="aRandomKiwi.GFM.ThinkNode_ConditionalShouldGuard">
+                      <subNodes>
+                        <li Class="aRandomKiwi.GFM.JobGiver_AIDefendVIP">
+                          <attackMeleeThreatEvenIfNotHostile>true</attackMeleeThreatEvenIfNotHostile>
+                        </li>
+                        <li Class="aRandomKiwi.GFM.JobGiver_AIFollowVIP"/>
+                        <li Class="aRandomKiwi.GFM.JobGiver_WanderNearVIP" />
+                      </subNodes>
+                    </li>
+                  </subNodes>
+                </li>
+              </subNodes>
+            </li>
+            <li Class="ThinkNode_ConditionalColonist">
+              <subNodes>
+                <li Class="ThinkNode_ConditionalDrafted">
+                  <invert>true</invert>
+                  <subNodes>
+                    <li Class="aRandomKiwi.GFM.ThinkNode_ConditionalShouldSearchAndKill">
+                      <subNodes>
+                        <li Class="aRandomKiwi.GFM.JobGiver_AIFightEnemiesCustom">
+                          <targetAcquireRadius>500</targetAcquireRadius>
+                          <targetKeepRadius>500</targetKeepRadius>
+                          <chaseTarget>true</chaseTarget>
+                        </li>
+                        <li Class="aRandomKiwi.GFM.JobGiver_AIGotoNearestHostile" />
+                      </subNodes>
+                    </li>
+                  </subNodes>
+                </li>
+              </subNodes>
+            </li>
+            
+            
+            <li Class="JobGiver_Work"/>
+          </value>
+        </li>
+      </operations>
+    </match>
+  </Operation>
+  
+</Patch>

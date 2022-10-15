@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Defs>
+  <ThingDef ParentName="ResourceBase">
+    <defName>RSSRSProcessingChip</defName>
+    <label>SRS processing chip</label>
+    <description>The SRS Processing Chip is a vital part of manufacturing SRS Robots and without it and the assembly bench, all SRS robots are inoperable without the chip. They can be bought through SRS Trade Ships and can be salvaged from destroyed SRS units.</description>
+    <graphicData>
+      <texPath>Things/SRS_processing_chip</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <soundInteract>Metal_Drop</soundInteract>
+    <soundDrop>Standard_Drop</soundDrop>
+    <stackLimit>50</stackLimit>
+    <healthAffectsPrice>false</healthAffectsPrice>
+    <statBases>
+      <MaxHitPoints>70</MaxHitPoints>
+      <MarketValue>300</MarketValue>
+      <Mass>0.6</Mass>
+      <Flammability>0.6</Flammability>
+      <DeteriorationRate>2.0</DeteriorationRate>
+    </statBases>
+    <intricate>true</intricate>
+    <thingCategories>
+      <li>Manufactured</li>
+    </thingCategories>
+    <tradeTags>
+      <li>ExoticMisc</li>
+    </tradeTags>
+    <thingSetMakerTags>
+    </thingSetMakerTags>
+  </ThingDef>
+
+  <ThingDef ParentName="ResourceBase">
+    <defName>RSPowerCell</defName>
+    <label>SRS power cell</label>
+    <description>The SRS Power Cell is often used to refuel SRS Robots. They can be built via the Assembly bench or can be bought through SRS Trade Ships.</description>
+    <tickerType>Normal</tickerType>
+    <graphicData>
+      <texPath>Things/SRSPowerCell</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+      <drawSize>1.25</drawSize>
+    </graphicData>
+    <stackLimit>150</stackLimit>
+    <healthAffectsPrice>false</healthAffectsPrice>
+    <statBases>
+      <MaxHitPoints>50</MaxHitPoints>
+      <MarketValue>5</MarketValue>
+      <Mass>0.05</Mass>
+      <Flammability>2.0</Flammability>
+      <DeteriorationRate>1.0</DeteriorationRate>
+    </statBases>
+    <thingCategories>
+      <li>Manufactured</li>
+    </thingCategories>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>1.1</explosiveRadius>
+        <explosiveDamageType>Flame</explosiveDamageType>
+        <explosiveExpandPerStackcount>0.037</explosiveExpandPerStackcount>
+        <startWickOnDamageTaken>
+          <li>Flame</li>
+        </startWickOnDamageTaken>
+        <startWickHitPointsPercent>0.333</startWickHitPointsPercent>
+        <preExplosionSpawnThingDef>Filth_Fuel</preExplosionSpawnThingDef>
+        <preExplosionSpawnChance>1</preExplosionSpawnChance>
+        <wickTicks>70~150</wickTicks>
+      </li>
+    </comps>
+  </ThingDef>
+  
+</Defs>

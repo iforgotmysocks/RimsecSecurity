@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <RulePackDef>
+    <defName>RSPeacekeeperNameGen</defName>
+    <rulePack>
+      <rulesStrings>
+        <li>name->[Adjective] [Noun]</li>
+      </rulesStrings>
+      <rulesRaw>
+        <li Class="Rule_File">
+          <keyword>Adjective</keyword>
+          <path>Peacekeeper/Adjectives</path>
+        </li>
+        <li Class="Rule_File">
+          <keyword>Noun</keyword>
+          <path>Peacekeeper/Nouns</path>
+        </li>
+      </rulesRaw>
+    </rulePack>
+  </RulePackDef>
+
+  <RulePackDef>
+    <defName>RSPeacekeeperEnforcerNameGen</defName>
+    <rulePack>
+      <rulesStrings>
+        <li>name->[Adjective] [Noun]</li>
+      </rulesStrings>
+      <rulesRaw>
+        <li Class="Rule_File">
+          <keyword>Adjective</keyword>
+          <path>Peacekeeper/Enforcer/Adjectives</path>
+        </li>
+        <li Class="Rule_File">
+          <keyword>Noun</keyword>
+          <path>Peacekeeper/Enforcer/Nouns</path>
+        </li>
+      </rulesRaw>
+    </rulePack>
+  </RulePackDef>
+
+  <RulePackDef>
+    <defName>RSPeacekeeperSentinelNameGen</defName>
+    <rulePack>
+      <rulesStrings>
+        <li>name->[Adjective] [Noun]</li>
+      </rulesStrings>
+      <rulesRaw>
+        <li Class="Rule_File">
+          <keyword>Adjective</keyword>
+          <path>Peacekeeper/Sentinel/Adjectives</path>
+        </li>
+        <li Class="Rule_File">
+          <keyword>Noun</keyword>
+          <path>Peacekeeper/Sentinel/Nouns</path>
+        </li>
+      </rulesRaw>
+    </rulePack>
+  </RulePackDef>
+</Defs>
+

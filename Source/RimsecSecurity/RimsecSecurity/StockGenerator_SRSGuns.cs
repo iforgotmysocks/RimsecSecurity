@@ -8,9 +8,8 @@ using Verse;
 
 namespace RimsecSecurity
 {
-	class StockGenerator_SRSGuns : StockGenerator_WeaponsRanged
+	class StockGenerator_SRSGuns : StockGenerator_MiscItems
 	{
-
 		protected override float SelectionWeight(ThingDef thingDef)
 		{
 			return SelectionWeightMarketValueCurve.Evaluate(thingDef.BaseMarketValue);
@@ -41,6 +40,6 @@ namespace RimsecSecurity
 			return td.IsRangedWeapon && (td.weaponTags != null && td.weaponTags.Contains(weaponTag));
 		}
 
-		public new const string weaponTag = "RSPeacekeeperGun";
+		public const string weaponTag = "RSPeacekeeperGun";
 	}
 }

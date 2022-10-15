@@ -32,7 +32,6 @@ namespace RimsecSecurity
                 FixedBiologicalAge = 0,
                 FixedGender = Gender.Male,
                 AllowAddictions = false,
-                FixedMelanin = 0,
                 CanGeneratePawnRelations = false, 
                 FixedIdeo = null,
                 ForceNoIdeo = true

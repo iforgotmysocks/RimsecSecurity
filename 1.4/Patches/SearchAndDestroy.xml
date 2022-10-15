@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>Search and Destroy</li>
+    </mods>
+    <match Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+        <li Class="PatchOperationInsert">
+          <xpath>Defs/ThinkTreeDef[defName = "RSPeacekeeper"]/thinkRoot[@Class = "ThinkNode_Priority"]/subNodes/li[@Class="ThinkNode_QueuedJob"]</xpath>
+          <value>
+            <li Class="SearchAndDestroy.ThinkNode_ConditionalSearchAndDestroy">
+              <subNodes>
+                <li Class="ThinkNode_Priority">
+                  <subNodes>
+                    <li Class="JobGiver_MoveToStandable"/>
+                    <li Class="JobGiver_AIFightEnemies">
+                      <targetAcquireRadius>200</targetAcquireRadius>
+                      <targetKeepRadius>32</targetKeepRadius>
+                    </li>
+                    <li Class="JobGiver_AIGotoNearestHostile" />
+                  </subNodes>
+                </li>
+              </subNodes>
+            </li>
+          </value>
+        </li>
+      </operations>
+    </match>
+  </Operation>
+</Patch>

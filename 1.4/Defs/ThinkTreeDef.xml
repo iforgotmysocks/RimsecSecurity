@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Defs>
+
+  <ThinkTreeDef>
+    <defName>RSPeacekeeper</defName>
+    <thinkRoot Class="ThinkNode_Priority">
+      <subNodes>
+				
+				<!-- If we HAVE to keep lying down... -->
+				<li Class="ThinkNode_ConditionalMustKeepLyingDown">
+					<subNodes>
+						<!-- Keep lying down -->
+						<li Class="JobGiver_KeepLyingDown" />
+					</subNodes>
+				</li>
+
+				<li Class="ThinkNode_Subtree">
+					<treeDef>Downed</treeDef>
+				</li>
+
+        <!-- React to close melee threat -->
+        <li Class="JobGiver_ReactToCloseMeleeThreat" />
+
+        <li Class="ThinkNode_QueuedJob" />
+
+        <!-- Wait if drafted -->
+        <li Class="ThinkNode_ConditionalColonist">
+          <subNodes>
+            <li Class="ThinkNode_Tagger">
+              <tagToGive>DraftedOrder</tagToGive>
+              <subNodes>
+                <li Class="JobGiver_MoveToStandable" />
+                <li Class="JobGiver_Orders" />
+              </subNodes>
+            </li>
+          </subNodes>
+        </li>
+
+        <li Class="ThinkNode_ConditionalColonist">
+          <subNodes>
+            <!-- Seek allowed area -->
+            <li Class="JobGiver_SeekAllowedArea" />
+
+            <!-- Seek safe temperatures -->
+            <li Class="JobGiver_SeekSafeTemperature" />
+
+            <!-- Drop unnused inventory -->
+            <li Class="JobGiver_DropUnusedInventory" />
+
+            <!-- Optimize apparel -->
+            <!--<li Class="ThinkNode_Tagger">
+              <tagToGive>ChangingApparel</tagToGive>
+              <subNodes>
+                <li Class="JobGiver_OptimizeApparel">
+                  <leaveJoinableLordIfIssuesJob>true</leaveJoinableLordIfIssuesJob>
+                </li>
+              </subNodes>
+            </li>-->
+
+            <li Class="ThinkNode_Tagger">
+              <tagToGive>TakeForInventoryStock</tagToGive>
+              <subNodes>
+                <li Class="JobGiver_TakeForInventoryStock">
+                  <leaveJoinableLordIfIssuesJob>true</leaveJoinableLordIfIssuesJob>
+                </li>
+              </subNodes>
+            </li>
+
+            <!-- Unload your inventory -->
+            <li Class="ThinkNode_Tagger">
+              <tagToGive>UnloadingOwnInventory</tagToGive>
+              <subNodes>
+                <li Class="JobGiver_UnloadYourInventory" />
+              </subNodes>
+            </li>
+          </subNodes>
+        </li>
+
+        <li Class="ThinkNode_Subtree">
+          <treeDef>LordDuty</treeDef>
+        </li>
+
+        <li Class="RimsecSecurity.JobGiver_Recharge">
+          <minEnergyRechargePercentage>40</minEnergyRechargePercentage>
+          <minEnergyPowercellPercentage>40</minEnergyPowercellPercentage>
+        </li>
+        
+        <li Class="ThinkNode_SubtreesByTag">
+          <insertTag>GuardsForMeHook</insertTag>
+        </li>
+        
+        <!-- disabled by default, lets add it by the guardsforme patch-->
+        <!--<li Class="JobGiver_Work"/>-->
+        
+        <li Class="RimsecSecurity.JobGiver_Recharge">
+          <minEnergyRechargePercentage>100</minEnergyRechargePercentage>
+          <minEnergyPowercellPercentage>40</minEnergyPowercellPercentage>
+        </li>
+
+				<!-- todo power saving job --><!--
+				<li Class="ThinkNode_Tagger">
+					<tagToGive>Saving power</tagToGive>
+					<subNodes>
+						<li Class="JobGiver_WanderAnywhere">
+							<maxDanger>Deadly</maxDanger>
+						</li>
+					</subNodes>
+				</li>-->
+				
+        <li Class="JobGiver_Idle"/>
+      </subNodes>
+    </thinkRoot>
+  </ThinkTreeDef>
+  
+</Defs>

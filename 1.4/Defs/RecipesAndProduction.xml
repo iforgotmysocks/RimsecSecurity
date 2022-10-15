@@ -1,0 +1,600 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Defs>
+  <ThingDef Name="RSPeacekeeperProductionBase" Abstract="True">
+    <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+    <selectable>true</selectable>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <repairEffect>Repair</repairEffect>
+    <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+    <filthLeaving>Filth_RubbleRock</filthLeaving>
+    <description>Creates a Peacekeeper</description>
+    <graphicData>
+      <texPath>Things/Empty</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <thingClass>ThingWithComps</thingClass>
+    <category>Filth</category>
+    <statBases>
+      <WorkToMake>600</WorkToMake>
+      <MaxHitPoints>200</MaxHitPoints>
+      <Flammability>0.2</Flammability>
+    </statBases>
+    <altitudeLayer>Filth</altitudeLayer>
+    <useHitPoints>True</useHitPoints>
+    <size>(1,1)</size>
+    <passability>Standable</passability>
+    <pathCost>200</pathCost>
+    <hasInteractionCell>false</hasInteractionCell>
+    <surfaceType>Item</surfaceType>
+    <tickerType>Normal</tickerType>
+  </ThingDef>
+
+  <RecipeDef Name="RSPeacekeeperRecipeBase" Abstract="True">
+    <jobString>Making Peacekeeper</jobString>
+    <allowMixingIngredients>false</allowMixingIngredients>
+    <skillRequirements>
+      <Crafting>0</Crafting>
+    </skillRequirements>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+    <workSkill>Crafting</workSkill>
+    <effectWorking>Repair</effectWorking>
+    <soundWorking>Recipe_Machining</soundWorking>
+    <recipeUsers>
+      <li>RSRobotAssemblyBench</li>
+    </recipeUsers>
+    <researchPrerequisite>MicroelectronicsBasics</researchPrerequisite>
+  </RecipeDef>
+
+  <RecipeDef Name="RSPeacekeeperDefenderRecipeBase" Abstract="True" ParentName="RSPeacekeeperRecipeBase">
+    <description>Create the Peacekeeper Defender.</description>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Plasteel</li>
+          </thingDefs>
+        </filter>
+        <count>12</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Steel</li>
+          </thingDefs>
+        </filter>
+        <count>75</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>ComponentIndustrial</li>
+          </thingDefs>
+        </filter>
+        <count>2</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>RSSRSProcessingChip</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <workAmount>3600</workAmount>
+  </RecipeDef>
+
+  <RecipeDef Name="RSPeacekeeperEnforcerRecipeBase" ParentName="RSPeacekeeperRecipeBase" Abstract="True">
+    <description>Create the Peacekeeper Enforcer.</description>
+    <ingredients>
+            <li>
+        <filter>
+          <thingDefs>
+            <li>Plasteel</li>
+          </thingDefs>
+        </filter>
+        <count>48</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Steel</li>
+          </thingDefs>
+        </filter>
+        <count>175</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>ComponentIndustrial</li>
+          </thingDefs>
+        </filter>
+        <count>8</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>RSSRSProcessingChip</li>
+          </thingDefs>
+        </filter>
+        <count>5</count>
+      </li>
+    </ingredients>
+    <workAmount>10800</workAmount>
+  </RecipeDef>
+
+  <RecipeDef Name="RSPeacekeeperSentinelRecipeBase" ParentName="RSPeacekeeperRecipeBase" Abstract="True">
+    <description>Create the Peacekeeper Sentinel.</description>
+    <ingredients>
+            <li>
+        <filter>
+          <thingDefs>
+            <li>Plasteel</li>
+          </thingDefs>
+        </filter>
+        <count>144</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Steel</li>
+          </thingDefs>
+        </filter>
+        <count>475</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>ComponentIndustrial</li>
+          </thingDefs>
+        </filter>
+        <count>16</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>RSSRSProcessingChip</li>
+          </thingDefs>
+        </filter>
+        <count>16</count>
+      </li>
+    </ingredients>
+    <workAmount>18000</workAmount>
+  </RecipeDef>
+
+  <RecipeDef Name="RSPeacekeeperMarauderRecipeBase" ParentName="RSPeacekeeperRecipeBase" Abstract="True">
+    <description>Create the Peacekeeper Marauder.</description>
+    <ingredients>
+      <!--<li>
+				<filter>
+					<thingDefs>
+						<li>Plasteel</li>
+					</thingDefs>
+				</filter>
+				<count>20</count>
+			</li>-->
+            <li>
+        <filter>
+          <thingDefs>
+            <li>Plasteel</li>
+          </thingDefs>
+        </filter>
+        <count>15</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Steel</li>
+          </thingDefs>
+        </filter>
+        <count>75</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>ComponentIndustrial</li>
+          </thingDefs>
+        </filter>
+        <count>12</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>RSSRSProcessingChip</li>
+          </thingDefs>
+        </filter>
+        <count>2</count>
+      </li>
+      <!--<li>
+				<filter>
+					<thingDefs>
+						<li>ComponentIndustrial</li>
+					</thingDefs>
+				</filter>
+				<count>10</count>
+			</li>-->
+    </ingredients>
+    <workAmount>100</workAmount>
+  </RecipeDef>
+
+  <ThingDef ParentName="RSPeacekeeperProductionBase">
+    <defName>RSPeacekeeperDefenderSpawner</defName>
+    <label>Peacekeeper Defender</label>
+    <comps>
+      <li Class="RimsecSecurity.CompProperties_SpawnPeacekeeper">
+        <compClass>RimsecSecurity.CompSpawnPeacekeeper</compClass>
+        <pawnKind>RSPeacekeeperDefenderPawnKind</pawnKind>
+        <weaponDef>RSWeaponDLG</weaponDef>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <RecipeDef ParentName="RSPeacekeeperDefenderRecipeBase">
+    <defName>RSCreatePeacekeeperDefender</defName>
+    <label>Create the Peacekeeper Defender Security.</label>
+    <description>The Defender Security variant features higher armour.</description>
+    <products>
+      <RSPeacekeeperDefenderSpawner>1</RSPeacekeeperDefenderSpawner>
+    </products>
+  </RecipeDef>
+
+  <ThingDef ParentName="RSPeacekeeperProductionBase">
+    <defName>RSPeacekeeperDefenderForestSpawner</defName>
+    <label>Peacekeeper Defender</label>
+    <comps>
+      <li Class="RimsecSecurity.CompProperties_SpawnPeacekeeper">
+        <compClass>RimsecSecurity.CompSpawnPeacekeeper</compClass>
+        <pawnKind>RSPeacekeeperDefenderForestPawnKind</pawnKind>
+        <weaponDef>RSWeaponDLG</weaponDef>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <RecipeDef ParentName="RSPeacekeeperDefenderRecipeBase">
+    <defName>RSCreatePeacekeeperDefenderForest</defName>
+    <label>Create the Peacekeeper Defender Forest</label>
+    <description>The Defender Forest variant features higher melee skills and agility. It has a movement bonus on forest terrain.</description> 
+    <products>
+      <RSPeacekeeperDefenderForestSpawner>1</RSPeacekeeperDefenderForestSpawner>
+    </products>
+  </RecipeDef>
+
+  <ThingDef ParentName="RSPeacekeeperProductionBase">
+    <defName>RSPeacekeeperDefenderDesertSpawner</defName>
+    <label>Peacekeeper Defender</label>
+    <comps>
+      <li Class="RimsecSecurity.CompProperties_SpawnPeacekeeper">
+        <compClass>RimsecSecurity.CompSpawnPeacekeeper</compClass>
+        <pawnKind>RSPeacekeeperDefenderDesertPawnKind</pawnKind>
+        <weaponDef>RSWeaponDLG</weaponDef>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <RecipeDef ParentName="RSPeacekeeperDefenderRecipeBase">
+    <defName>RSCreatePeacekeeperDefenderDesert</defName>
+    <label>Create the Peacekeeper Defender Desert</label>
+    <description>The Defender Desert variant features higher rate of fire. It has a movement bonus on desert terrain.</description>
+    <products>
+      <RSPeacekeeperDefenderDesertSpawner>1</RSPeacekeeperDefenderDesertSpawner>
+    </products>
+  </RecipeDef>
+
+  <ThingDef ParentName="RSPeacekeeperProductionBase">
+    <defName>RSPeacekeeperDefenderWinterSpawner</defName>
+    <label>Peacekeeper Defender</label>
+    <comps>
+      <li Class="RimsecSecurity.CompProperties_SpawnPeacekeeper">
+        <compClass>RimsecSecurity.CompSpawnPeacekeeper</compClass>
+        <pawnKind>RSPeacekeeperDefenderWinterPawnKind</pawnKind>
+        <weaponDef>RSWeaponDLG</weaponDef>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <RecipeDef ParentName="RSPeacekeeperDefenderRecipeBase">
+    <defName>RSCreatePeacekeeperDefenderWinter</defName>
+    <label>Create the Peacekeeper Defender Winter</label>
+    <description>The Defender Winter variant features higher accuracy. It has a movement bonus on snowy terrain.</description>
+    <products>
+      <RSPeacekeeperDefenderWinterSpawner>1</RSPeacekeeperDefenderWinterSpawner>
+    </products>
+  </RecipeDef>
+
+  <!-- Enforcers -->
+
+  <ThingDef ParentName="RSPeacekeeperProductionBase">
+    <defName>RSPeacekeeperEnforcerSpawner</defName>
+    <label>Peacekeeper Enforcer</label>
+    <comps>
+      <li Class="RimsecSecurity.CompProperties_SpawnPeacekeeper">
+        <compClass>RimsecSecurity.CompSpawnPeacekeeper</compClass>
+        <pawnKind>RSPeacekeeperEnforcerPawnKind</pawnKind>
+        <weaponDef>RSWeaponEHG</weaponDef>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <RecipeDef ParentName="RSPeacekeeperEnforcerRecipeBase">
+    <defName>RSCreatePeacekeeperEnforcer</defName>
+    <label>Create the Peacekeeper Enforcer</label>
+    <description>The Enforcer Security variant features higher armour.</description>
+    <products>
+      <RSPeacekeeperEnforcerSpawner>1</RSPeacekeeperEnforcerSpawner>
+    </products>
+  </RecipeDef>
+
+  <ThingDef ParentName="RSPeacekeeperProductionBase">
+    <defName>RSPeacekeeperEnforcerForestSpawner</defName>
+    <label>Peacekeeper Enforcer</label>
+    <comps>
+      <li Class="RimsecSecurity.CompProperties_SpawnPeacekeeper">
+        <compClass>RimsecSecurity.CompSpawnPeacekeeper</compClass>
+        <pawnKind>RSPeacekeeperEnforcerForestPawnKind</pawnKind>
+        <weaponDef>RSWeaponEHG</weaponDef>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <RecipeDef ParentName="RSPeacekeeperEnforcerRecipeBase">
+    <defName>RSCreatePeacekeeperEnforcerForest</defName>
+    <label>Create the Peacekeeper Enforcer Forest</label>
+    <description>The Enforcer Forest variant features higher melee skills and agility. It has a movement bonus on forest terrain.</description>
+    <products>
+      <RSPeacekeeperEnforcerForestSpawner>1</RSPeacekeeperEnforcerForestSpawner>
+    </products>
+  </RecipeDef>
+
+  <ThingDef ParentName="RSPeacekeeperProductionBase">
+    <defName>RSPeacekeeperEnforcerDesertSpawner</defName>
+    <label>Peacekeeper Enforcer</label>
+    <comps>
+      <li Class="RimsecSecurity.CompProperties_SpawnPeacekeeper">
+        <compClass>RimsecSecurity.CompSpawnPeacekeeper</compClass>
+        <pawnKind>RSPeacekeeperEnforcerDesertPawnKind</pawnKind>
+        <weaponDef>RSWeaponEHG</weaponDef>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <RecipeDef ParentName="RSPeacekeeperEnforcerRecipeBase">
+    <defName>RSCreatePeacekeeperEnforcerDesert</defName>
+    <label>Create the Peacekeeper Enforcer Desert</label>
+    <description>The Enforcer Desert variant features higher rate of fire. It has a movement bonus on desert terrain.</description>
+    <products>
+      <RSPeacekeeperEnforcerDesertSpawner>1</RSPeacekeeperEnforcerDesertSpawner>
+    </products>
+  </RecipeDef>
+
+  <ThingDef ParentName="RSPeacekeeperProductionBase">
+    <defName>RSPeacekeeperEnforcerWinterSpawner</defName>
+    <label>Peacekeeper Enforcer</label>
+    <comps>
+      <li Class="RimsecSecurity.CompProperties_SpawnPeacekeeper">
+        <compClass>RimsecSecurity.CompSpawnPeacekeeper</compClass>
+        <pawnKind>RSPeacekeeperEnforcerWinterPawnKind</pawnKind>
+        <weaponDef>RSWeaponEHG</weaponDef>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <RecipeDef ParentName="RSPeacekeeperEnforcerRecipeBase">
+    <defName>RSCreatePeacekeeperEnforcerWinter</defName>
+    <label>Create the Peacekeeper Enforcer Winter</label>
+    <description>The Enforcer Winter variant features higher accuracy. It has a movement bonus on snowy terrain.</description>
+    <products>
+      <RSPeacekeeperEnforcerWinterSpawner>1</RSPeacekeeperEnforcerWinterSpawner>
+    </products>
+  </RecipeDef>
+
+  <!-- Sentinels -->
+
+  <ThingDef ParentName="RSPeacekeeperProductionBase">
+    <defName>RSPeacekeeperSentinelSpawner</defName>
+    <label>Peacekeeper Sentinel</label>
+    <comps>
+      <li Class="RimsecSecurity.CompProperties_SpawnPeacekeeper">
+        <compClass>RimsecSecurity.CompSpawnPeacekeeper</compClass>
+        <pawnKind>RSPeacekeeperSentinelPawnKind</pawnKind>
+        <weaponDef>RSWeaponSHAG</weaponDef>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <RecipeDef ParentName="RSPeacekeeperSentinelRecipeBase">
+    <defName>RSCreatePeacekeeperSentinel</defName>
+    <label>Create the Peacekeeper Sentinel</label>
+    <description>The Sentinel Security variant features higher armour.</description>
+    <products>
+      <RSPeacekeeperSentinelSpawner>1</RSPeacekeeperSentinelSpawner>
+    </products>
+  </RecipeDef>
+
+  <ThingDef ParentName="RSPeacekeeperProductionBase">
+    <defName>RSPeacekeeperSentinelForestSpawner</defName>
+    <label>Peacekeeper Sentinel</label>
+    <comps>
+      <li Class="RimsecSecurity.CompProperties_SpawnPeacekeeper">
+        <compClass>RimsecSecurity.CompSpawnPeacekeeper</compClass>
+        <pawnKind>RSPeacekeeperSentinelForestPawnKind</pawnKind>
+        <weaponDef>RSWeaponSHAG</weaponDef>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <RecipeDef ParentName="RSPeacekeeperSentinelRecipeBase">
+    <defName>RSCreatePeacekeeperSentinelForest</defName>
+    <label>Create the Peacekeeper Sentinel Forest</label>
+    <description>The Sentinel Forest variant features higher melee skills and agility. It has a movement bonus on forest terrain.</description>
+    <products>
+      <RSPeacekeeperSentinelForestSpawner>1</RSPeacekeeperSentinelForestSpawner>
+    </products>
+  </RecipeDef>
+
+  <ThingDef ParentName="RSPeacekeeperProductionBase">
+    <defName>RSPeacekeeperSentinelDesertSpawner</defName>
+    <label>Peacekeeper Sentinel</label>
+    <comps>
+      <li Class="RimsecSecurity.CompProperties_SpawnPeacekeeper">
+        <compClass>RimsecSecurity.CompSpawnPeacekeeper</compClass>
+        <pawnKind>RSPeacekeeperSentinelDesertPawnKind</pawnKind>
+        <weaponDef>RSWeaponSHAG</weaponDef>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <RecipeDef ParentName="RSPeacekeeperSentinelRecipeBase">
+    <defName>RSCreatePeacekeeperSentinelDesert</defName>
+    <label>Create the Peacekeeper Sentinel Desert</label>
+    <description>The Sentinel Desert variant features higher rate of fire. It has a movement bonus on desert terrain.</description>
+    <products>
+      <RSPeacekeeperSentinelDesertSpawner>1</RSPeacekeeperSentinelDesertSpawner>
+    </products>
+  </RecipeDef>
+
+  <ThingDef ParentName="RSPeacekeeperProductionBase">
+    <defName>RSPeacekeeperSentinelWinterSpawner</defName>
+    <label>Peacekeeper Sentinel</label>
+    <comps>
+      <li Class="RimsecSecurity.CompProperties_SpawnPeacekeeper">
+        <compClass>RimsecSecurity.CompSpawnPeacekeeper</compClass>
+        <pawnKind>RSPeacekeeperSentinelWinterPawnKind</pawnKind>
+        <weaponDef>RSWeaponSHAG</weaponDef>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <RecipeDef ParentName="RSPeacekeeperSentinelRecipeBase">
+    <defName>RSCreatePeacekeeperSentinelWinter</defName>
+    <label>Create the Peacekeeper Sentinel Winter</label>
+    <description>The Sentinel Winter variant features higher accuracy. It has a movement bonus on snowy terrain.</description>
+    <products>
+      <RSPeacekeeperSentinelWinterSpawner>1</RSPeacekeeperSentinelWinterSpawner>
+    </products>
+  </RecipeDef>
+
+  <RecipeDef Abstract="True" Name="RSButcherCorpsePeacekeeperBase">
+    <workSpeedStat>ButcheryMechanoidSpeed</workSpeedStat>
+    <workSkill>Crafting</workSkill>
+    <efficiencyStat>ButcheryMechanoidEfficiency</efficiencyStat>
+    <effectWorking>ButcherMechanoid</effectWorking>
+    <uiIconThing>Steel</uiIconThing>
+    <ingredients>
+      <li>
+        <filter>
+          <categories>
+            <li>CorpsesHumanlike</li>
+          </categories>
+          <disallowedThingDefs>
+            <li>Corpse_Human</li>
+          </disallowedThingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <specialProducts>
+      <li>Butchery</li>
+    </specialProducts>
+    <defaultIngredientFilter>
+      <thingDefs>
+        <li>Corpse_RSPeacekeeperDefender</li>
+        <li>Corpse_RSPeacekeeperDefenderForest</li>
+        <li>Corpse_RSPeacekeeperDefenderDesert</li>
+        <li>Corpse_RSPeacekeeperDefenderWinter</li>
+        <li>Corpse_RSPeacekeeperEnforcer</li>
+        <li>Corpse_RSPeacekeeperEnforcerForest</li>
+        <li>Corpse_RSPeacekeeperEnforcerDesert</li>
+        <li>Corpse_RSPeacekeeperEnforcerWinter</li>
+        <li>Corpse_RSPeacekeeperSentinel</li>
+        <li>Corpse_RSPeacekeeperSentinelForest</li>
+        <li>Corpse_RSPeacekeeperSentinelDesert</li>
+        <li>Corpse_RSPeacekeeperSentinelWinter</li>
+      </thingDefs>
+      <specialFiltersToAllow>
+        <li>AllowCorpsesColonist</li>
+        <li>AllowCorpsesStranger</li>
+      </specialFiltersToAllow>
+    </defaultIngredientFilter>
+    <fixedIngredientFilter>
+      <categories>
+        <li>CorpsesHumanlike</li>
+      </categories>
+      <disallowedThingDefs>
+        <li>Corpse_Human</li>
+      </disallowedThingDefs>
+    </fixedIngredientFilter>
+
+  </RecipeDef>
+
+  <RecipeDef ParentName="RSButcherCorpsePeacekeeperBase">
+    <defName>RSButcherCorpsePeacekeeper</defName>
+    <label>shred peacekeeper</label>
+    <description>Shred a dead peacekeeper to try to salvage usable material.</description>
+    <jobString>Shredding mechanoid.</jobString>
+    <workAmount>300</workAmount>
+    <soundWorking>Recipe_ButcherCorpseMechanoid</soundWorking>
+    <recipeUsers>
+      <li>TableMachining</li>
+      <li>RSRobotAssemblyBench</li>
+    </recipeUsers>
+  </RecipeDef>
+
+  <RecipeDef ParentName="RSButcherCorpsePeacekeeperBase">
+    <defName>RSSmashCorpsePeacekeeper</defName>
+    <label>smash peacekeeper</label>
+    <description>Smash a dead peacekeeper with simple hand tools to salvage usable material.</description>
+    <jobString>Smashing mechanoid.</jobString>
+    <workAmount>450</workAmount>
+    <soundWorking>Recipe_SmashCorpseMechanoid</soundWorking>
+    <recipeUsers>
+      <li>CraftingSpot</li>
+    </recipeUsers>
+  </RecipeDef>
+
+  <RecipeDef>
+    <defName>Make_SRSPowerCell</defName>
+    <label>make powercell from chemfuel</label>
+    <description>Create an SRS powercell to aid SRS Robots travelling on long journeys.</description>
+    <jobString>Creating powercells from chemfuel.</jobString>
+    <effectWorking>Cremate</effectWorking>
+    <soundWorking>Recipe_Cremate</soundWorking>
+    <workAmount>400</workAmount>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Chemfuel</li>
+          </thingDefs>
+        </filter>
+        <count>35</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Steel</li>
+          </thingDefs>
+        </filter>
+        <count>25</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Chemfuel</li>
+        <li>Steel</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <RSPowerCell>50</RSPowerCell>
+    </products>
+    <recipeUsers>
+      <li>RSRobotAssemblyBench</li>
+    </recipeUsers>
+  </RecipeDef>
+
+
+
+</Defs>

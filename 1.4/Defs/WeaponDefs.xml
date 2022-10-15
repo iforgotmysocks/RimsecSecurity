@@ -1,0 +1,312 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef Name="RSPeacekeeperGunBase" ParentName="BaseGunWithQuality"  Abstract="True">
+    <techLevel>Ultra</techLevel>
+    <recipeMaker>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <unfinishedThingDef>UnfinishedGun</unfinishedThingDef>
+      <researchPrerequisite>Gunsmithing</researchPrerequisite>
+      <recipeUsers>
+      </recipeUsers>
+    </recipeMaker>
+  </ThingDef>
+  
+  <ThingDef ParentName="RSPeacekeeperGunBase">
+    <defName>RSWeaponDLG</defName>
+    <label>DLG-20</label>
+    <description>A standard issued Defender Burst Laser Rifle for short to medium range engagements.</description>
+    <modExtensions>
+      <li Class="RimsecSecurity.RSPeacekeeperWeaponModExt"></li>
+    </modExtensions>
+    <graphicData>
+      <!--<texPath>Things/Weapons/WDLG-20</texPath>-->
+      <texPath>Things/Weapons/SDLG-20</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <!--<color>(0, 255, 0)</color>-->
+      <!--<shaderType>CutoutComplex</shaderType>-->
+    </graphicData>
+    <soundInteract>Interact_ChargeRifle</soundInteract>
+    <statBases>
+      <WorkToMake>20000</WorkToMake>
+      <Mass>4.6</Mass>
+      <AccuracyTouch>0.6</AccuracyTouch>
+      <AccuracyShort>0.7</AccuracyShort>
+      <AccuracyMedium>0.6</AccuracyMedium>
+      <AccuracyLong>0.5</AccuracyLong>
+      <RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
+    </statBases>
+    <!--<recipeMaker>
+      <researchPrerequisite>ChargedShot</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>7</Crafting>
+      </skillRequirements>
+      <recipeUsers Inherit="False">
+        <li>FabricationBench</li>
+      </recipeUsers>
+    </recipeMaker>-->
+    <comps>
+
+    </comps>
+    <costList>
+      <Steel>75</Steel>
+      <Plasteel>10</Plasteel>
+      <ComponentIndustrial>5</ComponentIndustrial>
+    </costList>
+    <thingSetMakerTags>
+    </thingSetMakerTags>
+    <weaponTags>
+      <li>RSDLG20</li>
+      <li>RSPeacekeeperGun</li>
+    </weaponTags>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>RSWeaponDLGBullet</defaultProjectile>
+        <warmupTime>1</warmupTime>
+        <range>30</range>
+        <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+        <burstShotCount>3</burstShotCount>
+        <soundCast>Shot_ChargeRifle</soundCast>
+        <soundCastTail>GunTail_Medium</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+    <tools>
+      <li>
+        <label>stock</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>1.5</cooldownTime>
+      </li>
+      <li>
+        <label>barrel</label>
+        <capacities>
+          <li>Blunt</li>
+          <li>Poke</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+    </tools>
+  </ThingDef>
+  <ThingDef ParentName="BaseBullet">
+    <defName>RSWeaponDLGBullet</defName>
+    <label>charge shot</label>
+    <graphicData>
+      <texPath>Things/laserbolt</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>20</damageAmountBase>
+      <armorPenetrationBase>0.35</armorPenetrationBase>
+      <speed>70</speed>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="RSPeacekeeperGunBase">
+    <defName>RSWeaponEHG</defName>
+    <label>EHG-22</label>
+    <description>A standard issued Enforcer Heavy Laser Minigun for short to medium range engagements.</description>
+    <modExtensions>
+      <li Class="RimsecSecurity.RSPeacekeeperWeaponModExt"></li>
+    </modExtensions>
+    <graphicData>
+      <!--<texPath>Things/Weapons/WDLG-20</texPath>-->
+      <texPath>Things/Weapons/EHG-22</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <!--<color>(0, 255, 0)</color>-->
+      <!--<shaderType>CutoutComplex</shaderType>-->
+      <drawSize>1.2</drawSize>
+    </graphicData>
+    <soundInteract>Interact_ChargeRifle</soundInteract>
+    <statBases>
+      <WorkToMake>25000</WorkToMake>
+      <Mass>12</Mass>
+      <AccuracyTouch>0.45</AccuracyTouch>
+      <AccuracyShort>0.55</AccuracyShort>
+      <AccuracyMedium>0.5</AccuracyMedium>
+      <AccuracyLong>0.4</AccuracyLong>
+      <RangedWeapon_Cooldown>2.2</RangedWeapon_Cooldown>
+    </statBases>
+    <!--<recipeMaker>
+      <researchPrerequisite>ChargedShot</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>7</Crafting>
+      </skillRequirements>
+      <recipeUsers Inherit="False">
+        <li>FabricationBench</li>
+      </recipeUsers>
+    </recipeMaker>-->
+    <comps>
+      <li Class="CompOversizedWeapon.CompProperties_OversizedWeapon">
+      </li>
+    </comps>
+    <costList>
+      <Steel>150</Steel>
+      <Plasteel>15</Plasteel>
+      <ComponentIndustrial>10</ComponentIndustrial>
+    </costList>
+    <thingSetMakerTags>
+    </thingSetMakerTags>
+    <weaponTags>
+      <li>RSEHG22</li>
+      <li>RSPeacekeeperGun</li>
+    </weaponTags>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>RSWeaponEHGBullet</defaultProjectile>
+        <warmupTime>2</warmupTime>
+        <range>35</range>
+        <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+        <burstShotCount>14</burstShotCount>
+        <soundCast>Shot_ChargeRifle</soundCast>
+        <soundCastTail>GunTail_Medium</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+    <tools>
+      <li>
+        <label>stock</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+      <li>
+        <label>barrel</label>
+        <capacities>
+          <li>Blunt</li>
+          <li>Poke</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+    </tools>
+  </ThingDef>
+  <ThingDef ParentName="BaseBullet">
+    <defName>RSWeaponEHGBullet</defName>
+    <label>charge shot</label>
+    <graphicData>
+      <texPath>Things/purplelaserbolt</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>8</damageAmountBase>
+      <armorPenetrationBase>0.10</armorPenetrationBase>
+      <speed>75</speed>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="RSPeacekeeperGunBase">
+    <defName>RSWeaponSHAG</defName>
+    <label>SHAG-1</label>
+    <description>A standard issued heavy assault gun used by Sentinels in a supporting role whether it is a in an offensive or defensive capacity.</description>
+    <modExtensions>
+      <li Class="RimsecSecurity.RSPeacekeeperWeaponModExt">
+        <weightType>heavy</weightType>
+      </li>
+    </modExtensions>
+    <graphicData>
+      <texPath>Things/Weapons/SHAG-1</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>2.0</drawSize>
+    </graphicData>
+    <soundInteract>Interact_ChargeRifle</soundInteract>
+    <statBases>
+      <WorkToMake>80000</WorkToMake>
+      <Mass>20</Mass>
+      <AccuracyTouch>0.7</AccuracyTouch>
+      <AccuracyShort>0.9</AccuracyShort>
+      <AccuracyMedium>0.9</AccuracyMedium>
+      <AccuracyLong>0.8</AccuracyLong>
+      <RangedWeapon_Cooldown>2.5</RangedWeapon_Cooldown>
+    </statBases>
+    <!--<recipeMaker>
+      <researchPrerequisite>ChargedShot</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>7</Crafting>
+      </skillRequirements>
+      <recipeUsers Inherit="False">
+        <li>FabricationBench</li>
+      </recipeUsers>
+    </recipeMaker>-->
+    <comps>
+      <li Class="CompOversizedWeapon.CompProperties_OversizedWeapon">
+      </li>
+    </comps>
+    <costList>
+      <Steel>350</Steel>
+      <Plasteel>20</Plasteel>
+      <ComponentIndustrial>25</ComponentIndustrial>
+    </costList>
+    <thingSetMakerTags>
+    </thingSetMakerTags>
+    <weaponTags>
+      <li>RSSHAG1</li>
+      <li>RSPeacekeeperGun</li>
+    </weaponTags>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>RSWeaponSHAGBullet</defaultProjectile>
+        <warmupTime>1.7</warmupTime>
+        <range>34</range>
+        <ticksBetweenBurstShots>60</ticksBetweenBurstShots>
+        <burstShotCount>3</burstShotCount>
+        <soundCast>RSShot_Shag</soundCast>
+        <soundCastTail>GunTail_Medium</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+    <tools>
+      <li>
+        <label>stock</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+      <li>
+        <label>barrel</label>
+        <capacities>
+          <li>Blunt</li>
+          <li>Poke</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+    </tools>
+  </ThingDef>
+  <ThingDef ParentName="BaseBullet">
+    <defName>RSWeaponSHAGBullet</defName>
+    <label>charge shot</label>
+    <graphicData>
+      <texPath>Things/redlaserbolt</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>30</damageAmountBase>
+      <stoppingPower>3</stoppingPower>
+      <speed>120</speed>
+      <armorPenetrationBase>0.65</armorPenetrationBase>
+    </projectile>
+  </ThingDef>
+
+
+
+</Defs>

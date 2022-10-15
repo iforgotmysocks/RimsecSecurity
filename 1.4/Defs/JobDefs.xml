@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Defs>
+
+	<JobDef>
+		<defName>RSRecharge</defName>
+		<driverClass>RimsecSecurity.JobDriver_Recharge</driverClass>
+		<reportString>Recharging</reportString>
+		<allowOpportunisticPrefix>false</allowOpportunisticPrefix>
+	</JobDef>
+
+	<JobDef>
+		<defName>RSRescueToChargeStation</defName>
+		<driverClass>RimsecSecurity.JobDriver_TakeToRechargeStation</driverClass>
+		<reportString>Rescuing TargetA.</reportString>
+		<casualInterruptible>false</casualInterruptible>
+	</JobDef>
+
+	<JobDef>
+		<defName>RSFuelRobot</defName>
+		<driverClass>RimsecSecurity.JobDriver_FuelRobot</driverClass>
+		<reportString>Fueling TargetA.</reportString>
+		<casualInterruptible>false</casualInterruptible>
+	</JobDef>
+
+  <JobDef>
+    <defName>RSManualRepair</defName>
+    <driverClass>RimsecSecurity.JobDriver_ManualRepair</driverClass>
+    <reportString>Repairing Robot at TargetA.</reportString>
+    <casualInterruptible>false</casualInterruptible>
+  </JobDef>
+
+</Defs>
