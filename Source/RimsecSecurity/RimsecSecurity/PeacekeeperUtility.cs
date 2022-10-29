@@ -23,21 +23,22 @@ namespace RimsecSecurity
 
         public static Pawn GeneratePeacekeeper(PawnKindDef pawnKind, int tile)
         {
-            var robot = PawnGenerator.GeneratePawn(new PawnGenerationRequest()
+            var robot = PawnGenerator.GeneratePawn(new PawnGenerationRequest(pawnKind)
             {
-                KindDef = pawnKind,
                 Faction = Faction.OfPlayer,
                 Context = PawnGenerationContext.NonPlayer,
                 Tile = tile,
                 FixedBiologicalAge = 0,
                 FixedGender = Gender.Male,
                 AllowAddictions = false,
-                FixedMelanin = 0,
-                CanGeneratePawnRelations = false, 
+                CanGeneratePawnRelations = false,
                 FixedIdeo = null,
-                ForceNoIdeo = true
+                ForceNoIdeo = true,
+                ForcedXenogenes = null,
+                ForcedEndogenes = null
             });
-
+            robot.genes = null;
+            robot.ideo = null;
             robot.Name = new NameSingle(robot.Name.ToStringShort + " #" + ModSettings.peacekeeperNumber++);
             var hediff = HediffMaker.MakeHediff(RSDefOf.RSRobotConsciousness, robot);
             if (robot != null && !robot.health.hediffSet.HasHediff(RSDefOf.RSRobotConsciousness)) robot.health.AddHediff(hediff, robot.health.hediffSet.GetBrain(), null, null);
@@ -63,7 +64,7 @@ namespace RimsecSecurity
             return robot;
         }
 
-        internal static void SpawnRandomRobot()
+        internal static void SpawnRandomRobot(bool defenderSecurity = false)
         {
             if (Find.World == null)
             {
@@ -76,7 +77,9 @@ namespace RimsecSecurity
                 Messages.Message(new Message("No map found", MessageTypeDefOf.NegativeEvent));
                 return;
             }
-            var peaceKeepers = DefDatabase<PawnKindDef>.AllDefs.Where(def => def.race.HasModExtension<RSPeacekeeperModExt>());
+            var peaceKeepers = defenderSecurity 
+                ? DefDatabase<PawnKindDef>.AllDefs.Where(def => def.race.HasModExtension<RSPeacekeeperModExt>() && def.race.defName == "RSPeacekeeperDefender")
+                : DefDatabase<PawnKindDef>.AllDefs.Where(def => def.race.HasModExtension<RSPeacekeeperModExt>());
             if (peaceKeepers == null || peaceKeepers.Count() == 0) return;
             var selectedKeeper = peaceKeepers.RandomElement();
             var robot = GeneratePeacekeeper(selectedKeeper, currentMap.Tile);

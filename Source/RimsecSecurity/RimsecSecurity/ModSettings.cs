@@ -52,7 +52,8 @@ namespace RimsecSecurity
             options.CheckboxLabeled("Remove ideology diversity impact", ref ModSettings.removeIdeologyImpact);
 
             options.Gap(24f);
-            if (options.ButtonTextLabeled("Spawn random test robot at random colonist location", "Spawn")) PeacekeeperUtility.SpawnRandomRobot(); 
+            if (options.ButtonTextLabeled("Spawn random test robot at random colonist location", "Spawn")) PeacekeeperUtility.SpawnRandomRobot();
+            if (options.ButtonTextLabeled("Spawn security defender at random colonist location", "Spawn")) PeacekeeperUtility.SpawnRandomRobot(true);
 
             options.End();
         }

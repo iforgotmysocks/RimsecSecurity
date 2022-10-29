@@ -12,7 +12,7 @@ namespace RimsecSecurity
 {
     class Projectile_BodySize : Bullet
     {
-        protected override void Impact(Thing hitThing)
+        protected override void Impact(Thing hitThing, bool blockedByShield = false)
         {
             var map = base.Map;
             var position = base.Position;
@@ -36,7 +36,7 @@ namespace RimsecSecurity
                 hitThing.TakeDamage(dinfo).AssociateWithLog(battleLogEntry_RangedImpact);
                 if (pawn != null && pawn.stances != null && pawn.BodySize <= this.def.projectile.StoppingPower + 0.001f)
                 {
-                    pawn.stances.StaggerFor(95);
+                    pawn.stances.stagger.StaggerFor(95);
                 }
                 if (this.def.projectile.extraDamages == null)
                 {

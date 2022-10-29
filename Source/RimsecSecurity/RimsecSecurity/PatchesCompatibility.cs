@@ -49,6 +49,12 @@ namespace RimsecSecurity
                 Log.Message($"Patching sos2");
                 var org = AccessTools.Method(saveOurShipAssembly.GetType("SaveOurShip2.ShipInteriorMod2"), "hasSpaceSuit");
                 var postfix = new HarmonyMethod(typeof(SaveOurShip2Patches), nameof(SaveOurShip2Patches.ShipInteriorMod2_hasSpaceSuit_Postfix));
+                if (org == null)
+                {
+                    org = AccessTools.Method(saveOurShipAssembly.GetType("SaveOurShip2.ShipInteriorMod2"), "EVAlevel");
+                    postfix = new HarmonyMethod(typeof(SaveOurShip2Patches), nameof(SaveOurShip2Patches.ShipInteriorMod2_EVAlevel_Postfix));
+                }
+
                 harmony.Patch(org, null, postfix);
             }
 
@@ -136,6 +142,12 @@ namespace RimsecSecurity
         {
             if (__result == true || !PeacekeeperUtility.IsPeacekeeper(pawn)) return;
             __result = true;
+        }
+
+        public static void ShipInteriorMod2_EVAlevel_Postfix(ref byte __result, Pawn pawn)
+        {
+            if (__result == 8 || !PeacekeeperUtility.IsPeacekeeper(pawn)) return;
+            __result = 8;
         }
     }
 

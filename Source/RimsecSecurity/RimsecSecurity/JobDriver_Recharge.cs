@@ -116,7 +116,7 @@ namespace RimsecSecurity
                     if (currentEffectiveVerb != null && !currentEffectiveVerb.verbProps.IsMeleeAttack)
                     {
                         TargetScanFlags targetScanFlags = TargetScanFlags.NeedLOSToPawns | TargetScanFlags.NeedLOSToNonPawns | TargetScanFlags.NeedThreat | TargetScanFlags.NeedAutoTargetable;
-                        if (currentEffectiveVerb.IsIncendiary())
+                        if (currentEffectiveVerb.IsIncendiary_Ranged())
                         {
                             targetScanFlags |= TargetScanFlags.NeedNonBurning;
                         }

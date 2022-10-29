@@ -1,0 +1,696 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Defs>
+  <ThingDef ParentName="BuildingBase" Name="RSChargeStationBase" Abstract="True">
+    <thingClass>RimsecSecurity.Building_ChargeStation</thingClass>
+    <graphicData>
+      <texPath>Things/Building/MaintenanceStation/MaintenanceStation</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(3,3)</drawSize>
+      <drawOffset>(0, 0, 0)</drawOffset>
+      <drawRotated>false</drawRotated>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <fillPercent>0.5</fillPercent>
+    <statBases>
+      <MaxHitPoints>300</MaxHitPoints>
+      <WorkToBuild>5000</WorkToBuild>
+      <Flammability>0.5</Flammability>
+      <Comfort>0.4</Comfort>
+    </statBases>
+    <costList>
+      <Steel>150</Steel>
+      <Plasteel>10</Plasteel>
+      <ComponentIndustrial>10</ComponentIndustrial>
+      <RSSRSProcessingChip>2</RSSRSProcessingChip>
+    </costList>
+    <scatterableOnMapGen>false</scatterableOnMapGen>
+    <useHitPoints>true</useHitPoints>
+    <size>(3,3)</size>
+    <designationCategory>RSSRSBuildings</designationCategory>
+    <passability>Standable</passability>
+    <drawGUIOverlay>True</drawGUIOverlay>
+    <!-- try multi graphic and actually supply a south pic-->
+    <defaultPlacingRot>South</defaultPlacingRot>
+    <rotatable>False</rotatable>
+    <tickerType>Normal</tickerType>
+    <building>
+    </building>
+    <comps>
+      <li Class="RimsecSecurity.CompProperties_RechargeRobot">
+        <energyPerSecond>0.009</energyPerSecond>
+        <injuryHealCount>10</injuryHealCount>
+        <injuryHealAmountPer30s>2</injuryHealAmountPer30s>
+        <ticksHealPermanent>10000</ticksHealPermanent>
+        <ticksRestorePart>20000</ticksRestorePart>
+
+        <repairCostPerPointOfDamage>0.05</repairCostPerPointOfDamage>
+        <repairCostPermanent>0.5</repairCostPermanent>
+        <repairCostMissing>1</repairCostMissing>
+        <repairCostMax>5</repairCostMax>
+      </li>
+      <li Class="CompProperties_Flickable"></li>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>200</basePowerConsumption>
+      </li>
+      <li Class="CompProperties_Refuelable">
+        <!-- fuelConsumptionRate is being overwritten with ingame settings -->
+        <fuelConsumptionRate>0.5</fuelConsumptionRate>
+        <fuelCapacity>10.0</fuelCapacity>
+        <fuelConsumptionPerTickInRain>0</fuelConsumptionPerTickInRain>
+        <fuelFilter>
+          <thingDefs>
+            <li>ComponentIndustrial</li>
+          </thingDefs>
+        </fuelFilter>
+        <initialFuelPercent>1</initialFuelPercent>
+        <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+      </li>
+      <li Class="CompProperties_Glower">
+        <glowRadius>5</glowRadius>
+        <glowColor>(9,73,85,0)</glowColor>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="RSChargeStationBase">
+    <defName>RSChargeStation</defName>
+    <label>Maintenance Station</label>
+    <description>Allows Peacekeeper robots to recharge and get automatically repaired. Repairs require the station being supplied with components, recharging only requires energy.</description>
+  </ThingDef>
+
+  <!--<ThingDef ParentName="RSChargeStationBase">
+    <defName>RSChargeStationLarge</defName>
+    <label>Maintenance Station Large</label>
+    <description>Allows Peacekeeper robots to recharge and get automatically repaired. Repairs require the station being fules with components, recharging only requires energy.</description>
+    <graphicData>
+      <texPath>Things/Building/MaintenanceStation/MaintenanceStation</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(3,5)</drawSize>
+      <drawOffset>(0, 0, 0)</drawOffset>
+      <drawRotated>false</drawRotated>
+    </graphicData>
+    <size>(3,4)</size>
+  </ThingDef>-->
+
+  <ThingDef ParentName="BenchBase">
+    <defName>RSRobotAssemblyBench</defName>
+    <label>Peacekeeper assembly bench</label>
+    <description>A non-commercial assembly bench developed by SRS for the manufacturing of SRS Robots.</description>
+    <thingClass>Building_WorkTable</thingClass>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <pathCost>50</pathCost>
+    <statBases>
+      <MaxHitPoints>300</MaxHitPoints>
+      <WorkToBuild>5000</WorkToBuild>
+      <Flammability>1.0</Flammability>
+      <MarketValue>8000</MarketValue>
+    </statBases>
+    <!--<thingCategories Inherit="false" />-->
+    <size>(5,3)</size>
+    <costList>
+      <Steel>200</Steel>
+      <ComponentIndustrial>12</ComponentIndustrial>
+      <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <comps>
+      <li Class="CompProperties_AffectedByFacilities">
+        <linkableFacilities>
+          <li>ToolCabinet</li>
+        </linkableFacilities>
+      </li>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>250</basePowerConsumption>
+        <shortCircuitInRain>true</shortCircuitInRain>
+      </li>
+      <li Class="CompProperties_Flickable"/>
+      <li Class="CompProperties_Breakdownable"/>
+    </comps>
+    <recipes>
+      <!--<li>Make_ComponentIndustrial</li>
+      <li>Make_ComponentSpacer</li>-->
+    </recipes>
+    <graphicData>
+      <texPath>Things/Building/RobotAssemblyBench/SRSworkbench</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <drawSize>(7,6.5)</drawSize>
+      <drawOffsetNorth>(0, 0, 0.53)</drawOffsetNorth>
+      <drawOffsetSouth>(0, 0, -0.53)</drawOffsetSouth>
+      <drawOffsetEast>(0.3, 0, 0.3)</drawOffsetEast>
+      <drawOffsetWest>(-0.3, 0, -0.3)</drawOffsetWest>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+      </damageData>
+    </graphicData>
+    <castEdgeShadows>true</castEdgeShadows>
+    <staticSunShadowHeight>0.20</staticSunShadowHeight>
+    <inspectorTabs>
+      <li>ITab_Bills</li>
+    </inspectorTabs>
+    <building>
+      <spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+    </building>
+    <fillPercent>0.5</fillPercent>
+    <interactionCellOffset>(0,0,-2)</interactionCellOffset>
+    <hasInteractionCell>true</hasInteractionCell>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    <!--<designationCategory>RSSRSBuildings</designationCategory>-->
+    <surfaceType>Item</surfaceType>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <placeWorkers>
+      <li>PlaceWorker_ShowFacilitiesConnections</li>
+      <li>PlaceWorker_PreventInteractionSpotOverlap</li>
+    </placeWorkers>
+  </ThingDef>
+
+  <!-- LLT -->
+
+  <ThingDef ParentName="BuildingBase" Name="RSTurretLLTBase" Abstract="True">
+    <thingClass>Building_TurretGun</thingClass>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <graphicData>
+      <texPath>Things/Building/Turrets/LLT/LLT_base</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(3, 3)</drawSize>
+      <!--<drawOffset>(0,0,-0.1)</drawOffset>-->
+      <damageData>
+        <rect>(0.2,0.2,0.6,0.6)</rect>
+      </damageData>
+      <shadowData>
+        <volume>(1.5,0.35,1.4)</volume>
+        <offset>(0,0,-0.05)</offset>
+      </shadowData>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <stealable>false</stealable>
+    <rotatable>false</rotatable>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <size>(2,2)</size>
+    <thingCategories>
+      <li>BuildingsSecurity</li>
+    </thingCategories>
+    <statBases>
+      <MaxHitPoints>350</MaxHitPoints>
+      <Flammability>0.1</Flammability>
+      <WorkToBuild>1800</WorkToBuild>
+      <Mass>8</Mass>
+      <Beauty>-20</Beauty>
+      <ShootingAccuracyTurret>0.96</ShootingAccuracyTurret>
+    </statBases>
+    <tickerType>Normal</tickerType>
+    <passability>PassThroughOnly</passability>
+    <pathCost>50</pathCost>
+    <fillPercent>0.5</fillPercent>
+    <hasTooltip>true</hasTooltip>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <designationCategory>RSSRSBuildings</designationCategory>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <building>
+      <ai_combatDangerous>true</ai_combatDangerous>
+      <turretTopDrawSize>3</turretTopDrawSize>
+      <turretTopOffset>(0, 0.05)</turretTopOffset>
+    </building>
+    <placeWorkers>
+      <li>PlaceWorker_TurretTop</li>
+      <li>PlaceWorker_ShowTurretRadius</li>
+    </placeWorkers>
+    <uiIconScale>0.95</uiIconScale>
+  </ThingDef>
+
+  <ThingDef ParentName="RSTurretLLTBase">
+    <defName>RSTurretLLT</defName>
+    <label>Light laser turret</label>
+    <description>Basic Laser Defense System from Saturn Robotics System.</description>
+    <uiIconPath>Things/Building/Turrets/LLT/LLTIcon</uiIconPath>
+    <statBases>
+      <ShootingAccuracyTurret>0.98</ShootingAccuracyTurret>
+      <!-- like level 8 human shooter -->
+    </statBases>
+    <costList>
+      <Steel>175</Steel>
+      <Plasteel>15</Plasteel>
+      <ComponentIndustrial>4</ComponentIndustrial>
+      <RSSRSProcessingChip>1</RSSRSProcessingChip>
+    </costList>
+    <comps>
+      <!--<li Class="CompProperties_Explosive">
+        <wickTicks>240</wickTicks>
+        <explosiveRadius>5.9</explosiveRadius>
+        <explosiveDamageType>Bomb</explosiveDamageType>
+        <chanceNeverExplodeFromDamage>0</chanceNeverExplodeFromDamage>
+      </li>-->
+      <li Class="CompProperties_Forbiddable"/>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>150</basePowerConsumption>
+      </li>
+      <li Class="CompProperties_Flickable"/>
+      <li Class="CompProperties_Breakdownable"/>
+      <li Class="CompProperties_Refuelable">
+        <fuelLabel>Shots until barrel change</fuelLabel>
+        <fuelGizmoLabel>Barrel durability</fuelGizmoLabel>
+        <outOfFuelMessage>Cannot shoot: Needs new barrel</outOfFuelMessage>
+        <fuelFilter>
+          <thingDefs>
+            <li>Steel</li>
+          </thingDefs>
+        </fuelFilter>
+        <fuelCapacity>80</fuelCapacity>
+        <!-- 30 bursts -->
+        <fuelMultiplier>0.75</fuelMultiplier>
+        <!-- 2 steel per burst, 180 per full rearm -->
+        <initialFuelPercent>1</initialFuelPercent>
+        <autoRefuelPercent>0.5</autoRefuelPercent>
+        <showFuelGizmo>true</showFuelGizmo>
+        <minimumFueledThreshold>1</minimumFueledThreshold>
+        <factorByDifficulty>true</factorByDifficulty>
+        <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+        <fuelIconPath>UI/Overlays/Barrel</fuelIconPath>
+      </li>
+    </comps>
+    <building>
+      <turretGunDef>RSTurretLLTGun</turretGunDef>
+      <turretBurstCooldownTime>1.5</turretBurstCooldownTime>
+    </building>
+    <researchPrerequisites>
+      <!--<li>HeavyTurrets</li>-->
+      <li>Electricity</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>RSTurretLLTBullet</defName>
+    <label>light laser</label>
+    <graphicData>
+      <texPath>Things/Building/Turrets/LLT/Laserbolt</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>12</damageAmountBase>
+      <speed>80</speed>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseWeaponTurret">
+    <defName>RSTurretLLTGun</defName>
+    <label>autocannon</label>
+    <description>Basic Laser Defense System from Saturn Robotics System.</description>
+    <graphicData>
+      <texPath>Things/Building/Turrets/LLT/LLT_top</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <AccuracyTouch>0.80</AccuracyTouch>
+      <AccuracyShort>0.74</AccuracyShort>
+      <AccuracyMedium>0.51</AccuracyMedium>
+      <AccuracyLong>0.32</AccuracyLong>
+      <RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
+      <DeteriorationRate>0</DeteriorationRate>
+      <Mass>40</Mass>
+      <Flammability>0</Flammability>
+    </statBases>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <defaultProjectile>RSTurretLLTBullet</defaultProjectile>
+        <warmupTime>0</warmupTime>
+        <minRange>0</minRange>
+        <range>32</range>
+        <ticksBetweenBurstShots>0</ticksBetweenBurstShots>
+        <burstShotCount>1</burstShotCount>
+        <soundCast>RSLLTProjectileLaunch</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>12</muzzleFlashScale>
+        <consumeFuelPerShot>1</consumeFuelPerShot>
+      </li>
+    </verbs>
+  </ThingDef>
+
+  <!-- HLT -->
+
+  <ThingDef ParentName="BuildingBase" Name="RSTurretHLTBase" Abstract="True">
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <thingClass>Building_TurretGun</thingClass>
+    <graphicData>
+      <texPath>Things/Building/Turrets/LLT/LLT_base</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(4, 4)</drawSize>
+      <!--<drawOffset>(0,0,-0.1)</drawOffset>-->
+      <damageData>
+        <rect>(0.2,0.2,0.6,0.6)</rect>
+      </damageData>
+      <shadowData>
+        <volume>(1.5,0.35,1.4)</volume>
+        <offset>(0,0,-0.05)</offset>
+      </shadowData>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <stealable>false</stealable>
+    <rotatable>false</rotatable>
+    <size>(3,3)</size>
+    <statBases>
+      <MaxHitPoints>600</MaxHitPoints>
+      <Flammability>0.1</Flammability>
+      <WorkToBuild>15000</WorkToBuild>
+      <Mass>100</Mass>
+      <Beauty>-20</Beauty>
+    </statBases>
+    <tickerType>Normal</tickerType>
+    <passability>PassThroughOnly</passability>
+    <pathCost>50</pathCost>
+    <fillPercent>0.5</fillPercent>
+    <hasTooltip>true</hasTooltip>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    <designationCategory>RSSRSBuildings</designationCategory>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <building>
+      <ai_combatDangerous>true</ai_combatDangerous>
+      <turretTopDrawSize>4</turretTopDrawSize>
+      <turretTopOffset>(0, 0)</turretTopOffset>
+    </building>
+    <placeWorkers>
+      <li>PlaceWorker_TurretTop</li>
+      <li>RimsecSecurity.PlaceWorker_ShowTurretRadiusWithOffset</li>
+    </placeWorkers>
+    <uiIconScale>0.95</uiIconScale>
+  </ThingDef>
+
+  <ThingDef ParentName="RSTurretHLTBase">
+    <defName>RSTurretHLT</defName>
+    <label>Heavy laser turret</label>
+    <description>An Advanced Laser Defense System from Saturn Robotics System.</description>
+    <uiIconPath>Things/Building/Turrets/HLT/HLTIcon</uiIconPath>
+    <statBases>
+      <ShootingAccuracyTurret>0.97</ShootingAccuracyTurret>
+      <!-- like level 11 human shooter -->
+    </statBases>
+    <costList>
+      <Steel>300</Steel>
+      <Plasteel>25</Plasteel>
+      <ComponentIndustrial>8</ComponentIndustrial>
+      <RSSRSProcessingChip>2</RSSRSProcessingChip>
+    </costList>
+    <comps>
+      <!--<li Class="CompProperties_Explosive">
+        <wickTicks>240</wickTicks>
+        <explosiveRadius>5.9</explosiveRadius>
+        <explosiveDamageType>Bomb</explosiveDamageType>
+        <chanceNeverExplodeFromDamage>0</chanceNeverExplodeFromDamage>
+      </li>-->
+      <li Class="CompProperties_Forbiddable"/>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>150</basePowerConsumption>
+      </li>
+      <li Class="CompProperties_Flickable"/>
+      <li Class="CompProperties_Breakdownable"/>
+      <li Class="CompProperties_Refuelable">
+        <fuelLabel>Shots until barrel change</fuelLabel>
+        <fuelGizmoLabel>Barrel durability</fuelGizmoLabel>
+        <outOfFuelMessage>Cannot shoot: Needs new barrel</outOfFuelMessage>
+        <fuelFilter>
+          <thingDefs>
+            <li>Steel</li>
+          </thingDefs>
+        </fuelFilter>
+        <fuelCapacity>180</fuelCapacity>
+        <fuelMultiplier>1</fuelMultiplier>
+        <initialFuelPercent>1</initialFuelPercent>
+        <autoRefuelPercent>0.5</autoRefuelPercent>
+        <showFuelGizmo>true</showFuelGizmo>
+        <minimumFueledThreshold>1</minimumFueledThreshold>
+        <factorByDifficulty>true</factorByDifficulty>
+        <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+        <fuelIconPath>UI/Overlays/Barrel</fuelIconPath>
+      </li>
+    </comps>
+    <building>
+      <turretGunDef>RSTurretHLTGun</turretGunDef>
+      <turretBurstCooldownTime>3.5</turretBurstCooldownTime>
+    </building>
+    <researchPrerequisites>
+      <!--<li>HeavyTurrets</li>-->
+      <li>Electricity</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>RSTurretHLTBullet</defName>
+    <label>autocannon shell</label>
+    <graphicData>
+      <texPath>Things/Building/Turrets/HLT/HLT_projectile</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>15</damageAmountBase>
+      <armorPenetrationBase>0.30</armorPenetrationBase>
+      <speed>95</speed>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseWeaponTurret">
+    <defName>RSTurretHLTGun</defName>
+    <label>heavy laser</label>
+    <description>An Advanced Laser Defense System from Saturn Robotics System.</description>
+    <graphicData>
+      <texPath>Things/Building/Turrets/HLT/HLT_top</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <AccuracyTouch>0.25</AccuracyTouch>
+      <AccuracyShort>0.75</AccuracyShort>
+      <AccuracyMedium>0.70</AccuracyMedium>
+      <AccuracyLong>0.55</AccuracyLong>
+      <RangedWeapon_Cooldown>3.5</RangedWeapon_Cooldown>
+      <DeteriorationRate>0</DeteriorationRate>
+      <Mass>40</Mass>
+      <Flammability>0</Flammability>
+    </statBases>
+    <verbs>
+      <li>
+        <!--<verbClass>Verb_Shoot</verbClass>-->
+        <verbClass>RimsecSecurity.Verb_LaunchProjectileWithOffset</verbClass>
+        <!--<defaultProjectile>RSTurretHLTBullet</defaultProjectile>-->
+        <defaultProjectile>RSTurretHLTBullet</defaultProjectile>
+        <warmupTime>0</warmupTime>
+        <minRange>2</minRange>
+        <range>40</range>
+        <!--<ticksBetweenBurstShots>17</ticksBetweenBurstShots>-->
+        <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+        <burstShotCount>12</burstShotCount>
+        <soundCast>RSHLTProjectileLaunch</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>12</muzzleFlashScale>
+        <consumeFuelPerShot>0.24</consumeFuelPerShot>
+      </li>
+    </verbs>
+  </ThingDef>
+
+  <!-- haac -->
+
+  <ThingDef ParentName="BuildingBase" Name="RSTurretHAACBase" Abstract="True">
+    <thingClass>Building_TurretGun</thingClass>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <graphicData>
+      <texPath>Things/Building/Turrets/LLT/LLT_base</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(5, 5)</drawSize>
+      <!--<drawOffset>(0,0,-0.1)</drawOffset>-->
+      <damageData>
+        <rect>(0.2,0.2,0.6,0.6)</rect>
+      </damageData>
+      <shadowData>
+        <volume>(1.5,0.35,1.4)</volume>
+        <offset>(0,0,-0.05)</offset>
+      </shadowData>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <stealable>false</stealable>
+    <rotatable>false</rotatable>
+    <size>(4,4)</size>
+    <statBases>
+      <MaxHitPoints>750</MaxHitPoints>
+      <Flammability>0.1</Flammability>
+      <WorkToBuild>15000</WorkToBuild>
+      <Mass>100</Mass>
+      <Beauty>-20</Beauty>
+    </statBases>
+    <tickerType>Normal</tickerType>
+    <passability>PassThroughOnly</passability>
+    <pathCost>50</pathCost>
+    <fillPercent>0.5</fillPercent>
+    <hasTooltip>true</hasTooltip>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    <designationCategory>RSSRSBuildings</designationCategory>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <building>
+      <ai_combatDangerous>true</ai_combatDangerous>
+      <turretTopDrawSize>6.5</turretTopDrawSize>
+      <turretTopOffset>(0, 0.5)</turretTopOffset>
+    </building>
+    <placeWorkers>
+      <li>PlaceWorker_TurretTop</li>
+      <li>PlaceWorker_ShowTurretRadius</li>
+    </placeWorkers>
+    <uiIconScale>0.95</uiIconScale>
+  </ThingDef>
+
+  <ThingDef ParentName="RSTurretHAACBase">
+    <defName>RSTurretHAAC</defName>
+    <label>HAAC</label>
+    <description>A Heavy Anti Armour Cannon developed by Saturn Robotics Systems.</description>
+    <uiIconPath>Things/Building/Turrets/HAAC/HAACIcon</uiIconPath>
+    <statBases>
+      <ShootingAccuracyTurret>0.99</ShootingAccuracyTurret>
+    </statBases>
+    <costList>
+      <Steel>550</Steel>
+      <Plasteel>75</Plasteel>
+      <ComponentIndustrial>12</ComponentIndustrial>
+      <RSSRSProcessingChip>3</RSSRSProcessingChip>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <wickTicks>240</wickTicks>
+        <explosiveRadius>5.9</explosiveRadius>
+        <explosiveDamageType>Bomb</explosiveDamageType>
+        <chanceNeverExplodeFromDamage>0.5</chanceNeverExplodeFromDamage>
+      </li>
+      <li Class="CompProperties_Forbiddable"/>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>200</basePowerConsumption>
+      </li>
+      <li Class="CompProperties_Flickable"/>
+      <li Class="CompProperties_Breakdownable"/>
+      <li Class="CompProperties_Refuelable">
+        <fuelLabel>Shots until barrel change</fuelLabel>
+        <fuelGizmoLabel>Barrel durability</fuelGizmoLabel>
+        <outOfFuelMessage>Cannot shoot: Needs new barrel</outOfFuelMessage>
+        <fuelFilter>
+          <thingDefs>
+            <li>Uranium</li>
+          </thingDefs>
+        </fuelFilter>
+        <fuelCapacity>35</fuelCapacity>
+        <!-- 30 bursts -->
+        <fuelMultiplier>0.5</fuelMultiplier>
+        <initialFuelPercent>1</initialFuelPercent>
+        <autoRefuelPercent>0.5</autoRefuelPercent>
+        <showFuelGizmo>true</showFuelGizmo>
+        <minimumFueledThreshold>1</minimumFueledThreshold>
+        <factorByDifficulty>true</factorByDifficulty>
+        <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+        <fuelIconPath>UI/Overlays/Barrel</fuelIconPath>
+      </li>
+    </comps>
+    <building>
+      <turretGunDef>RSTurretHAACGun</turretGunDef>
+      <turretBurstCooldownTime>5</turretBurstCooldownTime>
+    </building>
+    <researchPrerequisites>
+      <!--<li>HeavyTurrets</li>-->
+      <li>Electricity</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>RSMissile</defName>
+    <label>rocket</label>
+    <graphicData>
+      <texPath>Things/Building/Turrets/HAAC/HAAC_projectile</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>TransparentPostLight</shaderType>
+    </graphicData>
+    <thingClass>Projectile_Explosive</thingClass>
+    <projectile>
+      <damageDef>Bomb</damageDef>
+      <armorPenetrationBase>0.72</armorPenetrationBase>
+      <explosionRadius>2</explosionRadius>
+      <damageAmountBase>40</damageAmountBase>
+      <speed>50</speed>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>RSTurretHAACBullet</defName>
+    <label>HAAC shell</label>
+    <thingClass>RimsecSecurity.Projectile_BodySize</thingClass>
+    <graphicData>
+      <texPath>Things/Building/Turrets/HAAC/HAAC_projectile</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>TransparentPostLight</shaderType>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>25</damageAmountBase>
+      <armorPenetrationBase>0.72</armorPenetrationBase>
+      <speed>70</speed>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseWeaponTurret">
+    <defName>RSTurretHAACGun</defName>
+    <label>autocannon</label>
+    <description>A Heavy Anti Armour Cannon developed by Saturn Robotics Systems.</description>
+    <graphicData>
+      <texPath>Things/Building/Turrets/HAAC/HAAC_top</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <AccuracyTouch>0.40</AccuracyTouch>
+      <AccuracyShort>0.50</AccuracyShort>
+      <AccuracyMedium>0.80</AccuracyMedium>
+      <AccuracyLong>0.95</AccuracyLong>
+      <RangedWeapon_Cooldown>4</RangedWeapon_Cooldown>
+      <DeteriorationRate>0</DeteriorationRate>
+      <Mass>40</Mass>
+      <Flammability>0</Flammability>
+    </statBases>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>RSTurretHAACBullet</defaultProjectile>
+        <!--<forcedMissRadius>1.2</forcedMissRadius>-->
+        <warmupTime>0</warmupTime>
+        <minRange>11.9</minRange>
+        <range>50</range>
+        <ticksBetweenBurstShots>120</ticksBetweenBurstShots>
+        <burstShotCount>2</burstShotCount>
+        <soundCast>RSHAACProjectileLaunch</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>18</muzzleFlashScale>
+        <consumeFuelPerShot>0.5</consumeFuelPerShot>
+      </li>
+    </verbs>
+  </ThingDef>
+
+  <!-- other bullets -->
+
+
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>RSTurretBulletTest</defName>
+    <label>autocannon shell</label>
+    <graphicData>
+      <texPath>Things/Building/Turrets/HLT/HLT_projectile</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>25</damageAmountBase>
+      <speed>10</speed>
+    </projectile>
+  </ThingDef>
+
+</Defs>
