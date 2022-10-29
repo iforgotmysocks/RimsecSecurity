@@ -4,7 +4,7 @@
     <alienRace>
       <generalSettings>
         <allowHumanBios>false</allowHumanBios>
-        <maleGenderProbability>0.5</maleGenderProbability>
+        <maleGenderProbability>1</maleGenderProbability>
         <immuneToAge>true</immuneToAge>
         <humanRecipeImport>false</humanRecipeImport>
         <chemicalSettings />
@@ -15,7 +15,7 @@
         <validBeds>
           <li>RSChargeStation</li>
         </validBeds>
-        <minAgeForAdulthood>3</minAgeForAdulthood>
+        <minAgeForAdulthood>0</minAgeForAdulthood>
         <alienPartGenerator>
           <!--<useGenderedHeads>false</useGenderedHeads>-->
           <headBodyPartDef>MechanicalHead</headBodyPartDef>
