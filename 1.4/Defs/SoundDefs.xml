@@ -10,8 +10,8 @@
     <subSounds>
       <li>
         <grains>
-          <li Class="AudioGrain_Folder">
-            <clipFolderPath>Buildings/Turrets/RSLLTProjectileLaunch</clipFolderPath>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Buildings/Turrets/RSLLTProjectileLaunch</clipPath>
           </li>
         </grains>
         <volumeRange>40~40</volumeRange>
@@ -32,8 +32,8 @@
     <subSounds>
       <li>
         <grains>
-          <li Class="AudioGrain_Folder">
-            <clipFolderPath>Buildings/Turrets/RSHLTProjectileLaunch</clipFolderPath>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Buildings/Turrets/RSHLTProjectileLaunch</clipPath>
           </li>
         </grains>
         <volumeRange>60~60</volumeRange>
@@ -54,8 +54,8 @@
     <subSounds>
       <li>
         <grains>
-          <li Class="AudioGrain_Folder">
-            <clipFolderPath>Buildings/Turrets/RSHAACProjectileLaunch</clipFolderPath>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Buildings/Turrets/RSHAACProjectileLaunch</clipPath>
           </li>
         </grains>
         <volumeRange>130~130</volumeRange>
@@ -74,8 +74,8 @@
     <subSounds>
       <li>
         <grains>
-          <li Class="AudioGrain_Folder">
-            <clipFolderPath>Weapons/ShagShot</clipFolderPath>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Weapons/ShagShot</clipPath>
           </li>
         </grains>
         <volumeRange>20~20</volumeRange>
