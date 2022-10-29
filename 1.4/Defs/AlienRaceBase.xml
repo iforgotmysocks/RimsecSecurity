@@ -17,7 +17,7 @@
         </validBeds>
         <minAgeForAdulthood>3</minAgeForAdulthood>
         <alienPartGenerator>
-          <useGenderedHeads>false</useGenderedHeads>
+          <!--<useGenderedHeads>false</useGenderedHeads>-->
           <headBodyPartDef>MechanicalHead</headBodyPartDef>
           <colorChannels>
             <li>

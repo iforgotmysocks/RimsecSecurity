@@ -21,6 +21,25 @@
   </RulePackDef>
 
   <RulePackDef>
+    <defName>RSPeacekeeperDefenderNameGen</defName>
+    <rulePack>
+      <rulesStrings>
+        <li>name->[Adjective] [Noun]</li>
+      </rulesStrings>
+      <rulesRaw>
+        <li Class="Rule_File">
+          <keyword>Adjective</keyword>
+          <path>Peacekeeper/Defender/Adjectives</path>
+        </li>
+        <li Class="Rule_File">
+          <keyword>Noun</keyword>
+          <path>Peacekeeper/Defender/Nouns</path>
+        </li>
+      </rulesRaw>
+    </rulePack>
+  </RulePackDef>
+
+  <RulePackDef>
     <defName>RSPeacekeeperEnforcerNameGen</defName>
     <rulePack>
       <rulesStrings>

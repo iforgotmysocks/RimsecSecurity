@@ -23,9 +23,9 @@
           <!--<aliencrowntypes>
             <li>Normal</li>
           </aliencrowntypes>-->
-          <!--<bodyTypes>
+          <bodyTypes>
             <li>Male</li>
-          </bodyTypes>-->
+          </bodyTypes>
           <!--<alienbodytypes>
             <li>Male</li>
           </alienbodytypes>-->
@@ -51,8 +51,15 @@
       </li>
     </modExtensions>
     <race>
+      <lifeStageAges>
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>0</minAge>
+        </li>
+      </lifeStageAges>
       <baseBodySize>1</baseBodySize>
       <baseHealthScale>1</baseHealthScale>
+      <nameGenerator>RSPeacekeeperEnforcerNameGen</nameGenerator>
     </race>
     <statBases>
       <!-- has roughly ~ 37% marketvalue -->
@@ -135,15 +142,11 @@
         </forcedRaceTraitEntries>
       </generalSettings>
       <graphicPaths>
-        <li>
-          <head>Races/Head/Defender/Defender_Security/</head>
+          <head>Races/HeadNew/Defender/Defender_Security/</head>
           <body>Races/Body/Defender/Defender_Security/</body>
-        </li>
-        <li>
-          <lifeStageDefs>
+          <!--<lifeStageDefs>
             <li>HumanlikeAdult</li>
-          </lifeStageDefs>
-        </li>
+          </lifeStageDefs>-->
       </graphicPaths>
     </alienRace>
     <race>
@@ -165,15 +168,8 @@
       </forcedRaceTraitEntries>
         </generalSettings>
       <graphicPaths>
-        <li>
-          <head>Races/Head/Defender/Defender_Forest/</head>
+          <head>Races/HeadNew/Defender/Defender_Forest/</head>
           <body>Races/Body/Defender/Defender_Forest/</body>
-        </li>
-        <li>
-          <lifeStageDefs>
-            <li>HumanlikeAdult</li>
-          </lifeStageDefs>
-        </li>
       </graphicPaths>
     </alienRace>
     <race>
@@ -195,15 +191,8 @@
       </forcedRaceTraitEntries>
       </generalSettings>
       <graphicPaths>
-        <li>
-          <head>Races/Head/Defender/Defender_Desert/</head>
+          <head>Races/HeadNew/Defender/Defender_Desert/</head>
           <body>Races/Body/Defender/Defender_Desert/</body>
-        </li>
-        <li>
-          <lifeStageDefs>
-            <li>HumanlikeAdult</li>
-          </lifeStageDefs>
-        </li>
       </graphicPaths>
     </alienRace>
     <race>
@@ -225,15 +214,8 @@
       </forcedRaceTraitEntries>
         </generalSettings>
       <graphicPaths>
-        <li>
-          <head>Races/Head/Defender/Defender_Winter/</head>
+          <head>Races/HeadNew/Defender/Defender_Winter/</head>
           <body>Races/Body/Defender/Defender_Winter/</body>
-        </li>
-        <li>
-          <lifeStageDefs>
-            <li>HumanlikeAdult</li>
-          </lifeStageDefs>
-        </li>
       </graphicPaths>
     </alienRace>
     <race>

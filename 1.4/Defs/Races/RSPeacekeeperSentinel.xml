@@ -5,42 +5,31 @@
     <alienRace>
       <generalSettings>
         <alienPartGenerator>
-          <headTypes>
-            <!--<li>Male_AverageNormal</li>
-            <li>Male_AverageWide</li>
-            <li>Male_AveragePointy</li>
-            <li>Male_NarrowNormal</li>
-            <li>Male_NarrowPointy</li>
-            <li>Male_NarrowWide</li>
-            <li>Female_AverageNormal</li>
-            <li>Female_AverageWide</li>
-            <li>Female_AveragePointy</li>
-            <li>Female_NarrowNormal</li>
-            <li>Female_NarrowPointy</li>
-            <li>Female_NarrowWide</li>-->
+          <headTypes Inherit="False">
             <li>Male_AverageNormal</li>
+            <!--<li>Female_AverageNormal</li>-->
           </headTypes>
           <!--<aliencrowntypes>
             <li>Normal</li>
           </aliencrowntypes>-->
-          <!--<bodyTypes>
+          <bodyTypes>
             <li>Male</li>
-          </bodyTypes>-->
+          </bodyTypes>
           <!--<alienbodytypes>
             <li>Male</li>
           </alienbodytypes>-->
-        <!--</alienPartGenerator>-->
-          
-          
-        <!--<alienPartGenerator>
+          <!--</alienPartGenerator>-->
+
+
+          <!--<alienPartGenerator>
           <aliencrowntypes>
             <li>Normal</li>
           </aliencrowntypes>
           <alienbodytypes>
             <li>Male</li>
           </alienbodytypes>-->
-          <useGenderedHeads>false</useGenderedHeads>
-          <useGenderedBodies>false</useGenderedBodies>
+          <!--<useGenderedHeads>false</useGenderedHeads>-->
+          <!--<useGenderedBodies>false</useGenderedBodies>-->
           <!--<customDrawSize>(2, 2)</customDrawSize>-->
           <customDrawSize>(1.8, 1.8)</customDrawSize>
           <!--<customHeadDrawSize>(1.8, 1.8)</customHeadDrawSize>-->
@@ -61,6 +50,12 @@
       </raceRestriction>
     </alienRace>
     <race>
+      <lifeStageAges>
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>0</minAge>
+        </li>
+      </lifeStageAges>
       <baseBodySize>2</baseBodySize>
       <baseHealthScale>3</baseHealthScale>
       <nameGenerator>RSPeacekeeperSentinelNameGen</nameGenerator>
@@ -156,15 +151,8 @@
         </forcedRaceTraitEntries>
       </generalSettings>
       <graphicPaths>
-        <li>
-          <head>Races/Head/Sentinel/Sentinel_Security/</head>
-          <body>Races/Body/Sentinel/Sentinel_Security/</body>
-        </li>
-        <li>
-          <lifeStageDefs>
-            <li>HumanlikeAdult</li>
-          </lifeStageDefs>
-        </li>
+        <head>Races/HeadNew/Sentinel/Sentinel_Security/</head>
+        <body>Races/Body/Sentinel/Sentinel_Security/</body>
       </graphicPaths>
     </alienRace>
     <race>
@@ -186,15 +174,8 @@
         </forcedRaceTraitEntries>
       </generalSettings>
       <graphicPaths>
-        <li>
-          <head>Races/Head/Sentinel/Sentinel_Forest/</head>
-          <body>Races/Body/Sentinel/Sentinel_Forest/</body>
-        </li>
-        <li>
-          <lifeStageDefs>
-            <li>HumanlikeAdult</li>
-          </lifeStageDefs>
-        </li>
+        <head>Races/HeadNew/Sentinel/Sentinel_Forest/</head>
+        <body>Races/Body/Sentinel/Sentinel_Forest/</body>
       </graphicPaths>
     </alienRace>
     <race>
@@ -216,15 +197,8 @@
         </forcedRaceTraitEntries>
       </generalSettings>
       <graphicPaths>
-        <li>
-          <head>Races/Head/Sentinel/Sentinel_Desert/</head>
-          <body>Races/Body/Sentinel/Sentinel_Desert/</body>
-        </li>
-        <li>
-          <lifeStageDefs>
-            <li>HumanlikeAdult</li>
-          </lifeStageDefs>
-        </li>
+        <head>Races/HeadNew/Sentinel/Sentinel_Desert/</head>
+        <body>Races/Body/Sentinel/Sentinel_Desert/</body>
       </graphicPaths>
     </alienRace>
     <!--<size>(1,1)</size>-->
@@ -247,15 +221,8 @@
         </forcedRaceTraitEntries>
       </generalSettings>
       <graphicPaths>
-        <li>
-          <head>Races/Head/Sentinel/Sentinel_Winter/</head>
-          <body>Races/Body/Sentinel/Sentinel_Winter/</body>
-        </li>
-        <li>
-          <lifeStageDefs>
-            <li>HumanlikeAdult</li>
-          </lifeStageDefs>
-        </li>
+        <head>Races/HeadNew/Sentinel/Sentinel_Winter/</head>
+        <body>Races/Body/Sentinel/Sentinel_Winter/</body>
       </graphicPaths>
     </alienRace>
     <race>

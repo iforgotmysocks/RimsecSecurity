@@ -145,10 +145,6 @@
         <li>FabricationBench</li>
       </recipeUsers>
     </recipeMaker>-->
-    <comps>
-      <li Class="CompOversizedWeapon.CompProperties_OversizedWeapon">
-      </li>
-    </comps>
     <costList>
       <Steel>150</Steel>
       <Plasteel>15</Plasteel>
@@ -242,10 +238,6 @@
         <li>FabricationBench</li>
       </recipeUsers>
     </recipeMaker>-->
-    <comps>
-      <li Class="CompOversizedWeapon.CompProperties_OversizedWeapon">
-      </li>
-    </comps>
     <costList>
       <Steel>350</Steel>
       <Plasteel>20</Plasteel>

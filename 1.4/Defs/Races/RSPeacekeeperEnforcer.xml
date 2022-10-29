@@ -5,27 +5,16 @@
     <alienRace>
       <generalSettings>
         <alienPartGenerator>
-          <headTypes>
-            <!--<li>Male_AverageNormal</li>
-            <li>Male_AverageWide</li>
-            <li>Male_AveragePointy</li>
-            <li>Male_NarrowNormal</li>
-            <li>Male_NarrowPointy</li>
-            <li>Male_NarrowWide</li>
-            <li>Female_AverageNormal</li>
-            <li>Female_AverageWide</li>
-            <li>Female_AveragePointy</li>
-            <li>Female_NarrowNormal</li>
-            <li>Female_NarrowPointy</li>
-            <li>Female_NarrowWide</li>-->
+          <headTypes Inherit="False">
             <li>Male_AverageNormal</li>
+            <!--<li>Female_AverageNormal</li>-->
           </headTypes>
           <!--<aliencrowntypes>
             <li>Normal</li>
           </aliencrowntypes>-->
-          <!--<bodyTypes>
+          <bodyTypes>
             <li>Male</li>
-          </bodyTypes>-->
+          </bodyTypes>
           <!--<alienbodytypes>
             <li>Male</li>
           </alienbodytypes>-->
@@ -46,7 +35,7 @@
       </generalSettings>
       <!--<graphicPaths>
 				<li>
-					<head>Races/Head/Enforcer/Enforcer_Desert/</head>
+					<head>Races/HeadNew/Enforcer/Enforcer_Desert/</head>
 					<body>Races/Body/Enforcer/Enforcer_Desert/</body>
 				</li>
 				<li>
@@ -75,6 +64,12 @@
       </li>
     </modExtensions>
     <race>
+      <lifeStageAges>
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>0</minAge>
+        </li>
+      </lifeStageAges>
       <baseBodySize>1.2</baseBodySize>
       <baseHealthScale>2</baseHealthScale>
       <nameGenerator>RSPeacekeeperEnforcerNameGen</nameGenerator>
@@ -160,15 +155,11 @@
         </forcedRaceTraitEntries>
       </generalSettings>
       <graphicPaths>
-        <li>
-          <head>Races/Head/Enforcer/Enforcer_Security/</head>
+          <head>Races/HeadNew/Enforcer/Enforcer_Security/</head>
           <body>Races/Body/Enforcer/Enforcer_Security/</body>
-        </li>
-        <li>
-          <lifeStageDefs>
+          <!--<lifeStageDefs>
             <li>HumanlikeAdult</li>
-          </lifeStageDefs>
-        </li>
+          </lifeStageDefs>-->
       </graphicPaths>
     </alienRace>
     <race>
@@ -191,15 +182,11 @@
         </forcedRaceTraitEntries>
       </generalSettings>
       <graphicPaths>
-        <li>
-          <head>Races/Head/Enforcer/Enforcer_Forest/</head>
+          <head>Races/HeadNew/Enforcer/Enforcer_Forest/</head>
           <body>Races/Body/Enforcer/Enforcer_Forest/</body>
-        </li>
-        <li>
-          <lifeStageDefs>
+          <!--<lifeStageDefs>
             <li>HumanlikeAdult</li>
-          </lifeStageDefs>
-        </li>
+          </lifeStageDefs>-->
       </graphicPaths>
 
     </alienRace>
@@ -222,15 +209,11 @@
         </forcedRaceTraitEntries>
       </generalSettings>
       <graphicPaths>
-        <li>
-          <head>Races/Head/Enforcer/Enforcer_Desert/</head>
+          <head>Races/HeadNew/Enforcer/Enforcer_Desert/</head>
           <body>Races/Body/Enforcer/Enforcer_Desert/</body>
-        </li>
-        <li>
-          <lifeStageDefs>
+          <!--<lifeStageDefs>
             <li>HumanlikeAdult</li>
-          </lifeStageDefs>
-        </li>
+          </lifeStageDefs>-->
       </graphicPaths>
 
     </alienRace>
@@ -253,15 +236,11 @@
         </forcedRaceTraitEntries>
       </generalSettings>
       <graphicPaths>
-        <li>
-          <head>Races/Head/Enforcer/Enforcer_Winter/</head>
+          <head>Races/HeadNew/Enforcer/Enforcer_Winter/</head>
           <body>Races/Body/Enforcer/Enforcer_Winter/</body>
-        </li>
-        <li>
-          <lifeStageDefs>
+          <!--<lifeStageDefs>
             <li>HumanlikeAdult</li>
-          </lifeStageDefs>
-        </li>
+          </lifeStageDefs>-->
       </graphicPaths>
 
     </alienRace>
