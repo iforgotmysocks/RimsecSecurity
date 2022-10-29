@@ -38,6 +38,7 @@ namespace RimsecSecurity
                 ForcedEndogenes = null
             });
             robot.genes = null;
+            robot.ideo = null;
             robot.Name = new NameSingle(robot.Name.ToStringShort + " #" + ModSettings.peacekeeperNumber++);
             var hediff = HediffMaker.MakeHediff(RSDefOf.RSRobotConsciousness, robot);
             if (robot != null && !robot.health.hediffSet.HasHediff(RSDefOf.RSRobotConsciousness)) robot.health.AddHediff(hediff, robot.health.hediffSet.GetBrain(), null, null);
