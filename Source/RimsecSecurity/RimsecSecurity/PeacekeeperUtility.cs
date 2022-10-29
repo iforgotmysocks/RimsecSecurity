@@ -31,11 +31,13 @@ namespace RimsecSecurity
                 FixedBiologicalAge = 0,
                 FixedGender = Gender.Male,
                 AllowAddictions = false,
-                CanGeneratePawnRelations = false, 
+                CanGeneratePawnRelations = false,
                 FixedIdeo = null,
-                ForceNoIdeo = true
+                ForceNoIdeo = true,
+                ForcedXenogenes = null,
+                ForcedEndogenes = null
             });
-
+            robot.genes = null;
             robot.Name = new NameSingle(robot.Name.ToStringShort + " #" + ModSettings.peacekeeperNumber++);
             var hediff = HediffMaker.MakeHediff(RSDefOf.RSRobotConsciousness, robot);
             if (robot != null && !robot.health.hediffSet.HasHediff(RSDefOf.RSRobotConsciousness)) robot.health.AddHediff(hediff, robot.health.hediffSet.GetBrain(), null, null);
