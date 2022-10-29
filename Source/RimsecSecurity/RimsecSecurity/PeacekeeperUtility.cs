@@ -23,9 +23,8 @@ namespace RimsecSecurity
 
         public static Pawn GeneratePeacekeeper(PawnKindDef pawnKind, int tile)
         {
-            var robot = PawnGenerator.GeneratePawn(new PawnGenerationRequest()
+            var robot = PawnGenerator.GeneratePawn(new PawnGenerationRequest(pawnKind)
             {
-                KindDef = pawnKind,
                 Faction = Faction.OfPlayer,
                 Context = PawnGenerationContext.NonPlayer,
                 Tile = tile,
@@ -62,7 +61,7 @@ namespace RimsecSecurity
             return robot;
         }
 
-        internal static void SpawnRandomRobot()
+        internal static void SpawnRandomRobot(bool defenderSecurity = false)
         {
             if (Find.World == null)
             {
@@ -75,7 +74,9 @@ namespace RimsecSecurity
                 Messages.Message(new Message("No map found", MessageTypeDefOf.NegativeEvent));
                 return;
             }
-            var peaceKeepers = DefDatabase<PawnKindDef>.AllDefs.Where(def => def.race.HasModExtension<RSPeacekeeperModExt>());
+            var peaceKeepers = defenderSecurity 
+                ? DefDatabase<PawnKindDef>.AllDefs.Where(def => def.race.HasModExtension<RSPeacekeeperModExt>() && def.race.defName == "RSPeacekeeperDefender")
+                : DefDatabase<PawnKindDef>.AllDefs.Where(def => def.race.HasModExtension<RSPeacekeeperModExt>());
             if (peaceKeepers == null || peaceKeepers.Count() == 0) return;
             var selectedKeeper = peaceKeepers.RandomElement();
             var robot = GeneratePeacekeeper(selectedKeeper, currentMap.Tile);
