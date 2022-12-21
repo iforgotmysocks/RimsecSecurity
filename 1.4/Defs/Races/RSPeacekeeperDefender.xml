@@ -59,7 +59,7 @@
       </lifeStageAges>
       <baseBodySize>1</baseBodySize>
       <baseHealthScale>1</baseHealthScale>
-      <nameGenerator>RSPeacekeeperEnforcerNameGen</nameGenerator>
+      <nameGenerator>RSPeacekeeperDefenderNameGen</nameGenerator>
     </race>
     <statBases>
       <!-- has roughly ~ 37% marketvalue -->
