@@ -40,6 +40,9 @@
           <customPortraitHeadDrawSize>(1.4, 1.4)</customPortraitHeadDrawSize>
         </alienPartGenerator>
       </generalSettings>
+      <graphicPaths>
+        <skinShader>Cutout</skinShader>
+      </graphicPaths>
       <raceRestriction>
         <onlyUseRaceRestrictedApparel>true</onlyUseRaceRestrictedApparel>
         <onlyUseRaceRestrictedWeapons>false</onlyUseRaceRestrictedWeapons>

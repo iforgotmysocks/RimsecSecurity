@@ -44,6 +44,9 @@
 					</lifeStageDefs>
 				</li>
 			</graphicPaths>-->
+      <graphicPaths>
+        <skinShader>Cutout</skinShader>
+      </graphicPaths>
       <raceRestriction>
         <onlyUseRaceRestrictedApparel>true</onlyUseRaceRestrictedApparel>
         <onlyUseRaceRestrictedWeapons>false</onlyUseRaceRestrictedWeapons>
